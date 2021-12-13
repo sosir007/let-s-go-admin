@@ -15,7 +15,8 @@
       "/@/*": ["src/*"],
       "@build/*": ["build/*"],
       "/#/*": ["types/*"]
-    }
+    },
+    "types": ["node", "vite/client", "element-plus/global"],
   },
   "include": [
     "src/**/*.ts",
