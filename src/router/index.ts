@@ -5,8 +5,8 @@ import {
   createWebHashHistory
 } from "vue-router";
 import { App, Component } from "vue";
-import NProgress from "@/utils/progress";
-import { openLink } from "@/utils/link";
+// import NProgress from "@/utils/progress";
+// import { openLink } from "@/utils/link";
 
 // todo 学习下面的路由
 /*

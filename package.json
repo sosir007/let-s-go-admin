@@ -1,5 +1,5 @@
 {
-  "name": "let-s-go-admin",
+  "name": "lets-go-admin",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
