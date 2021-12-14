@@ -14,6 +14,8 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 + **animate.css**：初始化全局样式
 + **vue-router@4.0.12**：vue-router4 适配 vue3 版本
 + **nprogress、@types/nprogress**：进度条（路由和接口请求待使用）
++ **pinia**：vue3 的 store 状态管理仓库
++ **axios**：发生 ajax 请求依赖
 
 
 

@@ -1,7 +1,29 @@
 import { App, Component } from "vue";
-import { ElButton } from "element-plus";
+import {
+  ElButton,
+  ElContainer,
+  ElAside,
+  ElHeader,
+  ElMain,
+  ElFooter,
+  ElMenu,
+  ElSubMenu,
+  ElMenuItemGroup,
+  ElMenuItem,
+} from "element-plus";
 
-const components = [ElButton];
+const components = [
+  ElButton,
+  ElContainer,
+  ElAside,
+  ElHeader,
+  ElMain,
+  ElFooter,
+  ElMenu,
+  ElSubMenu,
+  ElMenuItemGroup,
+  ElMenuItem,
+];
 
 // const plugins = [ElLoading];
 
