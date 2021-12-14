@@ -9,10 +9,13 @@
   "dependencies": {
     "animate.css": "^4.1.1",
     "element-plus": "^1.2.0-beta.6",
-    "vue": "^3.2.16"
+    "nprogress": "^0.2.0",
+    "vue": "^3.2.16",
+    "vue-router": "4.0.12"
   },
   "devDependencies": {
     "@types/node": "^16.11.2",
+    "@types/nprogress": "^0.2.0",
     "@vitejs/plugin-vue": "^1.9.3",
     "sass": "^1.43.3",
     "sass-loader": "^8.0.2",
