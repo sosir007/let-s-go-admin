@@ -76,6 +76,39 @@ export const router: Router = createRouter({
   }
 });
 
+// 初始化路由
+// export const initRouter = name => {
+//   return new Promise(resolve => {
+//     getAsyncRoutes({ name }).then(({ info }) => {
+//       if (info.length === 0) {
+//         usePermissionStoreHook().changeSetting(info);
+//       } else {
+//         addAsyncRoutes(info).map((v: any) => {
+//           // 防止重复添加路由
+//           if (
+//             router.options.routes.findIndex(value => value.path === v.path) !==
+//             -1
+//           ) {
+//             return;
+//           } else {
+//             // 切记将路由push到routes后还需要使用addRoute，这样路由才能正常跳转
+//             router.options.routes.push(v);
+//             // 最终路由进行升序
+//             ascending(router.options.routes);
+//             router.addRoute(v.name, v);
+//             usePermissionStoreHook().changeSetting(info);
+//           }
+//           resolve(router);
+//         });
+//       }
+//       router.addRoute({
+//         path: "/:pathMatch(.*)",
+//         redirect: "/error/404"
+//       });
+//     });
+//   });
+// };
+
 // 重置路由
 export function resetRouter() {
   router.getRoutes().forEach(route => {
@@ -152,9 +185,9 @@ export function resetRouter() {
 //   }
 // });
 
-router.afterEach(() => {
-  NProgress.done();
-});
+// router.afterEach(() => {
+//   NProgress.done();
+// });
 
 // config router
 export function setupRouter(app: App<Element>) {

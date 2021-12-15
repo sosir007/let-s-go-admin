@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 import { registerElementComp } from "../src/plugins/element-plus";
+import 'element-plus/dist/index.css'
 import { router, setupRouter } from '@/router';
 import { setupStore } from "@/store";
 import { getServerConfig } from "./config";

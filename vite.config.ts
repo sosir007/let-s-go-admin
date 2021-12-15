@@ -42,17 +42,17 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
     },
     plugins: [
       vue(),
-      styleImport({
-        libs: [
-          // { 
-          //   libraryName: 'vant', 
-          //   style: (name) => { return `vant/es/${name}/index.css` } 
-          // }, 
-          {
-            libraryName: 'element-plus',
-            resolveStyle: name => `element-plus/es/components/${name.slice(3)}/style/css`
-          }]
-      }),
+      // styleImport({
+      //   libs: [
+      //     // { 
+      //     //   libraryName: 'vant', 
+      //     //   style: (name) => { return `vant/es/${name}/index.css` } 
+      //     // }, 
+      //     {
+      //       libraryName: 'element-plus',
+      //       resolveStyle: name => `element-plus/es/components/${name.slice(3)}/style/css`
+      //     }]
+      // }),
       // viteMockServe({
       //   mockPath: 'mock',
       //   localEnabled: command === 'serve',
