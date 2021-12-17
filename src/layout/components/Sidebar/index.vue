@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import SidebarLogo from "./SidebarLogo.vue";
-import SidebarItem from './sidebarItem.vue';
+import SidebarItem from "./sidebarItem.vue";
 
 import { useRoute, useRouter } from "vue-router";
 import { computed, ref, onBeforeMount } from "vue";
@@ -11,7 +11,7 @@ const route = useRoute();
 const goApp = useAppStoreHook();
 const router = useRouter().options.routes;
 const routeStore = usePermissionStoreHook();
-console.log(routeStore.wholeRoutes);
+console.log(usePermissionStoreHook().wholeMenus);
 
 const isCollapse = computed(() => {
   return !goApp.getSidebarStatus;
@@ -29,7 +29,7 @@ const activeMenu = computed((): string => {
 <template>
   <div class="sidebar-container">
     <SidebarLogo :collapse="isCollapse" />
-    <el-scrollbar wrap-class="scrollbar-wrapper">
+    <!-- <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="activeMenu"
         :collapse="isCollapse"
@@ -37,11 +37,29 @@ const activeMenu = computed((): string => {
         :collapse-transition="false"
         mode="vertical"
       >
-        <div v-for="route in routeStore.wholeRoutes" :key="route.path">{{route.path}}</div>
         <sidebar-item
-          v-for="route in routeStore.wholeRoutes"
+          v-for="route in routeStore.wholeMenus"
           :key="route.path"
           :item="route"
+          :base-path="route.path"
+        />
+      </el-menu>
+    </el-scrollbar> -->
+    <el-scrollbar wrap-class="scrollbar-wrapper">
+      <el-menu
+        :default-active="activeMenu"
+        :collapse="isCollapse"
+        unique-opened
+        router
+        :collapse-transition="false"
+        mode="vertical"
+        class="outer-most"
+      >
+        <sidebar-item
+          v-for="route in usePermissionStoreHook().wholeMenus"
+          :key="route.path"
+          :item="route"
+          class="outer-most"
           :base-path="route.path"
         />
       </el-menu>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import path from "path";
+// import path from "path";
 import { PropType, ref } from "vue";
 import { childrenType } from "../../types";
 import Icon from "@/components/Icon/src/Icon.vue";
@@ -17,8 +17,6 @@ const props = defineProps({
     default: ""
   }
 });
-
-console.log(22)
 
 const onlyOneChild: childrenType = ref(null);
 

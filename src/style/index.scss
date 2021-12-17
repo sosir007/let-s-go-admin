@@ -65,26 +65,12 @@ ul {
   }
 }
 
-// main-container global css
-.app-container {
-  padding: 20px;
-}
-
-.login,
-.register {
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
-  background: url("../assets/bg.png") no-repeat center;
-  background-size: cover;
-}
-
 /* 头部用户信息样式重置 */
 .hidden {
   display: none !important;
 }
 
-// 灰色模式
+/* 灰色模式 */
 .html-grey {
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
@@ -93,7 +79,7 @@ ul {
   -o-filter: grayscale(100%);
 }
 
-// 色弱模式
+/* 色弱模式 */
 .html-weakness {
   filter: invert(80%);
   -webkit-filter: invert(80%);

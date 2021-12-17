@@ -7,6 +7,7 @@ const homeRouter = {
   redirect: "/dashboard",
   meta: {
     icon: "el-icon-s-home",
+    title: "message.hshome",
     showLink: true,
     rank: 0
   },

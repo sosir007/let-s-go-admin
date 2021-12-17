@@ -38,6 +38,6 @@ function useElementPlus(app: App) {
   // });
 }
 
-export function registerElementComp(app: App) {
+export function setupElementComp(app: App) {
   app.use(useElementPlus);
 }

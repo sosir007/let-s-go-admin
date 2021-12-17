@@ -5,8 +5,18 @@ import {
   createWebHashHistory
 } from "vue-router";
 import { App, Component } from "vue";
-// import NProgress from "@/utils/progress";
+import NProgress from "@/utils/progress";
+import { toRouteType } from "./types";
 // import { openLink } from "@/utils/link";
+import { storageSession } from "@/utils/storage";
+import { usePermissionStoreHook } from "@/store/modules/permission";
+import {
+  initRouter,
+  // getHistoryMode,
+  // getParentPaths,
+  // findRouteByPath,
+  // handleAliveRoute
+} from "./utils";
 
 // todo 学习下面的路由
 /*
@@ -76,39 +86,6 @@ export const router: Router = createRouter({
   }
 });
 
-// 初始化路由
-// export const initRouter = name => {
-//   return new Promise(resolve => {
-//     getAsyncRoutes({ name }).then(({ info }) => {
-//       if (info.length === 0) {
-//         usePermissionStoreHook().changeSetting(info);
-//       } else {
-//         addAsyncRoutes(info).map((v: any) => {
-//           // 防止重复添加路由
-//           if (
-//             router.options.routes.findIndex(value => value.path === v.path) !==
-//             -1
-//           ) {
-//             return;
-//           } else {
-//             // 切记将路由push到routes后还需要使用addRoute，这样路由才能正常跳转
-//             router.options.routes.push(v);
-//             // 最终路由进行升序
-//             ascending(router.options.routes);
-//             router.addRoute(v.name, v);
-//             usePermissionStoreHook().changeSetting(info);
-//           }
-//           resolve(router);
-//         });
-//       }
-//       router.addRoute({
-//         path: "/:pathMatch(.*)",
-//         redirect: "/error/404"
-//       });
-//     });
-//   });
-// };
-
 // 重置路由
 export function resetRouter() {
   router.getRoutes().forEach(route => {
@@ -119,75 +96,126 @@ export function resetRouter() {
   });
 }
 
-// // 路由白名单
-// const whiteList = ["/login", "/register"];
+// 路由白名单
+const whiteList = ["/login", "/register"];
 
-// router.beforeEach((to, _from, next) => {
-//   if (to.meta?.keepAlive) {
-//     const newMatched = to.matched;
-//     handleAliveRoute(newMatched, "add");
-//     // 页面整体刷新和点击标签页刷新
-//     if (_from.name === undefined || _from.name === "redirect") {
-//       handleAliveRoute(newMatched);
-//     }
-//   }
-//   const name = storageSession.getItem("info");
-//   NProgress.start();
-//   const externalLink = to?.redirectedFrom?.fullPath;
-//   // @ts-ignore
-//   const { t } = i18n.global;
-//   // @ts-ignore
-//   if (!externalLink) to.meta.title ? (document.title = t(to.meta.title)) : "";
-//   if (name) {
-//     if (_from?.name) {
-//       // 如果路由包含http 则是超链接 反之是普通路由
-//       if (externalLink && externalLink.includes("http")) {
-//         openLink(`http${split(externalLink, "http")[1]}`);
-//         NProgress.done();
-//       } else {
-//         next();
-//       }
-//     } else {
-//       // 刷新
-//       if (usePermissionStoreHook().wholeRoutes.length === 0)
-//         initRouter(name.username).then((router: Router) => {
-//           router.push(to.path);
-//           // 刷新页面更新标签栏与页面路由匹配
-//           const localRoutes = storageLocal.getItem(
-//             "responsive-routesInStorage"
-//           );
-//           const optionsRoutes = router.options?.routes;
-//           const newLocalRoutes = [];
-//           optionsRoutes.forEach(ors => {
-//             localRoutes.forEach(lrs => {
-//               if (ors.path === lrs.parentPath) {
-//                 newLocalRoutes.push(lrs);
-//               }
-//             });
-//           });
-//           storageLocal.setItem(
-//             "responsive-routesInStorage",
-//             uniqBy(newLocalRoutes, "path")
-//           );
-//         });
-//       next();
-//     }
-//   } else {
-//     if (to.path !== "/login") {
-//       if (whiteList.indexOf(to.path) !== -1) {
-//         next();
-//       } else {
-//         next({ path: "/login" });
-//       }
-//     } else {
-//       next();
-//     }
-//   }
-// });
+router.beforeEach((to: toRouteType, _from, next) => {
+  // if (to.meta?.keepAlive) {
+  //   const newMatched = to.matched;
+  //   handleAliveRoute(newMatched, "add");
+  //   // 页面整体刷新和点击标签页刷新
+  //   if (_from.name === undefined || _from.name === "redirect") {
+  //     handleAliveRoute(newMatched);
+  //   }
+  // }
+  const name = storageSession.getItem("info");
+  NProgress.start();
+  // const externalLink = to?.redirectedFrom?.fullPath;
+  // if (!externalLink)
+  //   to.matched.some(item => {
+  //     item.meta.title
+  //       ? (document.title = transformI18n(
+  //           item.meta.title as string,
+  //           item.meta?.i18n as boolean
+  //         ))
+  //       : "";
+  //   });
+  initRouter('name');
+  if (name) {
+    if (_from?.name) {
+      // 如果路由包含http 则是超链接 反之是普通路由
+      // if (externalLink && externalLink.includes("http")) {
+      //   openLink(`http${split(externalLink, "http")[1]}`);
+      //   NProgress.done();
+      // } else {
+      //   next();
+      // }
+    } else {
+      // 刷新
+      if (usePermissionStoreHook().wholeMenus.length === 0)
+        initRouter('name');
+      // initRouter(name.username).then((router: Router) => {
+      //   if (!useMultiTagsStoreHook().getMultiTagsCache) {
+      //     const handTag = (
+      //       path: string,
+      //       parentPath: string,
+      //       name: RouteRecordName,
+      //       meta: RouteMeta
+      //     ): void => {
+      //       useMultiTagsStoreHook().handleTags("push", {
+      //         path,
+      //         parentPath,
+      //         name,
+      //         meta
+      //       });
+      //     };
+      //     // 未开启标签页缓存，刷新页面重定向到顶级路由（参考标签页操作例子，只针对静态路由）
+      //     if (to.meta?.realPath) {
+      //       const routes = router.options.routes;
+      //       const { refreshRedirect } = to.meta;
+      //       const { name, meta } = findRouteByPath(refreshRedirect, routes);
+      //       handTag(
+      //         refreshRedirect,
+      //         getParentPaths(refreshRedirect, routes)[1],
+      //         name,
+      //         meta
+      //       );
+      //       return router.push(refreshRedirect);
+      //     } else {
+      //       const { path } = to;
+      //       const index = findIndex(remainingRouter, v => {
+      //         return v.path == path;
+      //       });
+      //       const routes =
+      //         index === -1
+      //           ? router.options.routes[0].children
+      //           : router.options.routes;
+      //       const route = findRouteByPath(path, routes);
+      //       const routePartent = getParentPaths(path, routes);
+      //       // 未开启标签页缓存，刷新页面重定向到顶级路由（参考标签页操作例子，只针对动态路由）
+      //       if (path !== routes[0].path && routePartent.length === 0) {
+      //         const { name, meta } = findRouteByPath(
+      //           route?.meta?.refreshRedirect,
+      //           routes
+      //         );
+      //         handTag(
+      //           route.meta?.refreshRedirect,
+      //           getParentPaths(route.meta?.refreshRedirect, routes)[0],
+      //           name,
+      //           meta
+      //         );
+      //         return router.push(route.meta?.refreshRedirect);
+      //       } else {
+      //         handTag(
+      //           route.path,
+      //           routePartent[routePartent.length - 1],
+      //           route.name,
+      //           route.meta
+      //         );
+      //         return router.push(path);
+      //       }
+      //     }
+      //   }
+      //   router.push(to.fullPath);
+      // });
+      next();
+    }
+  } else {
+    // if (to.path !== "/login") {
+    //   if (whiteList.indexOf(to.path) !== -1) {
+    //     next();
+    //   } else {
+    //     next({ path: "/login" });
+    //   }
+    // } else {
+    next();
+    // }
+  }
+});
 
-// router.afterEach(() => {
-//   NProgress.done();
-// });
+router.afterEach(() => {
+  NProgress.done();
+});
 
 // config router
 export function setupRouter(app: App<Element>) {

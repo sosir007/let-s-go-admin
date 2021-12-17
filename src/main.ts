@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import { registerElementComp } from "../src/plugins/element-plus";
+import { setupElementComp } from "../src/plugins/element-plus";
 import 'element-plus/dist/index.css'
 import { router, setupRouter } from '@/router';
 import { setupStore } from "@/store";
@@ -17,14 +17,23 @@ async function bootstrap() {
   // 获取全局配置
   await getServerConfig(app)
 
-  // Configure store
+  // 挂载状态管理
   setupStore(app);
 
   // Register element-plus components
-  registerElementComp(app);
+  setupElementComp(app);
 
-  // Configure routing
-  setupRouter(app);
+  // 注册全局自定义组件
+  // setupCustomComponents();
+
+  // 注册全局自定义指令，如：v-permission权限指令
+  // setupDirectives(app);
+
+  // 挂载路由
+  await setupRouter(app);
+
+  // 路由准备就绪后挂载APP实例
+  await router.isReady();
 
   app.mount('#app');
 }

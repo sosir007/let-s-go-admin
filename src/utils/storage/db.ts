@@ -1,4 +1,4 @@
-import { loadEnv } from "@build/utils";
+import { loadEnv } from "@build";
 import { LocalStorage, LowSync } from "lowdb";
 import { chain, cloneDeep } from "lodash-es";
 import { storageLocal } from ".";
