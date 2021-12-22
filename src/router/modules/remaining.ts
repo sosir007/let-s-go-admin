@@ -1,16 +1,16 @@
 import Layout from "@/layout/index.vue";
 
 const remainingRouter = [
-  // {
-  //   path: "/login",
-  //   name: "login",
-  //   component: () => import("/@/views/login.vue"),
-  //   meta: {
-  //     title: "message.hslogin",
-  //     showLink: false,
-  //     rank: 101
-  //   }
-  // },
+  {
+    path: "/login",
+    name: "login",
+    component: () => import("@/views/login/index.vue"),
+    meta: {
+      title: "message.hslogin",
+      showLink: false,
+      rank: 101
+    }
+  },
   // {
   //   path: "/register",
   //   name: "register",

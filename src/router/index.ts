@@ -120,7 +120,7 @@ router.beforeEach((to: toRouteType, _from, next) => {
   //         ))
   //       : "";
   //   });
-  initRouter('name');
+  // initRouter('name');
   if (name) {
     if (_from?.name) {
       // 如果路由包含http 则是超链接 反之是普通路由
@@ -201,15 +201,15 @@ router.beforeEach((to: toRouteType, _from, next) => {
       next();
     }
   } else {
-    // if (to.path !== "/login") {
-    //   if (whiteList.indexOf(to.path) !== -1) {
-    //     next();
-    //   } else {
-    //     next({ path: "/login" });
-    //   }
-    // } else {
-    next();
-    // }
+    if (to.path !== "/login") {
+      if (whiteList.indexOf(to.path) !== -1) {
+        next();
+      } else {
+        next({ path: "/login" });
+      }
+    } else {
+      next();
+    }
   }
 });
 
