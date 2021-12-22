@@ -18,6 +18,7 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 + **axios**：发生 ajax 请求依赖
 + **lodash-es**: ?
 + **@zougt/vite-plugin-theme-preprocessor**：？
++ **@vueuse/motion**：使用弹簧在数值之间产生平滑和自然的过渡
 
 
 

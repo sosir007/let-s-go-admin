@@ -5,6 +5,7 @@ import { setupElementComp } from "../src/plugins/element-plus";
 import 'element-plus/dist/index.css'
 import { router, setupRouter } from '@/router';
 import { setupStore } from "@/store";
+import { setupCustomComponents } from "@/components";
 import { getServerConfig } from "./config";
 
 import "animate.css";
@@ -24,7 +25,7 @@ async function bootstrap() {
   setupElementComp(app);
 
   // 注册全局自定义组件
-  // setupCustomComponents();
+  setupCustomComponents(app);
 
   // 注册全局自定义指令，如：v-permission权限指令
   // setupDirectives(app);

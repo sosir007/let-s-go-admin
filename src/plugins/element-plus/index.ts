@@ -11,6 +11,10 @@ import {
   ElSubMenu,
   ElMenuItemGroup,
   ElMenuItem,
+  ElInput,
+  ElForm,
+  ElFormItem,
+  ElIcon,
 } from "element-plus";
 
 const components = [
@@ -25,6 +29,10 @@ const components = [
   ElSubMenu,
   ElMenuItemGroup,
   ElMenuItem,
+  ElInput,
+  ElForm,
+  ElFormItem,
+  ElIcon,
 ];
 
 // const plugins = [ElLoading];
