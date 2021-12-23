@@ -24,7 +24,7 @@ async function bootstrap() {
   // Register element-plus components
   setupElementComp(app);
 
-  // 注册全局自定义组件
+  // 注册全局自定义组件（包括第三方组件等）
   setupCustomComponents(app);
 
   // 注册全局自定义指令，如：v-permission权限指令

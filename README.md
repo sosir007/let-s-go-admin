@@ -19,6 +19,8 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 + **lodash-es**: ?
 + **@zougt/vite-plugin-theme-preprocessor**：？
 + **@vueuse/motion**：使用弹簧在数值之间产生平滑和自然的过渡
++ **makeit-captcha**：基于 vue3 + vite 开发，动态生成验证滑块的验证码组件
++ **vee-validate@next**：基于 vue3 的验证框架
 
 
 

@@ -4,34 +4,33 @@ import { useRouter } from "vue-router";
 import { initRouter } from "@/router/utils";
 import { addClass, removeClass } from "@/utils/operate";
 import { storageSession } from "@/utils/storage";
+import { Form, Field } from "vee-validate";
+import validate from "@/utils/validate";
+import { successMessage, errorMessage } from "@/utils/message";
 
 const router = useRouter();
 
 const formRef = ref();
 const isShowPassword = ref(false);
-const ruleForm = reactive({
-  username: "admin",
+
+// 表单对象数据
+const form = reactive({
+  account: "admin",
   password: "123456",
   isCaptcha: false
 });
-
-const rules = {
-  // username: { required: true, message: "请输入用户名", trigger: "blur" },
-  // password: { required: true, message: "请输入密码", trigger: "blur" },
-  // isCaptcha: {
-  //   required: true,
-  //   type: "boolean",
-  //   trigger: "change",
-  //   message: "请点击按钮进行验证码校验",
-  //   validator: (_: any, value: boolean) => value === true
-  // }
+// 校验规则对象
+const schema = {
+  account: validate.account,
+  password: validate.password
 };
+
 const onUserFocus = () => {
   addClass(document.querySelector(".user"), "focus");
 };
 
 const onUserBlur = () => {
-  if (ruleForm.username.length === 0)
+  if (form.account.length === 0)
     removeClass(document.querySelector(".user"), "focus");
 };
 const onPwdFocus = () => {
@@ -39,7 +38,7 @@ const onPwdFocus = () => {
 };
 
 const onPwdBlur = () => {
-  if (ruleForm.password.length === 0)
+  if (form.password.length === 0)
     removeClass(document.querySelector(".pwd"), "focus");
 };
 
@@ -48,12 +47,21 @@ const togglePwd = () => {
 };
 
 const onLogin = (): void => {
-  // storageSession.setItem("info", {
-  //   username: "admin",
-  //   accessToken: "eyJhbGciOiJIUzUxMiJ9.test"
-  // });
-  // initRouter("admin").then(() => {});
-  router.push("/");
+  formRef.value.validate().then((res: any) => {
+    console.log("表单校验结果", res);
+    if (res.valid) {
+      // storageSession.setItem("info", {
+      //   account: "admin",
+      //   accessToken: "eyJhbGciOiJIUzUxMiJ9.test"
+      // });
+      // initRouter("admin").then(() => {});
+      router.push("/");
+    } else {
+      const errorsKey = Object.keys(res.errors);
+      
+      errorMessage(res.errors[errorsKey[0]]);
+    }
+  });
 };
 </script>
 
@@ -101,7 +109,12 @@ const onLogin = (): void => {
         </div>
       </div>
 
-      <div class="login-container-form">
+      <!-- <div class="login-container-form"> -->
+      <Form
+        ref="formRef"
+        class="login-container-form"
+        :validation-schema="schema"
+      >
         <!-- 用户名 -->
         <div
           class="input-group user focus"
@@ -123,10 +136,11 @@ const onLogin = (): void => {
           </div>
           <div>
             <h5>用户名</h5>
-            <input
+            <Field
               type="text"
+              name="account"
               class="input"
-              v-model="ruleForm.username"
+              v-model="form.account"
               @focus="onUserFocus"
               @blur="onUserBlur"
             />
@@ -153,19 +167,20 @@ const onLogin = (): void => {
           </div>
           <div>
             <h5>密码</h5>
-            <input
-              type="password"
+            <Field
+              :type="isShowPassword ? 'text' : 'password'"
+              name="password"
               class="input"
-              v-model="ruleForm.password"
+              v-model="form.password"
               @focus="onPwdFocus"
               @blur="onPwdBlur"
             />
           </div>
           <div class="icon show-pwd">
             <i v-if="isShowPassword" class="iconfont" @click="togglePwd"
-              >&#xe624;</i
+              >&#xe625;</i
             >
-            <i v-else class="iconfont" @click="togglePwd">&#xe625;</i>
+            <i v-else class="iconfont" @click="togglePwd">&#xe624;</i>
           </div>
         </div>
         <!-- 登录按钮 -->
@@ -187,7 +202,7 @@ const onLogin = (): void => {
         >
           登录
         </button>
-      </div>
+      </Form>
     </div>
   </div>
 </template>
@@ -208,7 +223,14 @@ const onLogin = (): void => {
 
   &-top {
     padding: 32px 0;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-logo {
+      width: 200px;
+      height: auto;
+    }
 
     &-desc {
       font-size: 14px;
