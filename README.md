@@ -20,7 +20,7 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 + **@zougt/vite-plugin-theme-preprocessor**：？
 + **@vueuse/motion**：使用弹簧在数值之间产生平滑和自然的过渡
 + **makeit-captcha**：基于 vue3 + vite 开发，动态生成验证滑块的验证码组件
-+ **vee-validate@next**：基于 vue3 的验证框架
++ **vee-validate@next**：基于 vue3 的登录验证框架
 
 
 
@@ -79,6 +79,12 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 - `ci` 持续集成
 - `types` 类型定义文件更改
 - `wip` 开发中
+
+
+
+## error 记录
+
++ Invalid VNode type: Symbol(Text)：pnpm install 组件正常使用，yarn install就会遇到这相同的问题。
 
 
 

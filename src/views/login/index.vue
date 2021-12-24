@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, ref } from "vue";
+import { reactive, ref, defineComponent } from "vue";
 import { useRouter } from "vue-router";
 import { initRouter } from "@/router/utils";
 import { addClass, removeClass } from "@/utils/operate";
@@ -7,6 +7,7 @@ import { storageSession } from "@/utils/storage";
 import { Form, Field } from "vee-validate";
 import validate from "@/utils/validate";
 import { successMessage, errorMessage } from "@/utils/message";
+import logo from "@/assets/images/PokemonBall.png";
 
 const router = useRouter();
 
@@ -22,7 +23,8 @@ const form = reactive({
 // 校验规则对象
 const schema = {
   account: validate.account,
-  password: validate.password
+  password: validate.password,
+  isCaptcha: validate.isCaptcha
 };
 
 const onUserFocus = () => {
@@ -46,6 +48,10 @@ const togglePwd = () => {
   isShowPassword.value = !isShowPassword.value;
 };
 
+const onAuthCode = () => {
+  form.isCaptcha = true;
+};
+
 const onLogin = (): void => {
   formRef.value.validate().then((res: any) => {
     console.log("表单校验结果", res);
@@ -58,7 +64,7 @@ const onLogin = (): void => {
       router.push("/");
     } else {
       const errorsKey = Object.keys(res.errors);
-      
+
       errorMessage(res.errors[errorsKey[0]]);
     }
   });
@@ -109,7 +115,8 @@ const onLogin = (): void => {
         </div>
       </div>
 
-      <!-- <div class="login-container-form"> -->
+      <!-- validation-schema="mySchema"  配置校验规则 -->
+      <!-- v-slot="{ errors } 导出错误对象 -->
       <Form
         ref="formRef"
         class="login-container-form"
@@ -136,6 +143,10 @@ const onLogin = (): void => {
           </div>
           <div>
             <h5>用户名</h5>
+            <!-- 1. 把input改成 `Field` 组件，默认解析成input -->
+            <!-- 2. `Field` 添加name属性，作用是指定使用schema中哪个校验规则 -->
+            <!-- 3. `Field`添加v-model，作用是提供表单数据的双向绑定 -->
+            <!-- 4. 发生表单校验错误，显示错误类名`error`，提示红色边框 -->
             <Field
               type="text"
               name="account"
@@ -146,6 +157,7 @@ const onLogin = (): void => {
             />
           </div>
         </div>
+
         <!-- 密码 -->
         <div
           class="input-group pwd focus"
@@ -183,6 +195,33 @@ const onLogin = (): void => {
             <i v-else class="iconfont" @click="togglePwd">&#xe624;</i>
           </div>
         </div>
+
+        <!-- 验证码校验 -->
+        <Field class="" name="isCaptcha" v-model="form.isCaptcha">
+          <div
+            class="captcha"
+            v-motion
+            :initial="{
+              opacity: 0,
+              y: 10
+            }"
+            :enter="{
+              opacity: 1,
+              y: 0,
+              transition: {
+                delay: 500
+              }
+            }"
+          >
+            <mi-captcha
+              width="384"
+              theme-color="#2d8cf0"
+              :logo="logo"
+              @success="onAuthCode"
+            />
+          </div>
+        </Field>
+
         <!-- 登录按钮 -->
         <button
           class="btn"
@@ -195,7 +234,7 @@ const onLogin = (): void => {
             opacity: 1,
             y: 0,
             transition: {
-              delay: 500
+              delay: 600
             }
           }"
           @click="onLogin"
@@ -239,7 +278,7 @@ const onLogin = (): void => {
   }
 
   .login-container-form {
-    width: 360px;
+    width: 100%;
 
     .input-group {
       position: relative;
@@ -345,12 +384,16 @@ const onLogin = (): void => {
       }
     }
 
+    .captcha {
+      margin: 2rem 0;
+    }
+
     .btn {
       display: block;
       width: 100%;
       height: 50px;
       border-radius: 25px;
-      margin: 1rem 0;
+      margin: 2rem 0;
       font-size: 1.2rem;
       outline: none;
       border: none;
