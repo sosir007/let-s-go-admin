@@ -16,22 +16,31 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 + **nprogress、@types/nprogress**：进度条（路由和接口请求待使用）
 + **pinia**：vue3 的 store 状态管理仓库
 + **axios**：发生 ajax 请求依赖
-+ **lodash-es**: ?
++ **lodash-es**: lodash 导出为 ES 模块
 + **@zougt/vite-plugin-theme-preprocessor**：？
 + **@vueuse/motion**：使用弹簧在数值之间产生平滑和自然的过渡
 + **makeit-captcha**：基于 vue3 + vite 开发，动态生成验证滑块的验证码组件
-+ **vee-validate@next**：基于 vue3 的登录验证框架
++ **vee-validate@next**：基于 vue3 的校验框架，没有自带好的校验规则时使用，进行表单校验
++ **js-cookie、@types/js-cookie**：用于处理 cookie 的简单、轻量级的 JavaScript API
++ **qs、@types/qs**：支持嵌套和数组的查询字符串解析器，具有深度限制
++ **mockjs、@types/mockjs**：生成随机数据和拦截 Ajax 请求
++ **vite-plugin-mock**：基于 mockjs 开发的 vite 模拟插件。并同时支持本地环境和生产环境。本地使用连接服务中间件，在线使用 mockjs
 
 
 
 ## 项目计划：
 
 1. **整体框架 framework**：21.12.13 ~ 21.12.21（暂停，先完成登陆模块）
-   + 问题：
+   + 遗留问题：
      1. 简化版路由（后续待优化）
      2. 完成 element 版本框架，计划切换框架完成 antd-vue 版本的
-2. **登录模块**：21.12.21 ~ 未定
-2. 待定……
+     3. 修改主题色
+2. **登录模块**：21.12.22 ~ 21.12.24
+   + 遗留问题：
+     1. logo 和 背景图需要替换（暂时找不到好的方案）
+     2. 其他登录方式未实现（包括 github、微信 Oauth 登录等）
+     3. 忘记密码和注册账号功能暂未实现
+3. 待定……
 
 
 
@@ -40,7 +49,10 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 1. 优化路由
 2. todo 组件开发
 3. 引入 antd-vue
-4. UI 界面设计
+4. UI 界面设计、修改主题色
+5. logo 和 背景图需要替换
+6. 实现其他登录方式
+7. 忘记密码和注册账号功能开发
 
 
 

@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { reactive, ref, defineComponent } from "vue";
+import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import { initRouter } from "@/router/utils";
 import { addClass, removeClass } from "@/utils/operate";
 import { storageSession } from "@/utils/storage";
 import { Form, Field } from "vee-validate";
-import validate from "@/utils/validate";
+import schema from "@/utils/validate";
 import { successMessage, errorMessage } from "@/utils/message";
+import { useUserStoreHook } from "@/store/modules/user";
 import logo from "@/assets/images/PokemonBall.png";
 
 const router = useRouter();
@@ -21,10 +22,10 @@ const form = reactive({
   isCaptcha: false
 });
 // 校验规则对象
-const schema = {
-  account: validate.account,
-  password: validate.password,
-  isCaptcha: validate.isCaptcha
+const curSchema = {
+  account: schema.account,
+  password: schema.password,
+  isCaptcha: schema.isCaptcha
 };
 
 const onUserFocus = () => {
@@ -52,16 +53,26 @@ const onAuthCode = () => {
   form.isCaptcha = true;
 };
 
-const onLogin = (): void => {
+const onLogin = async () => {
+  const { code, message, result } = await useUserStoreHook().loginByUsername(
+    form
+  );
+  if (code !== 200) return errorMessage(message);
+
+  storageSession.setItem("info", result);
+
+  const { role } = result;
+  initRouter(role).then(() => {});
+
+  successMessage(message);
+  router.push("/");
+};
+
+const handleSubmit = (): void => {
   formRef.value.validate().then((res: any) => {
-    console.log("表单校验结果", res);
+    // console.log("表单校验结果", res);
     if (res.valid) {
-      // storageSession.setItem("info", {
-      //   account: "admin",
-      //   accessToken: "eyJhbGciOiJIUzUxMiJ9.test"
-      // });
-      // initRouter("admin").then(() => {});
-      router.push("/");
+      onLogin();
     } else {
       const errorsKey = Object.keys(res.errors);
 
@@ -120,7 +131,7 @@ const onLogin = (): void => {
       <Form
         ref="formRef"
         class="login-container-form"
-        :validation-schema="schema"
+        :validation-schema="curSchema"
       >
         <!-- 用户名 -->
         <div
@@ -237,11 +248,38 @@ const onLogin = (): void => {
               delay: 600
             }
           }"
-          @click="onLogin"
+          @click="handleSubmit"
         >
           登录
         </button>
       </Form>
+
+      <div
+        class="login-container-other"
+        v-motion
+        :initial="{
+          opacity: 0,
+          y: 10
+        }"
+        :enter="{
+          opacity: 1,
+          y: 0,
+          transition: {
+            delay: 700
+          }
+        }"
+      >
+        <div class="login-container-other-left">
+          <span>其它登录方式</span>
+          <i class="iconfont">&#xe72a;</i>
+          <i class="iconfont">&#xe600;</i>
+          <i class="iconfont">&#xe6b1;</i>
+        </div>
+        <div class="login-container-other-right">
+          <span>忘记密码</span>
+          <span>注册账号</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -277,7 +315,7 @@ const onLogin = (): void => {
     }
   }
 
-  .login-container-form {
+  &-form {
     width: 100%;
 
     .input-group {
@@ -407,6 +445,35 @@ const onLogin = (): void => {
 
       &:hover {
         background-position: right;
+      }
+    }
+  }
+
+  &-other {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #5392f0;
+
+    &-left {
+      display: flex;
+
+      span {
+        color: #515a6e;
+      }
+
+      i {
+        font-size: 20px;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+    }
+
+    &-right {
+      span {
+        margin-left: 10px;
+        cursor: pointer;
       }
     }
   }
