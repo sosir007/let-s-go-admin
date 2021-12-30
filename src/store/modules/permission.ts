@@ -23,11 +23,9 @@ export const usePermissionStore = defineStore({
     // 获取异步路由菜单
     asyncActionRoutes(routes) {
       if (this.wholeMenus.length > 0) return;
-      console.log('333', 333);
       this.wholeMenus = filterTree(
         ascending(this.constantMenus.concat(routes))
       );
-      console.log('this.wholeMenus', this.wholeMenus);
 
       this.menusTree = cloneDeep(
         filterTree(ascending(this.constantMenus.concat(routes)))

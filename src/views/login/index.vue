@@ -69,16 +69,17 @@ const onLogin = async () => {
 };
 
 const handleSubmit = (): void => {
-  formRef.value.validate().then((res: any) => {
-    // console.log("表单校验结果", res);
-    if (res.valid) {
-      onLogin();
-    } else {
-      const errorsKey = Object.keys(res.errors);
+  onLogin();
+  // formRef.value.validate().then((res: any) => {
+  //   // console.log("表单校验结果", res);
+  //   if (res.valid) {
+  //     onLogin();
+  //   } else {
+  //     const errorsKey = Object.keys(res.errors);
 
-      errorMessage(res.errors[errorsKey[0]]);
-    }
-  });
+  //     errorMessage(res.errors[errorsKey[0]]);
+  //   }
+  // });
 };
 </script>
 

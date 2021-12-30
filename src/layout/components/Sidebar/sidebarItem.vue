@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// import path from "path";
+import path from "path-browserify";
 import { PropType, ref } from "vue";
 import { childrenType } from "../../types";
 import Icon from "@/components/Icon/src/Icon.vue";
@@ -46,7 +46,6 @@ function resolvePath(routePath) {
 </script>
 
 <template>
-  <div>22</div>
   <template
     v-if="
       hasOneShowingChild(props.item.children, props.item) &&

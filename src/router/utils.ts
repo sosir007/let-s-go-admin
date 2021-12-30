@@ -9,14 +9,14 @@ import {
 import { router } from "./index";
 import { loadEnv } from "../../build";
 import Layout from "@/layout/index.vue";
-// import { useTimeoutFn } from "@vueuse/core";
+import { useTimeoutFn } from "@vueuse/core";
 import { RouteConfigs } from "@/layout/types";
 import { usePermissionStoreHook } from "@/store/modules/permission";
 // // https://cn.vitejs.dev/guide/features.html#glob-import
 const modulesRoutes = import.meta.glob("/src/views/*/*/*.vue");
 
-// // 动态路由
-// import { getAsyncRoutes } from "@/api/routes";
+// 动态路由
+import { getAsyncRoutes } from "@/api/routes";
 
 // 按照路由中meta下的rank等级升序来排序路由
 const ascending = (arr: any[]) => {
@@ -105,40 +105,38 @@ const resetRouter = (): void => {
 
 // 初始化路由
 const initRouter = (name: string) => {
-  console.log('222', 222);
-  usePermissionStoreHook().changeSetting([]);
-  // return new Promise(resolve => {
-  //   getAsyncRoutes({ name }).then(({ info }) => {
-  //     if (info.length === 0) {
-  //       usePermissionStoreHook().changeSetting(info);
-  //     } else {
-  //       formatFlatteningRoutes(addAsyncRoutes(info)).map(
-  //         (v: RouteRecordRaw) => {
-  //           // 防止重复添加路由
-  //           if (
-  //             router.options.routes[0].children.findIndex(
-  //               value => value.path === v.path
-  //             ) !== -1
-  //           ) {
-  //             return;
-  //           } else {
-  //             // 切记将路由push到routes后还需要使用addRoute，这样路由才能正常跳转
-  //             router.options.routes[0].children.push(v);
-  //             // 最终路由进行升序
-  //             ascending(router.options.routes[0].children);
-  //             if (!router.hasRoute(v?.name)) router.addRoute(v);
-  //           }
-  //           resolve(router);
-  //         }
-  //       );
-  //       usePermissionStoreHook().changeSetting(info);
-  //     }
-  //     router.addRoute({
-  //       path: "/:pathMatch(.*)",
-  //       redirect: "/error/404"
-  //     });
-  //   });
-  // });
+  return new Promise(resolve => {
+    getAsyncRoutes({ name }).then(({ info }) => {
+      if (info.length === 0) {
+        usePermissionStoreHook().changeSetting(info);
+      } else {
+        formatFlatteningRoutes(addAsyncRoutes(info)).map(
+          (v: RouteRecordRaw) => {
+            // 防止重复添加路由
+            if (
+              router.options.routes[0].children.findIndex(
+                value => value.path === v.path
+              ) !== -1
+            ) {
+              return;
+            } else {
+              // 切记将路由push到routes后还需要使用addRoute，这样路由才能正常跳转
+              router.options.routes[0].children.push(v);
+              // 最终路由进行升序
+              ascending(router.options.routes[0].children);
+              if (!router.hasRoute(v?.name)) router.addRoute(v);
+            }
+            resolve(router);
+          }
+        );
+        usePermissionStoreHook().changeSetting(info);
+      }
+      router.addRoute({
+        path: "/:pathMatch(.*)",
+        redirect: "/error/404"
+      });
+    });
+  });
 };
 
 /**
@@ -185,31 +183,31 @@ const formatTwoStageRoutes = (routesList: RouteRecordRaw[]) => {
 };
 
 // 处理缓存路由（添加、删除、刷新）
-// const handleAliveRoute = (matched: RouteRecordNormalized[], mode?: string) => {
-//   switch (mode) {
-//     case "add":
-//       matched.forEach(v => {
-//         usePermissionStoreHook().cacheOperate({ mode: "add", name: v.name });
-//       });
-//       break;
-//     case "delete":
-//       usePermissionStoreHook().cacheOperate({
-//         mode: "delete",
-//         name: matched[matched.length - 1].name
-//       });
-//       break;
-//     default:
-//       usePermissionStoreHook().cacheOperate({
-//         mode: "delete",
-//         name: matched[matched.length - 1].name
-//       });
-//       useTimeoutFn(() => {
-//         matched.forEach(v => {
-//           usePermissionStoreHook().cacheOperate({ mode: "add", name: v.name });
-//         });
-//       }, 100);
-//   }
-// };
+const handleAliveRoute = (matched: RouteRecordNormalized[], mode?: string) => {
+  switch (mode) {
+    case "add":
+      matched.forEach(v => {
+        usePermissionStoreHook().cacheOperate({ mode: "add", name: v.name });
+      });
+      break;
+    case "delete":
+      usePermissionStoreHook().cacheOperate({
+        mode: "delete",
+        name: matched[matched.length - 1].name
+      });
+      break;
+    default:
+      usePermissionStoreHook().cacheOperate({
+        mode: "delete",
+        name: matched[matched.length - 1].name
+      });
+      useTimeoutFn(() => {
+        matched.forEach(v => {
+          usePermissionStoreHook().cacheOperate({ mode: "add", name: v.name });
+        });
+      }, 100);
+  }
+};
 
 // 过滤后端传来的动态路由 重新生成规范路由
 const addAsyncRoutes = (arrRoutes: Array<RouteRecordRaw>) => {
@@ -285,7 +283,7 @@ export {
   delAliveRoutes,
   getParentPaths,
   findRouteByPath,
-  // handleAliveRoute,
+  handleAliveRoute,
   formatTwoStageRoutes,
   formatFlatteningRoutes
 };

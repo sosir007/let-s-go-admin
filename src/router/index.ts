@@ -1,21 +1,19 @@
-import {
-  Router,
-  createRouter,
-  RouteComponent,
-  createWebHashHistory
-} from "vue-router";
 import { App, Component } from "vue";
-import NProgress from "@/utils/progress";
 import { toRouteType } from "./types";
-// import { openLink } from "@/utils/link";
+import { openLink } from "@/utils/link";
+import NProgress from "@/utils/progress";
+import { constantRoutes } from "./modules";
+import { split, findIndex } from "lodash-es";
 import { storageSession } from "@/utils/storage";
+import { useMultiTagsStoreHook } from "@/store/modules/multiTags";
 import { usePermissionStoreHook } from "@/store/modules/permission";
+import { Router, RouteMeta, createRouter, RouteRecordName, createWebHashHistory } from "vue-router";
 import {
   initRouter,
-  // getHistoryMode,
-  // getParentPaths,
-  // findRouteByPath,
-  // handleAliveRoute
+  getHistoryMode,
+  getParentPaths,
+  findRouteByPath,
+  handleAliveRoute
 } from "./utils";
 
 // todo 学习下面的路由
@@ -46,31 +44,12 @@ import {
 import homeRouter from "./modules/home";
 import remainingRouter from "./modules/remaining";
 
-const constantRoutes: Array<RouteComponent> = [homeRouter];
-
-// 按照路由中meta下的rank等级升序来排序路由
-export const ascending = (arr: any[]) => {
-  return arr.sort((a: any, b: any) => {
-    return a?.meta?.rank - b?.meta?.rank;
-  });
-};
-
-// 将所有静态路由导出
-export const constantRoutesArr: Array<RouteComponent> = ascending(
-  constantRoutes
-).concat(...remainingRouter);
-
-// 过滤meta中showLink为false的路由
-export const filterTree = (data: any[]) => {
-  const newTree = data.filter(v => v.meta.showLink);
-  newTree.forEach(v => v.children && (v.children = filterTree(v.children)));
-  return newTree;
-};
-
 // 创建路由实例
 export const router: Router = createRouter({
+  // history: getHistoryMode(),
   history: createWebHashHistory(),
-  routes: filterTree(ascending(constantRoutes)).concat(...remainingRouter),
+  routes: constantRoutes.concat(...remainingRouter),
+  strict: true,
   scrollBehavior(to, from, savedPosition) {
     return new Promise(resolve => {
       if (savedPosition) {
@@ -86,118 +65,111 @@ export const router: Router = createRouter({
   }
 });
 
-// 重置路由
-export function resetRouter() {
-  router.getRoutes().forEach(route => {
-    const { name } = route;
-    if (name) {
-      router.hasRoute(name) && router.removeRoute(name);
-    }
-  });
-}
-
 // 路由白名单
 const whiteList = ["/login", "/register"];
 
 router.beforeEach((to: toRouteType, _from, next) => {
-  // if (to.meta?.keepAlive) {
-  //   const newMatched = to.matched;
-  //   handleAliveRoute(newMatched, "add");
-  //   // 页面整体刷新和点击标签页刷新
-  //   if (_from.name === undefined || _from.name === "redirect") {
-  //     handleAliveRoute(newMatched);
-  //   }
-  // }
+  if (to.meta?.keepAlive) {
+    const newMatched = to.matched;
+    handleAliveRoute(newMatched, "add");
+    // 页面整体刷新和点击标签页刷新
+    if (_from.name === undefined || _from.name === "redirect") {
+      handleAliveRoute(newMatched);
+    }
+  }
   const name = storageSession.getItem("info");
+  console.log('name', name, to, _from);
   NProgress.start();
-  // const externalLink = to?.redirectedFrom?.fullPath;
+  const externalLink = to?.redirectedFrom?.fullPath;
   // if (!externalLink)
   //   to.matched.some(item => {
   //     item.meta.title
   //       ? (document.title = transformI18n(
-  //           item.meta.title as string,
-  //           item.meta?.i18n as boolean
-  //         ))
+  //         item.meta.title as string,
+  //         item.meta?.i18n as boolean
+  //       ))
   //       : "";
   //   });
-  // initRouter('name');
   if (name) {
     if (_from?.name) {
       // 如果路由包含http 则是超链接 反之是普通路由
-      // if (externalLink && externalLink.includes("http")) {
-      //   openLink(`http${split(externalLink, "http")[1]}`);
-      //   NProgress.done();
-      // } else {
-      //   next();
-      // }
+      if (externalLink && externalLink.includes("http")) {
+        openLink(`http${split(externalLink, "http")[1]}`);
+        NProgress.done();
+      } else {
+        next();
+      }
     } else {
       // 刷新
       if (usePermissionStoreHook().wholeMenus.length === 0)
-        initRouter('name');
-      // initRouter(name.username).then((router: Router) => {
-      //   if (!useMultiTagsStoreHook().getMultiTagsCache) {
-      //     const handTag = (
-      //       path: string,
-      //       parentPath: string,
-      //       name: RouteRecordName,
-      //       meta: RouteMeta
-      //     ): void => {
-      //       useMultiTagsStoreHook().handleTags("push", {
-      //         path,
-      //         parentPath,
-      //         name,
-      //         meta
-      //       });
-      //     };
-      //     // 未开启标签页缓存，刷新页面重定向到顶级路由（参考标签页操作例子，只针对静态路由）
-      //     if (to.meta?.realPath) {
-      //       const routes = router.options.routes;
-      //       const { refreshRedirect } = to.meta;
-      //       const { name, meta } = findRouteByPath(refreshRedirect, routes);
-      //       handTag(
-      //         refreshRedirect,
-      //         getParentPaths(refreshRedirect, routes)[1],
-      //         name,
-      //         meta
-      //       );
-      //       return router.push(refreshRedirect);
-      //     } else {
-      //       const { path } = to;
-      //       const index = findIndex(remainingRouter, v => {
-      //         return v.path == path;
-      //       });
-      //       const routes =
-      //         index === -1
-      //           ? router.options.routes[0].children
-      //           : router.options.routes;
-      //       const route = findRouteByPath(path, routes);
-      //       const routePartent = getParentPaths(path, routes);
-      //       // 未开启标签页缓存，刷新页面重定向到顶级路由（参考标签页操作例子，只针对动态路由）
-      //       if (path !== routes[0].path && routePartent.length === 0) {
-      //         const { name, meta } = findRouteByPath(
-      //           route?.meta?.refreshRedirect,
-      //           routes
-      //         );
-      //         handTag(
-      //           route.meta?.refreshRedirect,
-      //           getParentPaths(route.meta?.refreshRedirect, routes)[0],
-      //           name,
-      //           meta
-      //         );
-      //         return router.push(route.meta?.refreshRedirect);
-      //       } else {
-      //         handTag(
-      //           route.path,
-      //           routePartent[routePartent.length - 1],
-      //           route.name,
-      //           route.meta
-      //         );
-      //         return router.push(path);
-      //       }
-      //     }
-      //   }
-      //   router.push(to.fullPath);
-      // });
+        initRouter(name.username).then((router: Router) => {
+          if (!useMultiTagsStoreHook().getMultiTagsCache) {
+            const handTag = (
+              path: string,
+              parentPath: string,
+              name: RouteRecordName,
+              meta: RouteMeta
+            ): void => {
+              useMultiTagsStoreHook().handleTags("push", {
+                path,
+                parentPath,
+                name,
+                meta
+              });
+            };
+            // 未开启标签页缓存，刷新页面重定向到顶级路由（参考标签页操作例子，只针对静态路由）
+            if (to.meta?.dynamicLevel) {
+              const routes = router.options.routes;
+              const { refreshRedirect } = to.meta;
+              const { name, meta } = findRouteByPath(refreshRedirect, routes);
+              handTag(
+                refreshRedirect,
+                getParentPaths(refreshRedirect, routes)[1],
+                name,
+                meta
+              );
+              return router.push(refreshRedirect);
+            } else {
+              const { path } = to;
+              const index = findIndex(remainingRouter, v => {
+                return v.path == path;
+              });
+              const routes =
+                index === -1
+                  ? router.options.routes[0].children
+                  : router.options.routes;
+              const route = findRouteByPath(path, routes);
+              const routePartent = getParentPaths(path, routes);
+              // 未开启标签页缓存，刷新页面重定向到顶级路由（参考标签页操作例子，只针对动态路由）
+              if (
+                path !== routes[0].path &&
+                route?.meta?.rank !== 0 &&
+                routePartent.length === 0
+              ) {
+                const { name, meta } = findRouteByPath(
+                  route?.meta?.refreshRedirect,
+                  routes
+                );
+                handTag(
+                  route.meta?.refreshRedirect,
+                  getParentPaths(route.meta?.refreshRedirect, routes)[0],
+                  name,
+                  meta
+                );
+                return router.push(route.meta?.refreshRedirect);
+              } else {
+                handTag(
+                  route.path,
+                  routePartent[routePartent.length - 1],
+                  route.name,
+                  route.meta
+                );
+                return router.push(path);
+              }
+            }
+          }
+          router.push(to.fullPath);
+        });
       next();
     }
   } else {

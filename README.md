@@ -25,12 +25,13 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 + **qs、@types/qs**：支持嵌套和数组的查询字符串解析器，具有深度限制
 + **mockjs、@types/mockjs**：生成随机数据和拦截 Ajax 请求
 + **vite-plugin-mock**：基于 mockjs 开发的 vite 模拟插件。并同时支持本地环境和生产环境。本地使用连接服务中间件，在线使用 mockjs
-
++ **path-browserify**：整合 vite 后，vite 源码中设定了不允许在客户端代码中访问内置模块代码使用，所以使用 path-browserify 代替 path 模块
++ **@vueuse/core**：是为Vue 2和3服务的一套Vue Composition API的常用工具集
 
 
 ## 项目计划：
 
-1. **整体框架 framework**：21.12.13 ~ 21.12.21（暂停，先完成登陆模块）
+1. **整体框架 framework**：21.12.13 ~ 21.12.21，21.12.30 ～ 未定
    + 遗留问题：
      1. 简化版路由（后续待优化）
      2. 完成 element 版本框架，计划切换框架完成 antd-vue 版本的
