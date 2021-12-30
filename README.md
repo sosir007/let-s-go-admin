@@ -27,6 +27,7 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 + **vite-plugin-mock**：基于 mockjs 开发的 vite 模拟插件。并同时支持本地环境和生产环境。本地使用连接服务中间件，在线使用 mockjs
 + **path-browserify**：整合 vite 后，vite 源码中设定了不允许在客户端代码中访问内置模块代码使用，所以使用 path-browserify 代替 path 模块
 + **@vueuse/core**：是为Vue 2和3服务的一套Vue Composition API的常用工具集
++ **responsive-storage**：?
 
 
 ## 项目计划：

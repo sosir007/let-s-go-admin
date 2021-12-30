@@ -1,6 +1,6 @@
 // 静态路由
 import homeRouter from "./home";
-// import errorRouter from "./error";
+import errorRouter from "./error";
 // import editorRouter from "./editor";
 // import nestedRouter from "./nested";
 // import menuTreeRouter from "./menuTree";
@@ -19,7 +19,7 @@ import {
 // 原始静态路由（未做任何处理）
 const routes = [
   homeRouter,
-  // errorRouter,
+  errorRouter,
   // nestedRouter,
   // externalLink,
   // editorRouter,

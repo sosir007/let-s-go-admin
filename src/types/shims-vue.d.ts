@@ -9,4 +9,4 @@ declare module "*.scss" {
   export default scss;
 }
 
-// declare module "vuedraggable/src/vuedraggable";
+declare module "vuedraggable/src/vuedraggable";

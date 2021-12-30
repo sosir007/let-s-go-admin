@@ -10,7 +10,8 @@ const pathResolve = (dir: string): any => {
 }
 
 const alias: Record<string, string> = {
-  '@': pathResolve("src")
+  '@': pathResolve("src"),
+  "@build": pathResolve("build"),
 }
 
 // https://vitejs.dev/config/

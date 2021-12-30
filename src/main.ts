@@ -7,6 +7,7 @@ import { router, setupRouter } from '@/router';
 import { setupStore } from "@/store";
 import { setupCustomComponents } from "@/components";
 import { getServerConfig } from "./config";
+import { injectResponsiveStorage } from "@/utils/storage/responsive";
 
 import "animate.css";
 // 导入公共样式
@@ -16,7 +17,8 @@ async function bootstrap() {
   const app = createApp(App);
 
   // 获取全局配置
-  await getServerConfig(app)
+  const config = await getServerConfig(app)
+  // injectResponsiveStorage(app, config);
 
   // 挂载状态管理
   setupStore(app);

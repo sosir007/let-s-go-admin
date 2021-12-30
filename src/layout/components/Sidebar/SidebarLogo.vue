@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { getCurrentInstance } from "vue";
-import Icon from "@/components/Icon/src/Icon.vue";
+// import Icon from "@/components/Icon/src/Icon.vue";
+import Icon from "@/assets/images/PokemonBall.png";
 
 const props = defineProps({
-  collapse: Boolean,
+  collapse: Boolean
 });
 
 const title =
@@ -20,7 +21,7 @@ const title =
         class="sidebar-logo-link"
         to="/"
       >
-        <Icon svg :width="35" :height="35" content="team-iconlogo" />
+        <img :src="Icon" alt=""/>
         <span class="sidebar-title">{{ title }}</span>
       </router-link>
       <router-link
@@ -30,7 +31,7 @@ const title =
         class="sidebar-logo-link"
         to="/"
       >
-        <Icon svg :width="35" :height="35" content="team-iconlogo" />
+        <img :src="Icon" alt=""/>
         <span class="sidebar-title">{{ title }}</span>
       </router-link>
     </transition>
@@ -51,12 +52,22 @@ const title =
     white-space: nowrap;
     text-overflow: ellipsis;
     margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 20px;
+      height: 20px;
+      vertical-align: text-bottom;
+      margin-right: 3px;
+    }
 
     .sidebar-title {
       color: #1890ff;
       font-weight: 600;
       font-size: 20px;
-      margin-top: 10px;
+      // margin-top: 10px;
       font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
     }
   }

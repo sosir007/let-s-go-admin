@@ -120,15 +120,16 @@ export default [
         return {
           code: 0,
           info: [
-            tabsRouter,
-            systemRouter,
-            setDifAuthority("v-admin", permissionRouter)
+            // tabsRouter,
+            // systemRouter,
+            // setDifAuthority("v-admin", permissionRouter)
           ]
         };
       } else {
         return {
           code: 0,
-          info: [tabsRouter, setDifAuthority("v-user", permissionRouter)]
+          // info: [tabsRouter, setDifAuthority("v-user", permissionRouter)]
+          info: []
         };
       }
     }
