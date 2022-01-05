@@ -74,14 +74,14 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
       themePreprocessorPlugin({
         scss: {
           multipleScopeVars: [
-            {
-              scopeName: "layout-theme-default",
-              path: pathResolve("src/layout/theme/default-vars.scss")
-            },
             // {
-            //   scopeName: "layout-theme-light",
-            //   path: pathResolve("src/layout/theme/light-vars.scss")
+            //   scopeName: "layout-theme-default",
+            //   path: pathResolve("src/layout/theme/default-vars.scss")
             // },
+            {
+              scopeName: "layout-theme-light",
+              path: pathResolve("src/layout/theme/light-vars.scss")
+            },
             // {
             //   scopeName: "layout-theme-dusk",
             //   path: pathResolve("src/layout/theme/dusk-vars.scss")

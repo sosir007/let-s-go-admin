@@ -8,6 +8,7 @@ import { setupStore } from "@/store";
 import { setupCustomComponents } from "@/components";
 import { getServerConfig } from "./config";
 import { injectResponsiveStorage } from "@/utils/storage/responsive";
+import { setupDirectives } from '@/directives';
 
 import "animate.css";
 // 导入公共样式
@@ -30,7 +31,7 @@ async function bootstrap() {
   setupCustomComponents(app);
 
   // 注册全局自定义指令，如：v-permission权限指令
-  // setupDirectives(app);
+  setupDirectives(app);
 
   // 挂载路由
   await setupRouter(app);

@@ -1,24 +1,243 @@
 <script setup lang="ts">
+import {
+  h,
+  reactive,
+  computed,
+  onMounted,
+  defineComponent,
+  getCurrentInstance
+} from "vue";
+import { setType } from "./types";
+import { routerArrays } from "./types";
+import { emitter } from "@/utils/mitt";
 // import { AppMain, Navbar, Sidebar, TagsView } from "./components";
+import { useAppStoreHook } from "@/store/modules/app";
+import { useSettingStoreHook } from "@/store/modules/settings";
+import { useMultiTagsStore } from "@/store/modules/multiTags";
+
 import { Sidebar } from "./components";
+
+const goSetting = useSettingStoreHook();
+const instance = getCurrentInstance().appContext.app.config.globalProperties;
+
+// 清空缓存后从serverConfig.json读取默认配置并赋值到storage中
+const layout = computed(() => {
+  // 路由
+  if (
+    useMultiTagsStore().multiTagsCache &&
+    (!instance.$storage.tags || instance.$storage.tags.length === 0)
+  ) {
+    // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+    instance.$storage.tags = routerArrays;
+  }
+  // 国际化
+  // if (!instance.$storage.locale) {
+  //   // eslint-disable-next-line
+  //   instance.$storage.locale = { locale: instance.$config?.Locale ?? "zh" };
+  //   useI18n().locale.value = instance.$config?.Locale ?? "zh";
+  // }
+  // 导航
+  if (!instance.$storage.layout) {
+    // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+    instance.$storage.layout = {
+      layout: instance.$config?.Layout ?? "vertical",
+      theme: instance.$config?.Theme ?? "default",
+      darkMode: instance.$config?.DarkMode ?? false
+    };
+  }
+  // 灰色模式、色弱模式、隐藏标签页
+  if (!instance.$storage.sets) {
+    // eslint-disable-next-line
+    instance.$storage.sets = {
+      grey: instance.$config?.Grey ?? false,
+      weak: instance.$config?.Weak ?? false,
+      hideTabs: instance.$config?.HideTabs ?? false,
+      multiTagsCache: instance.$config?.MultiTagsCache ?? false
+    };
+  }
+  return instance.$storage?.layout.layout;
+});
+
+const set: setType = reactive({
+  sidebar: computed(() => {
+    return useAppStoreHook().sidebar;
+  }),
+
+  device: computed(() => {
+    return useAppStoreHook().device;
+  }),
+
+  fixedHeader: computed(() => {
+    return goSetting.fixedHeader;
+  }),
+
+  classes: computed(() => {
+    return {
+      hideSidebar: !set.sidebar.opened,
+      openSidebar: set.sidebar.opened,
+      withoutAnimation: set.sidebar.withoutAnimation,
+      mobile: set.device === "mobile"
+    };
+  }),
+
+  hideTabs: computed(() => {
+    return instance.$storage?.sets.hideTabs;
+  })
+});
+
+function setTheme(layoutModel: string) {
+  window.document.body.setAttribute("layout", layoutModel);
+  instance.$storage.layout = {
+    layout: `${layoutModel}`,
+    theme: instance.$storage.layout?.theme,
+    darkMode: instance.$storage.layout?.darkMode
+  };
+}
+
+function toggle(device: string, bool: boolean) {
+  useAppStoreHook().toggleDevice(device);
+  useAppStoreHook().toggleSideBar(bool, "resize");
+}
+
+// 判断是否可自动关闭菜单栏
+let isAutoCloseSidebar = true;
+
+// 监听容器
+emitter.on("resize", ({ detail }) => {
+  // if (isMobile) return;
+  let { width } = detail;
+  width <= 670 ? setTheme("vertical") : setTheme(useAppStoreHook().layout);
+  /** width app-wrapper类容器宽度
+   * 0 < width <= 760 隐藏侧边栏
+   * 760 < width <= 990 折叠侧边栏
+   * width > 990 展开侧边栏
+   */
+  if (width > 0 && width <= 760) {
+    toggle("mobile", false);
+    isAutoCloseSidebar = true;
+  } else if (width > 760 && width <= 990) {
+    if (isAutoCloseSidebar) {
+      toggle("desktop", false);
+      isAutoCloseSidebar = false;
+    }
+  } else if (width > 990) {
+    if (!set.sidebar.isClickHamburger) {
+      toggle("desktop", true);
+      isAutoCloseSidebar = true;
+    }
+  }
+});
+
+onMounted(() => {
+  console.log("layout003", layout, instance);
+});
+
+function onFullScreen() {
+  goSetting.hiddenSideBar
+    ? goSetting.changeSetting({ key: "hiddenSideBar", value: false })
+    : goSetting.changeSetting({ key: "hiddenSideBar", value: true });
+}
+
+const layoutHeader = defineComponent({
+  render() {
+    return h(
+      "div",
+      {
+        class: { "fixed-header": set.fixedHeader },
+        style: [
+          set.hideTabs && layout.value.includes("horizontal")
+            ? "box-shadow: 0 1px 4px rgb(0 21 41 / 8%);"
+            : ""
+        ]
+      },
+      {
+        default: () => [
+          !goSetting.hiddenSideBar && layout.value.includes("vertical")
+            ? h(navbar)
+            : h("div"),
+          !goSetting.hiddenSideBar && layout.value.includes("horizontal")
+            ? h(Horizontal)
+            : h("div"),
+          h(
+            tag,
+            {},
+            {
+              default: () => [
+                h(
+                  "span",
+                  { onClick: onFullScreen },
+                  {
+                    default: () => [
+                      // !goSetting.hiddenSideBar ? h(fullScreen) : h(exitScreen)
+                    ]
+                  }
+                )
+              ]
+            }
+          )
+        ]
+      }
+    );
+  }
+});
 </script>
 
 <template>
-  <el-container class="app-wrapper">
-    <Sidebar />
-    <!-- <el-aside class="aside">aside</el-aside>
+  <div :class="['app-wrapper', set.classes]" v-resize>
+    <Sidebar v-show="!goSetting.hiddenSideBar" />
+    <router-view />
+  </div>
+  <!-- <el-container class="app-wrapper">
+    <Sidebar v-show="!goSetting.hiddenSideBar" />
+    <el-aside class="aside">aside</el-aside>
     <el-container>
       <Header />
       <div class="main">
         <router-view />
       </div>
       <Footer />
-    </el-container> -->
+    </el-container>
     <router-view />
-  </el-container>
+  </el-container> -->
 </template>
 
 <style lang="scss" scoped>
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 .app-wrapper {
+  @include clearfix;
+
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  &.mobile.openSidebar {
+    position: fixed;
+    top: 0;
+  }
+}
+
+.main-hidden {
+  margin-left: 0 !important;
+}
+
+.app-mask {
+  background: #000;
+  opacity: 0.3;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  position: absolute;
+  z-index: 999;
+}
+
+.re-screen {
+  margin-top: 12px;
 }
 </style>

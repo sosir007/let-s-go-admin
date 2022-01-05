@@ -11,7 +11,6 @@ const route = useRoute();
 const goApp = useAppStoreHook();
 const router = useRouter().options.routes;
 const routeStore = usePermissionStoreHook();
-console.log(usePermissionStoreHook().wholeMenus);
 
 const isCollapse = computed(() => {
   return !goApp.getSidebarStatus;

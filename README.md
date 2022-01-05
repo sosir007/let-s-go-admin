@@ -28,6 +28,8 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 + **path-browserify**：整合 vite 后，vite 源码中设定了不允许在客户端代码中访问内置模块代码使用，所以使用 path-browserify 代替 path 模块
 + **@vueuse/core**：是为Vue 2和3服务的一套Vue Composition API的常用工具集
 + **responsive-storage**：?
++ **mitt**：?
++ **element-resize-detecto、@types/element-resize-detector**：?
 
 
 ## 项目计划：

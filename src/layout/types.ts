@@ -1,6 +1,6 @@
 export const routerArrays: Array<RouteConfigs> = [
   {
-    path: "/welcome",
+    path: "/dashboard",
     parentPath: "/",
     meta: {
       title: "message.hshome",

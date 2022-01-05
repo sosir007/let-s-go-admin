@@ -14,6 +14,7 @@ import {
   ElInput,
   ElForm,
   ElFormItem,
+  ElTooltip,
   ElIcon,
 } from "element-plus";
 
@@ -32,6 +33,7 @@ const components = [
   ElInput,
   ElForm,
   ElFormItem,
+  ElTooltip,
   ElIcon,
 ];
 
