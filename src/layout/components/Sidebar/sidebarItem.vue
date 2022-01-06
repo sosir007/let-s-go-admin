@@ -3,10 +3,10 @@ import path from "path-browserify";
 import { PropType, ref, nextTick, getCurrentInstance } from "vue";
 import { childrenType } from "../../types";
 import { useAppStoreHook } from "@/store/modules/app";
-import Icon from "@/components/Icon/src/Icon.vue";
+import Icon from "@/components/ReIcon/src/Icon.vue";
 import { findIconReg } from "@/components/ReIcon";
 const instance = getCurrentInstance().appContext.app.config.globalProperties;
-const menuMode = instance.$config?.Layout === "vertical";
+const menuMode = instance.$storage.layout?.layout === "vertical";
 const goApp = useAppStoreHook();
 
 const props = defineProps({
@@ -89,11 +89,21 @@ function resolvePath(routePath) {
       :class="{ 'submenu-title-noDropdown': !isNest }"
       style="display: flex; align-items: center"
     >
-      <i
+      <!-- <i
         :class="
           onlyOneChild.meta.icon || (props.item.meta && props.item.meta.icon)
         "
-      />
+      /> -->
+      <el-icon v-show="props.item.meta.icon">
+        <component
+          :is="
+            findIconReg(
+              onlyOneChild.meta.icon ||
+                (props.item.meta && props.item.meta.icon)
+            )
+          "
+        ></component>
+      </el-icon>
       <template #title>
         <div
           :style="{
@@ -144,7 +154,11 @@ function resolvePath(routePath) {
     popper-append-to-body
   >
     <template #title>
-      <i :class="props.item.meta.icon"></i>
+      <el-icon v-show="props.item.meta.icon">
+        <component
+          :is="findIconReg(props.item.meta && props.item.meta.icon)"
+        ></component>
+      </el-icon>
       <span v-if="!menuMode">{{ props.item.meta.title }}</span>
       <el-tooltip
         v-else

@@ -6,28 +6,30 @@ const errorRouter = {
   component: Layout,
   redirect: "/error/401",
   meta: {
-    icon: "Position",
-    title: "message.hserror",
+    icon: "icon-page-error",
+    title: "错误页面",
     showLink: true,
     i18n: true,
     rank: 7
   },
   children: [
-    // {
-    //   path: "/error/401",
-    //   name: "401",
-    //   component: () => import("/@/views/error/401.vue"),
-    //   meta: {
-    //     title: "message.hsfourZeroOne",
-    //     i18n: true,
-    //     showLink: true
-    //   }
-    // },
+    {
+      path: "/error/401",
+      name: "401",
+      component: () => import("@/views/error/401.vue"),
+      meta: {
+        icon: "icon-error-401",
+        title: "401",
+        i18n: true,
+        showLink: true
+      }
+    },
     {
       path: "/error/404",
       name: "404",
       component: () => import("@/views/error/404.vue"),
       meta: {
+        icon: "icon-error-404",
         title: "404",
         i18n: true,
         showLink: true

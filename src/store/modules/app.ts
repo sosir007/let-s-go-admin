@@ -6,7 +6,7 @@ import { defineStore } from "pinia";
 import { getConfig } from "@/config";
 
 export const useAppStore = defineStore({
-  id: "pure-app",
+  id: "go-app",
   state: (): appType => ({
     sidebar: {
       opened: storageLocal.getItem("sidebarStatus")

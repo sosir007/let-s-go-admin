@@ -6,7 +6,7 @@ const homeRouter = {
   component: Layout,
   redirect: "/dashboard",
   meta: {
-    icon: "el-icon-s-home",
+    icon: "icon-zhuye",
     title: "message.hshome",
     showLink: true,
     rank: 0
@@ -18,7 +18,7 @@ const homeRouter = {
       component: () => import("@/views/dashboard/index.vue"),
       meta: {
         title: "dashboard",
-        icon: 'dashboard',
+        icon: 'icon-zhuye',
         showLink: true
       }
     }

@@ -51,16 +51,15 @@ const title =
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    margin-top: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
 
     img {
-      width: 20px;
-      height: 20px;
+      width: 25px;
+      height: 25px;
       vertical-align: text-bottom;
-      margin-right: 3px;
+      margin-right: 10px;
     }
 
     .sidebar-title {

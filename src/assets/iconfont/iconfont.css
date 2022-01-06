@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 1560982 */
+  src: url('iconfont.eot?t=1641476395104'); /* IE9 */
+  src: url('iconfont.eot?t=1641476395104#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('iconfont.woff2?t=1641476395104') format('woff2'),
+       url('iconfont.woff?t=1641476395104') format('woff'),
+       url('iconfont.ttf?t=1641476395104') format('truetype'),
+       url('iconfont.svg?t=1641476395104#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-error-401:before {
+  content: "\e683";
+}
+
+.icon-error-404:before {
+  content: "\e684";
+}
+
+.icon-zhuye:before {
+  content: "\e605";
+}
+
+.icon-page-error:before {
+  content: "\e64b";
+}
+
+.icon-github:before {
+  content: "\e72a";
+}
+
+.icon-weixin:before {
+  content: "\e6b1";
+}
+
+.icon-facebook:before {
+  content: "\e600";
+}
+
+.icon-jinglingqiu:before {
+  content: "\e633";
+}
+
+.icon-kejian:before {
+  content: "\e624";
+}
+
+.icon-bukejian:before {
+  content: "\e625";
+}
+
+.icon-user:before {
+  content: "\e64d";
+}
+
+.icon-password:before {
+  content: "\e62e";
+}
+

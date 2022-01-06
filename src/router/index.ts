@@ -41,7 +41,6 @@ import {
 */
 
 // 静态路由
-import homeRouter from "./modules/home";
 import remainingRouter from "./modules/remaining";
 
 // 创建路由实例

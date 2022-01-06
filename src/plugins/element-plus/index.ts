@@ -16,6 +16,7 @@ import {
   ElFormItem,
   ElTooltip,
   ElIcon,
+  ElBacktop,
 } from "element-plus";
 
 const components = [
@@ -35,6 +36,7 @@ const components = [
   ElFormItem,
   ElTooltip,
   ElIcon,
+  ElBacktop,
 ];
 
 // const plugins = [ElLoading];

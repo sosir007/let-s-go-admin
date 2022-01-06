@@ -15,7 +15,7 @@ import { useAppStoreHook } from "@/store/modules/app";
 import { useSettingStoreHook } from "@/store/modules/settings";
 import { useMultiTagsStore } from "@/store/modules/multiTags";
 
-import { Sidebar } from "./components";
+import { AppMain, Sidebar } from "./components";
 
 const goSetting = useSettingStoreHook();
 const instance = getCurrentInstance().appContext.app.config.globalProperties;
@@ -129,7 +129,7 @@ emitter.on("resize", ({ detail }) => {
 });
 
 onMounted(() => {
-  console.log("layout003", layout, instance);
+  console.log("layout", layout, instance);
 });
 
 function onFullScreen() {
@@ -138,57 +138,79 @@ function onFullScreen() {
     : goSetting.changeSetting({ key: "hiddenSideBar", value: true });
 }
 
-const layoutHeader = defineComponent({
-  render() {
-    return h(
-      "div",
-      {
-        class: { "fixed-header": set.fixedHeader },
-        style: [
-          set.hideTabs && layout.value.includes("horizontal")
-            ? "box-shadow: 0 1px 4px rgb(0 21 41 / 8%);"
-            : ""
-        ]
-      },
-      {
-        default: () => [
-          !goSetting.hiddenSideBar && layout.value.includes("vertical")
-            ? h(navbar)
-            : h("div"),
-          !goSetting.hiddenSideBar && layout.value.includes("horizontal")
-            ? h(Horizontal)
-            : h("div"),
-          h(
-            tag,
-            {},
-            {
-              default: () => [
-                h(
-                  "span",
-                  { onClick: onFullScreen },
-                  {
-                    default: () => [
-                      // !goSetting.hiddenSideBar ? h(fullScreen) : h(exitScreen)
-                    ]
-                  }
-                )
-              ]
-            }
-          )
-        ]
-      }
-    );
-  }
-});
+// const layoutHeader = defineComponent({
+//   render() {
+//     return h(
+//       "div",
+//       {
+//         class: { "fixed-header": set.fixedHeader },
+//         style: [
+//           set.hideTabs && layout.value.includes("horizontal")
+//             ? "box-shadow: 0 1px 4px rgb(0 21 41 / 8%);"
+//             : ""
+//         ]
+//       },
+//       {
+//         default: () => [
+//           !goSetting.hiddenSideBar && layout.value.includes("vertical")
+//             ? h(navbar)
+//             : h("div"),
+//           !goSetting.hiddenSideBar && layout.value.includes("horizontal")
+//             ? h(Horizontal)
+//             : h("div"),
+//           h(
+//             tag,
+//             {},
+//             {
+//               default: () => [
+//                 h(
+//                   "span",
+//                   { onClick: onFullScreen },
+//                   {
+//                     default: () => [
+//                       !goSetting.hiddenSideBar ? h(fullScreen) : h(exitScreen)
+//                     ]
+//                   }
+//                 )
+//               ]
+//             }
+//           )
+//         ]
+//       }
+//     );
+//   }
+// });
 </script>
 
 <template>
   <div :class="['app-wrapper', set.classes]" v-resize>
-    <Sidebar v-show="!goSetting.hiddenSideBar" />
-    <router-view />
+    <Sidebar v-show="!goSetting.hiddenSideBar && layout.includes('vertical')" />
+    <div
+      :class="[
+        'main-container',
+        goSetting.hiddenSideBar ? 'main-hidden' : ''
+      ]"
+    >
+      <div v-if="set.fixedHeader">
+        <!-- <layout-header /> -->
+        <!-- 主体内容 -->
+        <app-main :fixed-header="set.fixedHeader" />
+      </div>
+      <el-scrollbar v-else>
+        <!-- <el-backtop
+          title="回到顶部"
+          target=".main-container .el-scrollbar__wrap"
+          ><backTop />
+        </el-backtop> -->
+        <!-- <layout-header /> -->
+        <!-- 主体内容 -->
+        <app-main :fixed-header="set.fixedHeader" />
+      </el-scrollbar>
+    </div>
+    <!-- <router-view /> -->
   </div>
   <!-- <el-container class="app-wrapper">
-    <Sidebar v-show="!goSetting.hiddenSideBar" />
+    <Sidebar />
     <el-aside class="aside">aside</el-aside>
     <el-container>
       <Header />

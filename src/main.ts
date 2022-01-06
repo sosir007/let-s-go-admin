@@ -13,13 +13,16 @@ import { setupDirectives } from '@/directives';
 import "animate.css";
 // 导入公共样式
 import "./style/index.scss";
+// 导入字体图标
+import "./assets/iconfont/iconfont.js";
+import "./assets/iconfont/iconfont.css";
 
 async function bootstrap() {
   const app = createApp(App);
 
   // 获取全局配置
   const config = await getServerConfig(app)
-  // injectResponsiveStorage(app, config);
+  injectResponsiveStorage(app, config);
 
   // 挂载状态管理
   setupStore(app);

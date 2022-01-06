@@ -482,7 +482,7 @@ const handleSubmit = (): void => {
 
 @media (min-width: 768px) {
   .login-container {
-    background-image: url("../../assets/images/login.svg");
+    background-image: url("../../assets/svg/login.svg");
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: 100%;

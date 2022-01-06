@@ -32,6 +32,7 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 + **element-resize-detecto、@types/element-resize-detector**：?
 
 
+
 ## 项目计划：
 
 1. **整体框架 framework**：21.12.13 ~ 21.12.21，21.12.30 ～ 未定
@@ -70,6 +71,12 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 
 
 
+## 遗留 bug：
+
+1. Cannot access 'constantRoutes' before initialization：src/layout/index.vue 文件修改会有 bug（暂未找到解决方案）
+
+
+
 ## 其他：
 
 1. pc 展示项目
@@ -100,7 +107,45 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 
 ## error 记录
 
-+ Invalid VNode type: Symbol(Text)：pnpm install 组件正常使用，yarn install就会遇到这相同的问题。
++ > Invalid VNode type: Symbol(Text)：pnpm install 组件正常使用，yarn install就会遇到这相同的问题。
+
++ > [Vue warn]: Component provided template option but runtime compilation is not supported in this build of Vue. Configure your bundler to alias "vue" to "vue/dist/vue.esm-bundler.js"：
+  >
+  > 解释一下上面的意思，组件提供模板选项，但是在Vue的这个构建中不支持运行时编译，配置你的bundler别名 `vue： vue/dist/vue.esm-bundler.js`
+  >
+  > 
+  >
+  > vue3 项目：
+  >
+  > 使用 vite 构建： 项目根目录下面建立 vite.config.js 配置别名， 详细配置
+  >
+  > ```js
+  > alias: {
+  > 		'vue': 'vue/dist/vue.esm-bundler.js' // 定义vue的别名，如果使用其他的插件，可能会用到别名
+  > },
+  > ```
+  >
+  > 使用vue-cli 进行构建，项目根目录下面建立 vue.config.js 配置一个属性
+  >
+  > ```js
+  > module.exports = { runtimeCompiler: true } // 确定是运行时候编译
+  > ```
+  >
+  > 
+  >
+  > vue2 ,项目中建立对应的.config.js
+  >
+  > ```js
+  > // webpack
+  > module.exports = {
+  >   // ...
+  >   resolve: {
+  >     alias: {
+  >       'vue$': 'vue/dist/vue.esm.js' // 用 webpack 1 时需用 'vue/dist/vue.common.js'
+  >     }
+  >   }
+  > }
+  > ```
 
 
 
