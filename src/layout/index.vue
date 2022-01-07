@@ -9,6 +9,7 @@ import {
 } from "vue";
 import { setType } from "./types";
 import { routerArrays } from "./types";
+import { useI18n } from "vue-i18n";
 import { emitter } from "@/utils/mitt";
 // import { AppMain, Navbar, Sidebar, TagsView } from "./components";
 import { useAppStoreHook } from "@/store/modules/app";
@@ -31,11 +32,11 @@ const layout = computed(() => {
     instance.$storage.tags = routerArrays;
   }
   // 国际化
-  // if (!instance.$storage.locale) {
-  //   // eslint-disable-next-line
-  //   instance.$storage.locale = { locale: instance.$config?.Locale ?? "zh" };
-  //   useI18n().locale.value = instance.$config?.Locale ?? "zh";
-  // }
+  if (!instance.$storage.locale) {
+    // eslint-disable-next-line
+    instance.$storage.locale = { locale: instance.$config?.Locale ?? "zh" };
+    useI18n().locale.value = instance.$config?.Locale ?? "zh";
+  }
   // 导航
   if (!instance.$storage.layout) {
     // eslint-disable-next-line vue/no-side-effects-in-computed-properties

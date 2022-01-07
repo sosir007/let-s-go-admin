@@ -33,6 +33,7 @@ specifiers:
   vite-plugin-mock: ^2.9.6
   vite-plugin-style-import: ^1.4.0
   vue: ^3.2.16
+  vue-i18n: ^9.2.0-beta.26
   vue-router: 4.0.12
   vue-tsc: ^0.3.0
 
@@ -57,6 +58,7 @@ dependencies:
   vee-validate: 4.5.7_vue@3.2.26
   vite-plugin-mock: 2.9.6_mockjs@1.1.0+vite@2.7.10
   vue: 3.2.26
+  vue-i18n: 9.2.0-beta.26_vue@3.2.26
   vue-router: 4.0.12_vue@3.2.26
 
 devDependencies:
@@ -152,6 +154,44 @@ packages:
   /@emmetio/scanner/1.0.0:
     resolution: {integrity: sha512-8HqW8EVqjnCmWXVpqAOZf+EGESdkR27odcMMMGefgKXtar00SoYNSryGv//TELI4T3QFsECo78p+0lmalk/CFA==}
     dev: true
+
+  /@intlify/core-base/9.2.0-beta.26:
+    resolution: {integrity: sha512-4OXSF0zC70UElev6gam4FdWfC7u4l2ouNK9Hc6R44QlpEXkzhbwwbpZn9gIGB2l11zQnJkAwaovfYyiNJ/JvkA==}
+    engines: {node: '>= 12'}
+    dependencies:
+      '@intlify/devtools-if': 9.2.0-beta.26
+      '@intlify/message-compiler': 9.2.0-beta.26
+      '@intlify/shared': 9.2.0-beta.26
+      '@intlify/vue-devtools': 9.2.0-beta.26
+    dev: false
+
+  /@intlify/devtools-if/9.2.0-beta.26:
+    resolution: {integrity: sha512-7GiF7v2jlHf7g5hoLF6sKlrX5Di2INfHN4PEAeVr2ashgoSaq1EYIRouBVAnJkOrDOJzCOEY7y53me7+gIbeTw==}
+    engines: {node: '>= 12'}
+    dependencies:
+      '@intlify/shared': 9.2.0-beta.26
+    dev: false
+
+  /@intlify/message-compiler/9.2.0-beta.26:
+    resolution: {integrity: sha512-qtDgHCMqrXNTekKXGzm0Dm6r3+/X7/jFXP+E07hx+PJbPMv7DzK1iU8h5LlAMQ1/jr2UIRBgXvR5wh35OKoGrA==}
+    engines: {node: '>= 12'}
+    dependencies:
+      '@intlify/shared': 9.2.0-beta.26
+      source-map: 0.6.1
+    dev: false
+
+  /@intlify/shared/9.2.0-beta.26:
+    resolution: {integrity: sha512-MjUlkjNThqkqy8yXUcFKBiW/hIfqAn5cP3Vd0b4wdOHS8rPCEbvSbAnF08uiZDkVv8gTcsLyymX21GaU6oYyyQ==}
+    engines: {node: '>= 12'}
+    dev: false
+
+  /@intlify/vue-devtools/9.2.0-beta.26:
+    resolution: {integrity: sha512-Ghe2xTSezRzL2fBdIbZEus5+5spE2RMxgjBg6GyvbsDy1M05o2OvukBninJ4/Tc2I5A30lYgAsF1gQlOyfmv1g==}
+    engines: {node: '>= 12'}
+    dependencies:
+      '@intlify/core-base': 9.2.0-beta.26
+      '@intlify/shared': 9.2.0-beta.26
+    dev: false
 
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -2587,6 +2627,19 @@ packages:
       '@vue/composition-api':
         optional: true
     dependencies:
+      vue: 3.2.26
+    dev: false
+
+  /vue-i18n/9.2.0-beta.26_vue@3.2.26:
+    resolution: {integrity: sha512-xZgisyirT9hXFyXBL8pO8bYgdG7m98NLAUhbb1O9hMQS1qOXYU902+LIJA5k3BtoeiEIfjkGADHhSAlJTTzc9A==}
+    engines: {node: '>= 12'}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      '@intlify/core-base': 9.2.0-beta.26
+      '@intlify/shared': 9.2.0-beta.26
+      '@intlify/vue-devtools': 9.2.0-beta.26
+      '@vue/devtools-api': 6.0.0-beta.21.1
       vue: 3.2.26
     dev: false
 

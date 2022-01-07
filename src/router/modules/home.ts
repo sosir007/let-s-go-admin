@@ -7,8 +7,9 @@ const homeRouter = {
   redirect: "/dashboard",
   meta: {
     icon: "icon-zhuye",
-    title: "message.hshome",
+    title: "route.dashboard",
     showLink: true,
+    i18n: true,
     rank: 0
   },
   children: [
@@ -17,8 +18,9 @@ const homeRouter = {
       name: "dashboard",
       component: () => import("@/views/dashboard/index.vue"),
       meta: {
-        title: "dashboard",
+        title: "route.dashboard",
         icon: 'icon-zhuye',
+        i18n: true,
         showLink: true
       }
     }

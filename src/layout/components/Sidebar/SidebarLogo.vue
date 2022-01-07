@@ -22,7 +22,7 @@ const title =
         to="/"
       >
         <img :src="Icon" alt=""/>
-        <span class="sidebar-title">{{ title }}</span>
+        <!-- <span class="sidebar-title">{{ title }}</span> -->
       </router-link>
       <router-link
         v-else
@@ -59,7 +59,7 @@ const title =
       width: 25px;
       height: 25px;
       vertical-align: text-bottom;
-      margin-right: 10px;
+      // margin-right: 10px;
     }
 
     .sidebar-title {
@@ -68,6 +68,7 @@ const title =
       font-size: 20px;
       // margin-top: 10px;
       font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+      margin-left: 10px;
     }
   }
 

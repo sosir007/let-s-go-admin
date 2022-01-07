@@ -2,8 +2,10 @@
 import SidebarLogo from "./SidebarLogo.vue";
 import SidebarItem from "./sidebarItem.vue";
 
-import { useRoute, useRouter } from "vue-router";
 import { computed, ref, onBeforeMount } from "vue";
+import { emitter } from "@/utils/mitt";
+import { storageLocal } from "@/utils/storage";
+import { useRoute, useRouter } from "vue-router";
 import { useAppStoreHook } from "@/store/modules/app";
 import { usePermissionStoreHook } from "@/store/modules/permission";
 
@@ -11,6 +13,7 @@ const route = useRoute();
 const goApp = useAppStoreHook();
 const router = useRouter().options.routes;
 const routeStore = usePermissionStoreHook();
+const showLogo = ref(storageLocal.getItem("logoVal") || "1");
 
 const isCollapse = computed(() => {
   return !goApp.getSidebarStatus;
@@ -23,11 +26,17 @@ const activeMenu = computed((): string => {
   }
   return path;
 });
+
+onBeforeMount(() => {
+  emitter.on("logoChange", key => {
+    showLogo.value = key;
+  });
+});
 </script>
 
 <template>
   <div class="sidebar-container">
-    <SidebarLogo :collapse="isCollapse" />
+    <SidebarLogo v-if="showLogo === '1'" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="activeMenu"

@@ -7,7 +7,7 @@ const errorRouter = {
   redirect: "/error/401",
   meta: {
     icon: "icon-page-error",
-    title: "错误页面",
+    title: "route.errorPages",
     showLink: true,
     i18n: true,
     rank: 7
@@ -19,7 +19,7 @@ const errorRouter = {
       component: () => import("@/views/error/401.vue"),
       meta: {
         icon: "icon-error-401",
-        title: "401",
+        title: "route.page401",
         i18n: true,
         showLink: true
       }
@@ -30,7 +30,7 @@ const errorRouter = {
       component: () => import("@/views/error/404.vue"),
       meta: {
         icon: "icon-error-404",
-        title: "404",
+        title: "route.page404",
         i18n: true,
         showLink: true
       }

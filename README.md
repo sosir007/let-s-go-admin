@@ -28,8 +28,9 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 + **path-browserify**：整合 vite 后，vite 源码中设定了不允许在客户端代码中访问内置模块代码使用，所以使用 path-browserify 代替 path 模块
 + **@vueuse/core**：是为 Vue2 和 Vue3 服务的一套 Vue Composition API 的常用工具集
 + **responsive-storage**：基于 Vue3 的响应式本地存储
-+ **mitt**：微型功能事件发射器/发布订阅。
++ **mitt**：微型功能事件发射器/发布订阅
 + **element-resize-detector、@types/element-resize-detector**：优化了元素的跨浏览器大小调整侦听器
++ **vue-i18n@next**：适配 vue3 的国际化插件
 
 
 

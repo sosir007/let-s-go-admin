@@ -9,6 +9,7 @@ import { setupCustomComponents } from "@/components";
 import { getServerConfig } from "./config";
 import { injectResponsiveStorage } from "@/utils/storage/responsive";
 import { setupDirectives } from '@/directives';
+import { setupI18n } from '@/lang';
 
 import "animate.css";
 // 导入公共样式
@@ -32,6 +33,9 @@ async function bootstrap() {
 
   // 注册全局自定义组件（包括第三方组件等）
   setupCustomComponents(app);
+
+  // 挂载国际化插件
+  setupI18n(app);
 
   // 注册全局自定义指令，如：v-permission权限指令
   setupDirectives(app);
