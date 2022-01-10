@@ -17,6 +17,8 @@ import {
   ElTooltip,
   ElIcon,
   ElBacktop,
+  ElBreadcrumb,
+  ElBreadcrumbItem,
 } from "element-plus";
 
 const components = [
@@ -37,6 +39,8 @@ const components = [
   ElTooltip,
   ElIcon,
   ElBacktop,
+  ElBreadcrumb,
+  ElBreadcrumbItem,
 ];
 
 // const plugins = [ElLoading];

@@ -12,11 +12,11 @@ export const useMultiTagsStore = defineStore({
       ? storageLocal.getItem("responsive-tags")
       : [
           {
-            path: "/welcome",
+            path: "dashboard",
             parentPath: "/",
             meta: {
-              title: "message.hshome",
-              icon: "el-icon-s-home",
+              title: "route.dashboard",
+              icon: "icon-zhuye",
               i18n: true,
               showLink: true
             }

@@ -16,7 +16,7 @@ import { useAppStoreHook } from "@/store/modules/app";
 import { useSettingStoreHook } from "@/store/modules/settings";
 import { useMultiTagsStore } from "@/store/modules/multiTags";
 
-import { AppMain, Sidebar } from "./components";
+import { AppMain, Navbar, Sidebar } from "./components";
 
 const goSetting = useSettingStoreHook();
 const instance = getCurrentInstance().appContext.app.config.globalProperties;
@@ -139,48 +139,48 @@ function onFullScreen() {
     : goSetting.changeSetting({ key: "hiddenSideBar", value: true });
 }
 
-// const layoutHeader = defineComponent({
-//   render() {
-//     return h(
-//       "div",
-//       {
-//         class: { "fixed-header": set.fixedHeader },
-//         style: [
-//           set.hideTabs && layout.value.includes("horizontal")
-//             ? "box-shadow: 0 1px 4px rgb(0 21 41 / 8%);"
-//             : ""
-//         ]
-//       },
-//       {
-//         default: () => [
-//           !goSetting.hiddenSideBar && layout.value.includes("vertical")
-//             ? h(navbar)
-//             : h("div"),
-//           !goSetting.hiddenSideBar && layout.value.includes("horizontal")
-//             ? h(Horizontal)
-//             : h("div"),
-//           h(
-//             tag,
-//             {},
-//             {
-//               default: () => [
-//                 h(
-//                   "span",
-//                   { onClick: onFullScreen },
-//                   {
-//                     default: () => [
-//                       !goSetting.hiddenSideBar ? h(fullScreen) : h(exitScreen)
-//                     ]
-//                   }
-//                 )
-//               ]
-//             }
-//           )
-//         ]
-//       }
-//     );
-//   }
-// });
+const layoutHeader = defineComponent({
+  render() {
+    return h(
+      "div",
+      {
+        class: { "fixed-header": set.fixedHeader },
+        style: [
+          set.hideTabs && layout.value.includes("horizontal")
+            ? "box-shadow: 0 1px 4px rgb(0 21 41 / 8%);"
+            : ""
+        ]
+      },
+      {
+        default: () => [
+          !goSetting.hiddenSideBar && layout.value.includes("vertical")
+            ? h(Navbar)
+            : h("div"),
+          // !goSetting.hiddenSideBar && layout.value.includes("horizontal")
+          //   ? h(Horizontal)
+          //   : h("div"),
+          // h(
+          //   tag,
+          //   {},
+          //   {
+          //     default: () => [
+          //       h(
+          //         "span",
+          //         { onClick: onFullScreen },
+          //         {
+          //           default: () => [
+          //             !goSetting.hiddenSideBar ? h(fullScreen) : h(exitScreen)
+          //           ]
+          //         }
+          //       )
+          //     ]
+          //   }
+          // )
+        ]
+      }
+    );
+  }
+});
 </script>
 
 <template>
@@ -193,7 +193,7 @@ function onFullScreen() {
       ]"
     >
       <div v-if="set.fixedHeader">
-        <!-- <layout-header /> -->
+        <layout-header />
         <!-- 主体内容 -->
         <app-main :fixed-header="set.fixedHeader" />
       </div>
@@ -203,7 +203,7 @@ function onFullScreen() {
           target=".main-container .el-scrollbar__wrap"
           ><backTop />
         </el-backtop> -->
-        <!-- <layout-header /> -->
+        <layout-header />
         <!-- 主体内容 -->
         <app-main :fixed-header="set.fixedHeader" />
       </el-scrollbar>
