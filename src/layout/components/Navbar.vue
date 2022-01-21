@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import Hamburger from "@/components/Hamburger/index.vue";
 import Breadcrumb from "@/components/Breadcrumb/index.vue";
+import ScreenFull from "@/components/ScreenFull/index.vue";
 
 import { useAppStoreHook } from "@/store/modules/app";
+import { deviceDetection } from "@/utils/deviceDetection";
 
 const goApp = useAppStoreHook();
 
@@ -20,6 +22,11 @@ function toggleSideBar() {
     />
 
     <Breadcrumb class="breadcrumb-container" />
+
+    <div class="navbar-container-right">
+      <!-- 全屏 -->
+      <ScreenFull v-show="!deviceDetection()" />
+    </div>
   </div>
 </template>
 
@@ -46,6 +53,29 @@ function toggleSideBar() {
 
   .breadcrumb-container {
     float: left;
+  }
+
+  &-right {
+    display: flex;
+    min-width: 280px;
+    height: 48px;
+    align-items: center;
+    color: #000000d9;
+    justify-content: flex-end;
+
+    :deep(.dropdown-badge) {
+      &:hover {
+        background: #f6f6f6;
+      }
+    }
+
+    .screen-full {
+      cursor: pointer;
+
+      &:hover {
+        background: #f6f6f6;
+      }
+    }
   }
 }
 </style>
