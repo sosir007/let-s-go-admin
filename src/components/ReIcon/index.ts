@@ -1,7 +1,7 @@
 import { App, defineComponent } from "vue";
 import icon from "./src/Icon.vue";
 // import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-// import { iconComponents } from "@/plugins/element-plus";
+import { iconComponents } from "@/plugins/element-plus";
 
 /**
  * find icon component
@@ -20,7 +20,7 @@ export function findIconReg(icon: string) {
   // typeof icon === "function" 属于SVG
   // 自定义icon
   const goReg = /^icon-/;
-  
+
   if (fa5Reg.test(icon)) {
     const text = icon.split(fa5Reg)[1];
     return findIcon(
@@ -79,14 +79,14 @@ export function findIcon(icon: String, type = "EL", property?: string) {
       template: `<i :class="icon" />`
     });
   } else if (type === "EL") {
-    // const components = iconComponents.filter(
-    //   component => component.name === icon
-    // );
-    // if (components.length > 0) {
-    //   return components[0];
-    // } else {
-    //   return null;
-    // }
+    const components = iconComponents.filter(
+      component => component.name === icon
+    );
+    if (components.length > 0) {
+      return components[0];
+    } else {
+      return null;
+    }
   } else if (type === "SVG") {
     return icon;
   } else if (type === "GO") {

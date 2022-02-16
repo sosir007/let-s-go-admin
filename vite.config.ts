@@ -4,6 +4,7 @@ import { viteMockServe } from 'vite-plugin-mock'
 import { resolve } from 'path'
 import styleImport from 'vite-plugin-style-import'
 import themePreprocessorPlugin from "@zougt/vite-plugin-theme-preprocessor";
+import svgLoader from "vite-svg-loader";
 
 const pathResolve = (dir: string): any => {
   return resolve(__dirname, ".", dir)
@@ -50,6 +51,8 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
     },
     plugins: [
       vue(),
+      // svg组件化支持
+      svgLoader(),
       // styleImport({
       //   libs: [
       //     // { 

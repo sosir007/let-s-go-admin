@@ -3,13 +3,45 @@ import Hamburger from "@/components/Hamburger/index.vue";
 import Breadcrumb from "@/components/Breadcrumb/index.vue";
 import ScreenFull from "@/components/ScreenFull/index.vue";
 
+import { useI18n } from "vue-i18n";
+import { useNav } from "../hooks/nav";
+import { useRoute } from "vue-router";
 import { useAppStoreHook } from "@/store/modules/app";
 import { deviceDetection } from "@/utils/deviceDetection";
+import { watch, getCurrentInstance } from "vue";
+import globalization from "@/assets/svg/globalization.svg";
 
 const goApp = useAppStoreHook();
+const route = useRoute();
+const { locale } = useI18n();
+const instance =
+  getCurrentInstance().appContext.config.globalProperties.$storage;
 
-function toggleSideBar() {
-  goApp.toggleSideBar();
+const {
+  logout,
+  onPanel,
+  changeTitle,
+  toggleSideBar,
+  pureApp,
+  usename,
+  getDropdownItemStyle
+} = useNav();
+
+watch(
+  () => locale.value,
+  () => {
+    changeTitle(route.meta);
+  }
+);
+
+function translationCh() {
+  instance.locale = { locale: "zh" };
+  locale.value = "zh";
+}
+
+function translationEn() {
+  instance.locale = { locale: "en" };
+  locale.value = "en";
 }
 </script>
 
@@ -26,6 +58,29 @@ function toggleSideBar() {
     <div class="navbar-container-right">
       <!-- 全屏 -->
       <ScreenFull v-show="!deviceDetection()" />
+
+      <!-- 国际化 -->
+      <el-dropdown id="header-translation" trigger="click">
+        <globalization />
+        <template #dropdown>
+          <el-dropdown-menu class="translation">
+            <el-dropdown-item
+              :style="getDropdownItemStyle(locale, 'zh')"
+              @click="translationCh"
+              ><el-icon class="check-zh" v-show="locale === 'zh'"
+                ><check /></el-icon
+              >简体中文</el-dropdown-item
+            >
+            <el-dropdown-item
+              :style="getDropdownItemStyle(locale, 'en')"
+              @click="translationEn"
+              ><el-icon class="check-en" v-show="locale === 'en'"
+                ><check /></el-icon
+              >English</el-dropdown-item
+            >
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
     </div>
   </div>
 </template>
@@ -76,6 +131,39 @@ function toggleSideBar() {
         background: #f6f6f6;
       }
     }
+
+    .globalization {
+      height: 100%;
+      width: 40px;
+      padding: 11px;
+      cursor: pointer;
+
+      &:hover {
+        background: #f6f6f6;
+      }
+    }
+  }
+}
+
+.translation {
+  ::v-deep(.el-dropdown-menu__item) {
+    padding: 5px 40px;
+  }
+
+  .el-dropdown-menu__item:focus,
+  .el-dropdown-menu__item:not(.is-disabled):hover {
+    color: #606266;
+    background: #f0f0f0;
+  }
+
+  .check-zh {
+    position: absolute;
+    left: 20px;
+  }
+
+  .check-en {
+    position: absolute;
+    left: 20px;
   }
 }
 </style>

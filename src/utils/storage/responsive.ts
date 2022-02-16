@@ -18,7 +18,8 @@ export const injectResponsiveStorage = (app: App, config: ServerConfigs) => {
         default: Storage.getData(undefined, "layout") ?? {
           layout: config.Layout ?? "vertical",
           theme: config.Theme ?? "default",
-          darkMode: config.DarkMode ?? false
+          darkMode: config.DarkMode ?? false,
+          epThemeColor: config.EpThemeColor ?? "#409EFF"
         }
       },
       sets: {

@@ -31,6 +31,8 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 + **mitt**：微型功能事件发射器/发布订阅
 + **element-resize-detector、@types/element-resize-detector**：优化了元素的跨浏览器大小调整侦听器
 + **vue-i18n@next**：适配 vue3 的国际化插件
++ **@element-plus/icons-vue**：element Plus 提供了一套常用的 svg 图标集合
++ **vite-svg-loader**：svg 组件化支持，在 vue 组件中加载 svg 文件
 
 
 

@@ -81,11 +81,15 @@ declare global {
     KeepAlive?: boolean;
     Locale?: string;
     Layout?: string;
-    DarkMode?: boolean;
     Theme?: string;
+    DarkMode?: boolean;
     Grey?: boolean;
     Weak?: boolean;
     HideTabs?: boolean;
+    SidebarStatus?: boolean;
+    EpThemeColor?: string;
+    ShowLogo?: boolean;
+    ShowModel?: string;
     MapConfigure?: {
       amapKey?: string;
       options: {
