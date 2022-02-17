@@ -8,5 +8,7 @@ export default {
   message: {
     fullScreen: "fullScreen",
     exitFullScreen: "exitFullscreen",
+    login: "login",
+    logout: "logout",
   }
 }

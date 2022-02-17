@@ -8,5 +8,7 @@ export default {
   message: {
     fullScreen: "全屏",
     exitFullScreen: "退出全屏",
+    login: "登录",
+    logout: "退出登录",
   }
 }

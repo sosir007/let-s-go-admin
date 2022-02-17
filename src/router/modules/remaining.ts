@@ -27,7 +27,7 @@ const remainingRouter = [
     component: Layout,
     meta: {
       icon: "el-icon-s-home",
-      title: "message.hshome",
+      title: "message.dashboard",
       showLink: false,
       rank: 104
     },

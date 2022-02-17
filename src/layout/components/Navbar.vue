@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import avatars from "@/assets/images/avatar.webp";
 import Hamburger from "@/components/Hamburger/index.vue";
 import Breadcrumb from "@/components/Breadcrumb/index.vue";
 import ScreenFull from "@/components/ScreenFull/index.vue";
@@ -23,7 +24,7 @@ const {
   changeTitle,
   toggleSideBar,
   pureApp,
-  usename,
+  account,
   getDropdownItemStyle
 } = useNav();
 
@@ -57,7 +58,7 @@ function translationEn() {
 
     <div class="navbar-container-right">
       <!-- 全屏 -->
-      <ScreenFull v-show="!deviceDetection()" />
+      <ScreenFull v-show="!deviceDetection()" /> 
 
       <!-- 国际化 -->
       <el-dropdown id="header-translation" trigger="click">
@@ -81,6 +82,26 @@ function translationEn() {
           </el-dropdown-menu>
         </template>
       </el-dropdown>
+
+      <!-- 退出登陆 -->
+      <el-dropdown trigger="click">
+        <span class="el-dropdown-link">
+          <img :src="avatars" />
+          <p>{{ account }}</p>
+        </span>
+        <template #dropdown>
+          <el-dropdown-menu class="logout">
+            <el-dropdown-item @click="logout">
+              <i class="iconfont icon-logout"></i>{{ $t("message.logout") }}
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+
+      <!-- 系统设置 -->
+      <div class="el-icon-setting">
+        <i class="iconfont icon-setting"></i>
+      </div>
     </div>
   </div>
 </template>
@@ -142,6 +163,44 @@ function translationEn() {
         background: #f6f6f6;
       }
     }
+
+    .el-dropdown-link {
+      width: 100px;
+      height: 48px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      cursor: pointer;
+      color: #000000d9;
+
+      &:hover {
+        background: #f6f6f6;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      img {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+      }
+    }
+
+    .el-icon-setting {
+      height: 48px;
+      width: 38px;
+      padding: 12px;
+      display: flex;
+      cursor: pointer;
+      align-items: center;
+
+      &:hover {
+        background: #f6f6f6;
+      }
+    }
   }
 }
 
@@ -164,6 +223,16 @@ function translationEn() {
   .check-en {
     position: absolute;
     left: 20px;
+  }
+}
+
+.logout {
+  max-width: 120px;
+
+  ::v-deep(.el-dropdown-menu__item) {
+    min-width: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
   }
 }
 </style>

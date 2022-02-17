@@ -55,10 +55,10 @@ export const useUserStore = defineStore({
       storageSession.clear();
       useMultiTagsStoreHook().handleTags("equal", [
         {
-          path: "/welcome",
+          path: "/dashboard",
           parentPath: "/",
           meta: {
-            title: "message.hshome",
+            title: "route.dashboard",
             icon: "el-icon-s-home",
             i18n: true,
             showLink: true

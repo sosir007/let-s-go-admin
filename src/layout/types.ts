@@ -3,7 +3,7 @@ export const routerArrays: Array<RouteConfigs> = [
     path: "/dashboard",
     parentPath: "/",
     meta: {
-      title: "message.hshome",
+      title: "route.dashboard",
       icon: "el-icon-s-home",
       showLink: true
     }

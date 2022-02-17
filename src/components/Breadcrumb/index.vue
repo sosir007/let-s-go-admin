@@ -17,7 +17,7 @@ const isDashboard = (route: RouteLocationMatched): boolean | string => {
   if (!name) {
     return false;
   }
-  return name.trim().toLocaleLowerCase() === "dashboard".toLocaleLowerCase();
+  return name.trim().toLocaleLowerCase() === "welcome".toLocaleLowerCase();
 };
 
 const getBreadcrumb = (): void => {
@@ -55,7 +55,7 @@ const getBreadcrumb = (): void => {
       return !item.redirect || (item.redirect && item.children.length !== 1);
     });
   }
-  if (currentRoute?.path !== "/dashboard") {
+  if (currentRoute?.path !== "/welcome") {
     matched.push(currentRoute);
   }
 
@@ -63,7 +63,7 @@ const getBreadcrumb = (): void => {
   if (!isDashboard(first)) {
     matched = [
       {
-        path: "dashboard",
+        path: "/dashboard",
         parentPath: "/",
         meta: { title: "route.dashboard", i18n: true }
       } as unknown as RouteLocationMatched
