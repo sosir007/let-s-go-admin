@@ -54,11 +54,13 @@ const components = [
 // https://element-plus.org/zh-CN/component/icon.html
 import {
   Check,
+  Close,
 } from "@element-plus/icons-vue";
 
 // Icon
 export const iconComponents = [
   Check,
+  Close,
 ];
 
 

@@ -16,7 +16,7 @@ import { useAppStoreHook } from "@/store/modules/app";
 import { useSettingStoreHook } from "@/store/modules/settings";
 import { useMultiTagsStore } from "@/store/modules/multiTags";
 
-import { AppMain, Navbar, Sidebar } from "./components";
+import { AppMain, Navbar, Sidebar, Setting } from "./components";
 
 const goSetting = useSettingStoreHook();
 const instance = getCurrentInstance().appContext.app.config.globalProperties;
@@ -210,6 +210,8 @@ const layoutHeader = defineComponent({
         <app-main :fixed-header="set.fixedHeader" />
       </el-scrollbar>
     </div>
+    <!-- 系统设置 -->
+    <Setting />
     <!-- <router-view /> -->
   </div>
   <!-- <el-container class="app-wrapper">

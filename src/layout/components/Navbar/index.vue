@@ -5,7 +5,7 @@ import Breadcrumb from "@/components/Breadcrumb/index.vue";
 import ScreenFull from "@/components/ScreenFull/index.vue";
 
 import { useI18n } from "vue-i18n";
-import { useNav } from "../hooks/nav";
+import { useNav } from "../../hooks/nav";
 import { useRoute } from "vue-router";
 import { useAppStoreHook } from "@/store/modules/app";
 import { deviceDetection } from "@/utils/deviceDetection";
@@ -99,7 +99,7 @@ function translationEn() {
       </el-dropdown>
 
       <!-- 系统设置 -->
-      <div class="el-icon-setting">
+      <div class="el-icon-setting" @click="onPanel">
         <i class="iconfont icon-setting"></i>
       </div>
     </div>
