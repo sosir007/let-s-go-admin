@@ -55,12 +55,16 @@ const components = [
 import {
   Check,
   Close,
+  ArrowLeft,
+  ArrowRight,
 } from "@element-plus/icons-vue";
 
 // Icon
 export const iconComponents = [
   Check,
   Close,
+  ArrowLeft,
+  ArrowRight,
 ];
 
 

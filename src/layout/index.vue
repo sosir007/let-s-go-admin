@@ -11,12 +11,11 @@ import { setType } from "./types";
 import { routerArrays } from "./types";
 import { useI18n } from "vue-i18n";
 import { emitter } from "@/utils/mitt";
-// import { AppMain, Navbar, Sidebar, TagsView } from "./components";
 import { useAppStoreHook } from "@/store/modules/app";
 import { useSettingStoreHook } from "@/store/modules/settings";
 import { useMultiTagsStore } from "@/store/modules/multiTags";
 
-import { AppMain, Navbar, Sidebar, Setting } from "./components";
+import { AppMain, Navbar, Sidebar, Setting, TagsView } from "./components";
 
 const goSetting = useSettingStoreHook();
 const instance = getCurrentInstance().appContext.app.config.globalProperties;
@@ -161,23 +160,23 @@ const layoutHeader = defineComponent({
           // !goSetting.hiddenSideBar && layout.value.includes("horizontal")
           //   ? h(Horizontal)
           //   : h("div"),
-          // h(
-          //   tag,
-          //   {},
-          //   {
-          //     default: () => [
-          //       h(
-          //         "span",
-          //         { onClick: onFullScreen },
-          //         {
-          //           default: () => [
-          //             !goSetting.hiddenSideBar ? h(fullScreen) : h(exitScreen)
-          //           ]
-          //         }
-          //       )
-          //     ]
-          //   }
-          // )
+          h(
+            TagsView,
+            {},
+            {
+              default: () => [
+                h(
+                  "span",
+                  { onClick: onFullScreen },
+                  // {
+                  //   default: () => [
+                  //     !goSetting.hiddenSideBar ? h(fullScreen) : h(exitScreen)
+                  //   ]
+                  // }
+                )
+              ]
+            }
+          )
         ]
       }
     );
