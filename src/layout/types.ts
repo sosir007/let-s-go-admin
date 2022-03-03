@@ -1,33 +1,40 @@
+import { Component } from "vue";
 export const routerArrays: Array<RouteConfigs> = [
   {
-    path: "/dashboard",
+    path: "/welcome",
     parentPath: "/",
     meta: {
-      title: "route.dashboard",
-      icon: "el-icon-s-home",
-      showLink: true
+      title: "menus.hshome",
+      i18n: true,
+      icon: "home-filled"
     }
   }
 ];
 
+export type routeMetaType = {
+  title?: string;
+  i18n?: boolean;
+  icon?: string;
+  showLink?: boolean;
+  savedPosition?: boolean;
+  authority?: Array<string>;
+};
+
 export type RouteConfigs = {
   path?: string;
   parentPath?: string;
-  meta?: {
-    title?: string;
-    icon?: string;
-    showLink?: boolean;
-    savedPosition?: boolean;
-  };
+  query?: object;
+  meta?: routeMetaType;
+  children?: RouteConfigs[];
   name?: string;
 };
 
-export type relativeStorageType = {
-  routesInStorage: Array<RouteConfigs>;
+export type multiTagsType = {
+  tags: Array<RouteConfigs>;
 };
 
 export type tagsViewsType = {
-  icon: string;
+  icon: Component;
   text: string;
   divided: boolean;
   disabled: boolean;
@@ -38,6 +45,7 @@ export interface setType {
   sidebar: {
     opened: boolean;
     withoutAnimation: boolean;
+    isClickHamburger: boolean;
   };
   device: string;
   fixedHeader: boolean;
@@ -47,6 +55,7 @@ export interface setType {
     withoutAnimation: boolean;
     mobile: boolean;
   };
+  hideTabs: boolean;
 }
 
 export type childrenType = {
@@ -57,9 +66,24 @@ export type childrenType = {
   meta?: {
     icon?: string;
     title?: string;
+    i18n?: boolean;
     extraIcon?: {
       svg?: boolean;
       name?: string;
     };
   };
+  showTooltip?: boolean;
+  parentId?: number;
+  pathList?: number[];
 };
+
+export type themeColorsType = {
+  rgb: string;
+  themeColor: string;
+};
+
+export interface scrollbarDomType extends HTMLElement {
+  wrap?: {
+    offsetWidth: number;
+  };
+}

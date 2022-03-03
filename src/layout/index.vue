@@ -43,13 +43,14 @@ const layout = computed(() => {
       layout: instance.$config?.Layout ?? "vertical",
       theme: instance.$config?.Theme ?? "default",
       darkMode: instance.$config?.DarkMode ?? false,
+      sidebarStatus: instance.$config?.SidebarStatus ?? true,
       epThemeColor: instance.$config?.EpThemeColor ?? "#409EFF"
     };
   }
   // 灰色模式、色弱模式、隐藏标签页
-  if (!instance.$storage.sets) {
+  if (!instance.$storage.configure) {
     // eslint-disable-next-line
-    instance.$storage.sets = {
+    instance.$storage.configure = {
       grey: instance.$config?.Grey ?? false,
       weak: instance.$config?.Weak ?? false,
       hideTabs: instance.$config?.HideTabs ?? false,
@@ -82,7 +83,7 @@ const set: setType = reactive({
   }),
 
   hideTabs: computed(() => {
-    return instance.$storage?.sets.hideTabs;
+    return instance.$storage?.configure.hideTabs;
   })
 });
 
@@ -92,6 +93,7 @@ function setTheme(layoutModel: string) {
     layout: `${layoutModel}`,
     theme: instance.$storage.layout?.theme,
     darkMode: instance.$storage.layout?.darkMode,
+    sidebarStatus: instance.$storage.layout?.sidebarStatus,
     epThemeColor: instance.$storage.layout?.epThemeColor
   };
 }
@@ -186,6 +188,15 @@ const layoutHeader = defineComponent({
 
 <template>
   <div :class="['app-wrapper', set.classes]" v-resize>
+    <div
+      v-show="
+        set.device === 'mobile' &&
+        set.sidebar.opened &&
+        layout.includes('vertical')
+      "
+      class="app-mask"
+      @click="useAppStoreHook().toggleSideBar()"
+    />
     <Sidebar v-show="!goSetting.hiddenSideBar && layout.includes('vertical')" />
     <div
       :class="[

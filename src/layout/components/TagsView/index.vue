@@ -1,11 +1,36 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import {
+  ref,
+  watch,
+  unref,
+  reactive,
+  nextTick,
+  computed,
+  ComputedRef,
+  CSSProperties,
+  onBeforeMount,
+  getCurrentInstance
+} from "vue";
+import { RouteConfigs, tagsViewsType } from "../../types";
+import { useMultiTagsStoreHook } from "@/store/modules/multiTags";
+
+let multiTags: ComputedRef<Array<RouteConfigs>> = computed(() => {
+  return useMultiTagsStoreHook()?.multiTags;
+});
+console.log('multiTags', multiTags);
+</script>
 
 <template>
   <div class="tagsView-container">
     <div class="arrow-left">
       <el-icon><ArrowLeft /></el-icon>
     </div>
-    <div class="scroll-container">TagsView</div>
+    <div class="scroll-container">
+      <div>
+        TagsView
+        <div v-for="(item, index) in multiTags" :key="index"></div>
+      </div>
+    </div>
     <div class="arrow-right">
       <el-icon><ArrowRight /></el-icon>
     </div>

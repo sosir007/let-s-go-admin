@@ -12,7 +12,6 @@ import { deviceDetection } from "@/utils/deviceDetection";
 import { watch, getCurrentInstance } from "vue";
 import globalization from "@/assets/svg/globalization.svg";
 
-const goApp = useAppStoreHook();
 const route = useRoute();
 const { locale } = useI18n();
 const instance =
@@ -23,7 +22,7 @@ const {
   onPanel,
   changeTitle,
   toggleSideBar,
-  pureApp,
+  goApp,
   account,
   getDropdownItemStyle
 } = useNav();

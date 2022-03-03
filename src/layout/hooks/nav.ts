@@ -9,7 +9,7 @@ import { Title } from "../../../public/serverConfig.json";
 import { useEpThemeStoreHook } from "@/store/modules/epTheme";
 
 export function useNav() {
-  const pureApp = useAppStoreHook();
+  const goApp = useAppStoreHook();
   // 用户名
   const account: string = storageSession.getItem("info")?.account || '';
 
@@ -24,7 +24,7 @@ export function useNav() {
   });
 
   const isCollapse = computed(() => {
-    return !pureApp.getSidebarStatus;
+    return !goApp.getSidebarStatus;
   });
 
   // 动态title
@@ -49,7 +49,7 @@ export function useNav() {
   }
 
   function toggleSideBar() {
-    pureApp.toggleSideBar();
+    goApp.toggleSideBar();
   }
 
   function handleResize(menuRef) {
@@ -103,7 +103,7 @@ export function useNav() {
     handleResize,
     resolvePath,
     isCollapse,
-    pureApp,
+    goApp,
     account,
     getDropdownItemStyle
   };
