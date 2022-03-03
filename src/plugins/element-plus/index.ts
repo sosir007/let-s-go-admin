@@ -57,6 +57,7 @@ import {
   Close,
   ArrowLeft,
   ArrowRight,
+  RefreshRight,
 } from "@element-plus/icons-vue";
 
 // Icon
@@ -65,6 +66,7 @@ export const iconComponents = [
   Close,
   ArrowLeft,
   ArrowRight,
+  RefreshRight,
 ];
 
 

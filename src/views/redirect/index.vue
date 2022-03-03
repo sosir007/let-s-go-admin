@@ -1,10 +1,20 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { unref } from "vue";
+import { useRouter } from "vue-router";
+
+const { currentRoute, replace } = useRouter();
+
+const { params, query } = unref(currentRoute);
+const { path } = params;
+
+const _path = Array.isArray(path) ? path.join("/") : path;
+
+replace({
+  path: "/" + _path,
+  query
+});
+</script>
 
 <template>
-  <div class="redirect-container">redirect</div>
+  <div></div>
 </template>
-
-<style lang="scss" scoped>
-.redirect-container {
-}
-</style>

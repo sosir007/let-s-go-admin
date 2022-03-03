@@ -18,6 +18,7 @@ specifiers:
   element-resize-detector: ^1.2.4
   js-cookie: ^3.0.1
   lodash-es: ^4.17.21
+  lodash-unified: ^1.0.2
   makeit-captcha: ^1.2.5
   mitt: ^3.0.0
   mockjs: ^1.1.0
@@ -50,6 +51,7 @@ dependencies:
   element-resize-detector: 1.2.4
   js-cookie: 3.0.1
   lodash-es: 4.17.21
+  lodash-unified: 1.0.2_lodash-es@4.17.21
   makeit-captcha: 1.2.5
   mitt: 3.0.0
   mockjs: 1.1.0
@@ -1029,7 +1031,7 @@ packages:
       dayjs: 1.10.7
       lodash: 4.17.21
       lodash-es: 4.17.21
-      lodash-unified: 1.0.1_lodash-es@4.17.21+lodash@4.17.21
+      lodash-unified: 1.0.2_lodash-es@4.17.21+lodash@4.17.21
       memoize-one: 6.0.0
       normalize-wheel-es: 1.1.1
       vue: 3.2.26
@@ -1532,8 +1534,18 @@ packages:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
     dev: false
 
-  /lodash-unified/1.0.1_lodash-es@4.17.21+lodash@4.17.21:
-    resolution: {integrity: sha512-Py+twfpWn+2dFQWCuGcp21WiQRwZwnm1cyE3piSt/VtBVKVyxlR58WgOVRzXtmdmDRGJKH8F8GPaA29WK/yK8g==}
+  /lodash-unified/1.0.2_lodash-es@4.17.21:
+    resolution: {integrity: sha512-OGbEy+1P+UT26CYi4opY4gebD8cWRDxAT6MAObIVQMiqYdxZr1g3QHWCToVsm31x2NkLS4K3+MC2qInaRMa39g==}
+    peerDependencies:
+      '@types/lodash-es': '*'
+      lodash: '*'
+      lodash-es: '*'
+    dependencies:
+      lodash-es: 4.17.21
+    dev: false
+
+  /lodash-unified/1.0.2_lodash-es@4.17.21+lodash@4.17.21:
+    resolution: {integrity: sha512-OGbEy+1P+UT26CYi4opY4gebD8cWRDxAT6MAObIVQMiqYdxZr1g3QHWCToVsm31x2NkLS4K3+MC2qInaRMa39g==}
     peerDependencies:
       '@types/lodash-es': '*'
       lodash: '*'
