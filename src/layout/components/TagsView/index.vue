@@ -9,15 +9,16 @@ import {
   ComputedRef,
   CSSProperties,
   onBeforeMount,
-  getCurrentInstance
+  getCurrentInstance,
+  markRaw,
 } from "vue";
 
-// import close from "/@/assets/svg/close.svg?component";
-// import refresh from "/@/assets/svg/refresh.svg?component";
-// import closeAll from "/@/assets/svg/close_all.svg?component";
-// import closeLeft from "/@/assets/svg/close_left.svg?component";
-// import closeOther from "/@/assets/svg/close_other.svg?component";
-// import closeRight from "/@/assets/svg/close_right.svg?component";
+import close from "@/assets/svg/close.svg";
+import refresh from "@/assets/svg/refresh.svg";
+import closeAll from "@/assets/svg/close_all.svg";
+import closeLeft from "@/assets/svg/close_left.svg";
+import closeOther from "@/assets/svg/close_other.svg";
+import closeRight from "@/assets/svg/close_right.svg";
 
 import { emitter } from "@/utils/mitt";
 import { $t as t } from "@/lang";
@@ -192,43 +193,43 @@ const handleScroll = (offset: number): void => {
 
 const tagsViews = reactive<Array<tagsViewsType>>([
   {
-    icon: "refresh",
-    text: t("buttons.hsreload"),
+    icon: markRaw(refresh),
+    text: 'button.reload',
     divided: false,
     disabled: false,
     show: true
   },
   {
-    icon: "close",
-    text: t("buttons.hscloseCurrentTab"),
+    icon: markRaw(close),
+    text: 'button.closeCurrentTab',
     divided: false,
     disabled: multiTags.value.length > 1 ? false : true,
     show: true
   },
   {
-    icon: "closeLeft",
-    text: t("buttons.hscloseLeftTabs"),
+    icon: markRaw(closeLeft),
+    text: 'button.closeLeftTabs',
     divided: true,
     disabled: multiTags.value.length > 1 ? false : true,
     show: true
   },
   {
-    icon: "closeRight",
-    text: t("buttons.hscloseRightTabs"),
+    icon: markRaw(closeRight),
+    text: 'button.closeRightTabs',
     divided: false,
     disabled: multiTags.value.length > 1 ? false : true,
     show: true
   },
   {
-    icon: "closeOther",
-    text: t("buttons.hscloseOtherTabs"),
+    icon: markRaw(closeOther),
+    text: 'button.closeOtherTabs',
     divided: true,
     disabled: multiTags.value.length > 2 ? false : true,
     show: true
   },
   {
-    icon: "closeAll",
-    text: t("buttons.hscloseAllTabs"),
+    icon: closeAll,
+    text: 'button.closeAllTabs',
     divided: false,
     disabled: multiTags.value.length > 1 ? false : true,
     show: true
@@ -419,7 +420,7 @@ function onClickDrop(key, item, selectRoute?: RouteConfigs) {
         length: multiTags.value.length
       });
       usePermissionStoreHook().clearAllCachePage();
-      router.push("/welcome");
+      router.push("/dashboard");
       break;
   }
   setTimeout(() => {
@@ -551,7 +552,6 @@ function openMenu(tag, e) {
 
 // 触发tags标签切换
 function tagOnClick(item) {
-  console.log("item", item);
   router.push({
     path: item?.path,
     query: item?.query
@@ -711,14 +711,14 @@ const getContextMenuStyle = computed((): CSSProperties => {
           <RefreshRight />
         </el-icon>
       </li>
-      <!-- <li>
+      <li>
         <el-dropdown
           trigger="click"
           placement="bottom-end"
           @command="handleCommand"
         >
           <el-icon>
-            <IconifyIconOffline icon="arrow-down" />
+            <ArrowDown />
           </el-icon>
           <template #dropdown>
             <el-dropdown-menu>
@@ -734,12 +734,12 @@ const getContextMenuStyle = computed((): CSSProperties => {
                   :key="key"
                   style="margin-right: 6px"
                 />
-                {{ $t(item.text) }}
+                {{ transformI18n(item.text, true) }}
               </el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
-      </li> -->
+      </li>
       <!-- <li>
         <slot></slot>
       </li> -->

@@ -1,18 +1,18 @@
-# 0.1.4-beta (2021-02-18～)
+# 0.1.4-beta (2022-02-18～2022-03-05)
 
 ## 🎫 Features 
 
 - 新增系统设置抽屉组件（功能暂时未开发）
 - 新增标签组件，带来更好的交互体验
-- 新增左侧导航栏和标签的联动交互
+- 新增左侧菜单栏和标签的联动交互
 
 ## 🍏 Perf
 
-- 优化本地存储，内置三个键`responsive-configure`、`responsive-locale`、`responsive-layout` 分别为基本配置、国际化配置、布局配置、标签页持久化配置
+- 优化本地存储，内置四个键`responsive-configure`、`responsive-locale`、`responsive-layout`、`responsive-tags`，分别为基本配置、国际化配置、布局配置、标签页持久化配置
 
 
 
-# 0.1.3-beta (2021-01-07～2021-02-17)
+# 0.1.3-beta (2022-01-07～2022-02-17)
 
 ## 🎫 Features 
 

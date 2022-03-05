@@ -39,18 +39,28 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 
 ## 项目计划：
 
-1. **整体框架 framework**：21.12.13 ~ 21.12.21，21.12.30 ～ 未定
+1. **整体框架 framework**：21.12.13 ~ 21.12.21，21.12.30 ～ 22.03.05
    + 遗留问题：
-     1. 简化版路由（后续待优化）
-     2. 完成 element 版本框架，计划切换框架完成 antd-vue 版本的
-     3. 修改主题色
-     4. 系统设置（一系列操作）
+     1. 简化版路由（后续待优化）（已优化）
+     2. 完成 element 版本框架，计划切换框架完成 antd-vue 版本的（暂缓）
+     4. 系统设置（包括修改主题色等一系列操作）
 2. **登录模块**：21.12.22 ~ 21.12.24
    + 遗留问题：
      1. logo 和 背景图需要替换（暂时找不到好的方案）
      2. 其他登录方式未实现（包括 github、微信 Oauth 登录等）
      3. 忘记密码和注册账号功能暂未实现
+3. **首页模块**：22.03.06 ～ 
 3. 待定……
+
+
+
+## 已完成任务：
+
+1. **整体框架 framework**：
+   + 左侧菜单栏 sidebar
+   + 顶部导航栏 navbar：菜单栏折叠功能、面包屑导航功能、全屏功能、切换语言功能、退出登录功能
+   + 路由标签栏 tagsview：重新加载功能、关闭标签页功能
+2. **登录模块**：实现验证码和校验等功能
 
 
 
@@ -68,9 +78,9 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 
 ## 待完成任务：
 
-1. 首页模块
 1. 错误页面模块
 3. 表单生成器模块
+3. 功能组件模块
 4. 系统管理模块
 5. 数据大屏模块
 6. 待定……
@@ -115,7 +125,7 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 
 + > Invalid VNode type: Symbol(Text)：pnpm install 组件正常使用，yarn install就会遇到这相同的问题。
 
-+ > [Vue warn]: Component provided template option but runtime compilation is not supported in this build of Vue. Configure your bundler to alias "vue" to "vue/dist/vue.esm-bundler.js"：
++ > [Vue warn]：Component provided template option but runtime compilation is not supported in this build of Vue. Configure your bundler to alias "vue" to "vue/dist/vue.esm-bundler.js"：
   >
   > 解释一下上面的意思，组件提供模板选项，但是在Vue的这个构建中不支持运行时编译，配置你的bundler别名 `vue： vue/dist/vue.esm-bundler.js`
   >
@@ -151,6 +161,17 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
   >     }
   >   }
   > }
+  > ```
+  
++ > [Vue warn]：Vue received a Component which was made a reactive object. This can lead to unnecessary performance overhead, and should be avoided by marking the component with `markRaw` or using `shallowRef` instead of `ref`. 
+  >
+  >
+  > 当使用内置组件compoent时is传入组件需要把引入的组件对象使用markRaw函数修改为不响应的原始值。提示你去给组件使用`markRaw` or `shallowRef`包起来就好了，我直接使用了markRaw来包起组件
+  >
+  > ```js
+  > import { markRaw } from 'vue'
+  > 
+  > markRaw(refresh)
   > ```
 
 

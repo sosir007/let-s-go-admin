@@ -10,5 +10,13 @@ export default {
     exitFullScreen: "exitFullscreen",
     login: "login",
     logout: "logout",
+  },
+  button: {
+    reload: "Reload",
+    closeCurrentTab: "Close CurrentTab",
+    closeLeftTabs: "Close LeftTabs",
+    closeRightTabs: "Close RightTabs",
+    closeOtherTabs: "Close OtherTabs",
+    closeAllTabs: "Close AllTabs"
   }
 }

@@ -22,6 +22,7 @@ import {
   ElDropdown,
   ElDropdownItem,
   ElDropdownMenu,
+  ElSwitch,
 } from "element-plus";
 
 const components = [
@@ -47,6 +48,7 @@ const components = [
   ElDropdown,
   ElDropdownItem,
   ElDropdownMenu,
+  ElSwitch,
 ];
 
 // const plugins = [ElLoading];
@@ -57,6 +59,7 @@ import {
   Close,
   ArrowLeft,
   ArrowRight,
+  ArrowDown,
   RefreshRight,
 } from "@element-plus/icons-vue";
 
@@ -66,6 +69,7 @@ export const iconComponents = [
   Close,
   ArrowLeft,
   ArrowRight,
+  ArrowDown,
   RefreshRight,
 ];
 
