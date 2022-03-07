@@ -228,7 +228,7 @@ const tagsViews = reactive<Array<tagsViewsType>>([
     show: true
   },
   {
-    icon: closeAll,
+    icon: markRaw(closeAll),
     text: 'button.closeAllTabs',
     divided: false,
     disabled: multiTags.value.length > 1 ? false : true,
