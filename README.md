@@ -35,6 +35,7 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 + **vite-svg-loader**：svg 组件化支持，在 vue 组件中加载 svg 文件
 + **lodash-unified**：ESModule 和 Commonjs 的 lodash 联合入口点
 + **xgplayer**：一款带解析器、能节省流量的HTML5视频播放器
++ **@amap/amap-jsapi-loader**：高德官网提供的地图JSAPI加载器，可以避免多种异步加载API的错误用法
 
 
 
@@ -62,7 +63,7 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
    + 顶部导航栏 navbar：菜单栏折叠功能、面包屑导航功能、全屏功能、切换语言功能、退出登录功能
    + 路由标签栏 tagsview：重新加载功能、关闭标签页功能
 2. **登录模块**：实现验证码和校验等功能
-3. **组件模块**：视频组件
+3. **组件模块**：视频组件、地图组件
 
 
 

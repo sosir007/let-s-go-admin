@@ -1,10 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Amap from "@/components/Map/index.vue";
+</script>
 
 <template>
-  <div class="map-container">map</div>
+  <Amap />
 </template>
 
 <style lang="scss" scoped>
-.map-container {
+.main-content {
+  margin: 0 !important;
 }
 </style>

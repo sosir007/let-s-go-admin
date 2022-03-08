@@ -7,6 +7,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
     "@element-plus/icons-vue": "^0.2.7",
     "@vueuse/core": "^7.4.1",
     "@vueuse/motion": "^2.0.0-beta.4",

@@ -25,6 +25,8 @@ import {
   ElSwitch,
   ElCard,
   ElLink,
+  // 指令
+  ElLoading,
 } from "element-plus";
 
 const components = [
@@ -55,7 +57,7 @@ const components = [
   ElLink,
 ];
 
-// const plugins = [ElLoading];
+const plugins = [ElLoading];
 
 // https://element-plus.org/zh-CN/component/icon.html
 import {
@@ -84,9 +86,9 @@ function useElementPlus(app: App) {
     app.component(component.name, component);
   });
   // 注册指令
-  // plugins.forEach(plugin => {
-  //   app.use(plugin);
-  // });
+  plugins.forEach(plugin => {
+    app.use(plugin);
+  });
   // 注册图标
   iconComponents.forEach((component: Component) => {
     app.component(component.name, component);
