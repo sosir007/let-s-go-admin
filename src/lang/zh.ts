@@ -1,6 +1,9 @@
 export default {
   route: {
-    dashboard: "首页",
+    dashboard: "首页", 
+    components: "组件",
+    video: "视频组件",
+    map: "地图组件",
     errorPages: "错误页面",
     page401: "401",
     page404: "404",

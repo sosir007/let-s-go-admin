@@ -24,6 +24,7 @@ import {
   ElDropdownMenu,
   ElSwitch,
   ElCard,
+  ElLink,
 } from "element-plus";
 
 const components = [
@@ -51,6 +52,7 @@ const components = [
   ElDropdownMenu,
   ElSwitch,
   ElCard,
+  ElLink,
 ];
 
 // const plugins = [ElLoading];

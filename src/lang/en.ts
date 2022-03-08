@@ -1,6 +1,9 @@
 export default {
   route: {
     dashboard: "Dashboard",
+    components: "Components",
+    video: "Video Components",
+    map: "Map Components",
     errorPages: "Error Pages",
     page401: "401",
     page404: "404",

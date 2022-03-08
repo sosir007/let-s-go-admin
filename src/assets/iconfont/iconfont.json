@@ -6,6 +6,125 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "954148",
+      "name": "地图",
+      "font_class": "map",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "1713956",
+      "name": "49-滚动",
+      "font_class": "scroll",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "1766487",
+      "name": "符号-复选择器",
+      "font_class": "select",
+      "unicode": "e697",
+      "unicode_decimal": 59031
+    },
+    {
+      "icon_id": "1766510",
+      "name": "符号-折叠面板",
+      "font_class": "zhediemianban",
+      "unicode": "e6a0",
+      "unicode_decimal": 59040
+    },
+    {
+      "icon_id": "4294061",
+      "name": "裁剪",
+      "font_class": "caijian",
+      "unicode": "e780",
+      "unicode_decimal": 59264
+    },
+    {
+      "icon_id": "8017630",
+      "name": "textbutton",
+      "font_class": "button",
+      "unicode": "e6ce",
+      "unicode_decimal": 59086
+    },
+    {
+      "icon_id": "11759972",
+      "name": "组件",
+      "font_class": "zujian",
+      "unicode": "e7c2",
+      "unicode_decimal": 59330
+    },
+    {
+      "icon_id": "11759988",
+      "name": "组件",
+      "font_class": "zujian1",
+      "unicode": "e7c7",
+      "unicode_decimal": 59335
+    },
+    {
+      "icon_id": "12184905",
+      "name": "打印机",
+      "font_class": "dayinji",
+      "unicode": "e68c",
+      "unicode_decimal": 59020
+    },
+    {
+      "icon_id": "12752356",
+      "name": "移动",
+      "font_class": "draggable",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "15726903",
+      "name": "视频2",
+      "font_class": "video",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "16364316",
+      "name": "编辑",
+      "font_class": "edit",
+      "unicode": "e631",
+      "unicode_decimal": 58929
+    },
+    {
+      "icon_id": "20240563",
+      "name": "菜单页面编辑",
+      "font_class": "menu",
+      "unicode": "e638",
+      "unicode_decimal": 58936
+    },
+    {
+      "icon_id": "20240576",
+      "name": "流程图",
+      "font_class": "liuchengtu",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "21158429",
+      "name": "m-数字滚动",
+      "font_class": "shuzigundong",
+      "unicode": "e7f2",
+      "unicode_decimal": 59378
+    },
+    {
+      "icon_id": "21417199",
+      "name": "水印",
+      "font_class": "shuiyin",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "21823766",
+      "name": "date",
+      "font_class": "date",
+      "unicode": "e667",
+      "unicode_decimal": 58983
+    },
+    {
       "icon_id": "1350627",
       "name": "setting",
       "font_class": "setting",
