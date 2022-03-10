@@ -6,6 +6,125 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "27285493",
+      "name": "二维码",
+      "font_class": "scan",
+      "unicode": "e799",
+      "unicode_decimal": 59289
+    },
+    {
+      "icon_id": "7627",
+      "name": "分享",
+      "font_class": "fenxiang",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "4251776",
+      "name": "折线图",
+      "font_class": "zhexiantu",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "4292664",
+      "name": "倒计时",
+      "font_class": "daojishi",
+      "unicode": "e766",
+      "unicode_decimal": 59238
+    },
+    {
+      "icon_id": "4932636",
+      "name": "云端上传",
+      "font_class": "upload",
+      "unicode": "ec1d",
+      "unicode_decimal": 60445
+    },
+    {
+      "icon_id": "5993150",
+      "name": "复制",
+      "font_class": "fuzhi",
+      "unicode": "ec7a",
+      "unicode_decimal": 60538
+    },
+    {
+      "icon_id": "6880444",
+      "name": "图标-01",
+      "font_class": "tubiao",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "7215720",
+      "name": "Loading",
+      "font_class": "Loading",
+      "unicode": "e6e8",
+      "unicode_decimal": 59112
+    },
+    {
+      "icon_id": "8679533",
+      "name": "下载",
+      "font_class": "xiazai",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "8821275",
+      "name": "柱状图-01",
+      "font_class": "zhuzhuangtu",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "9297207",
+      "name": "计时器",
+      "font_class": "jishiqi",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "10857593",
+      "name": "元饼图图标",
+      "font_class": "bingtu",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "18170236",
+      "name": "代码,程序,窗口,弹窗",
+      "font_class": "dialog",
+      "unicode": "e990",
+      "unicode_decimal": 59792
+    },
+    {
+      "icon_id": "19288129",
+      "name": "bim_动画",
+      "font_class": "animation",
+      "unicode": "e6e9",
+      "unicode_decimal": 59113
+    },
+    {
+      "icon_id": "20813967",
+      "name": "二维码",
+      "font_class": "qrcode",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "21060746",
+      "name": "图片预览",
+      "font_class": "preview",
+      "unicode": "e7dc",
+      "unicode_decimal": 59356
+    },
+    {
+      "icon_id": "23713950",
+      "name": "引导",
+      "font_class": "yindao",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
       "icon_id": "954148",
       "name": "地图",
       "font_class": "map",

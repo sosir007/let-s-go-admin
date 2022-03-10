@@ -33,6 +33,26 @@ const componentsRouter = {
         i18n: true,
         showLink: true
       }
+    }, {
+      path: "/components/button",
+      name: "button",
+      component: () => import("@/views/components/button/index.vue"),
+      meta: {
+        icon: "icon-button",
+        title: "route.button",
+        i18n: true,
+        showLink: true
+      }
+    }, {
+      path: "/components/countdown",
+      name: "countdown",
+      component: () => import("@/views/components/countdown/index.vue"),
+      meta: {
+        icon: "icon-jishiqi",
+        title: "route.countdown",
+        i18n: true,
+        showLink: true
+      }
     },
   ]
 };

@@ -4,6 +4,8 @@ export default {
     components: "Components",
     video: "Video Components",
     map: "Map Components",
+    button: "Button Components",
+    countdown: "Countdown Components",
     errorPages: "Error Pages",
     page401: "401",
     page404: "404",
