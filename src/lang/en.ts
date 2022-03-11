@@ -6,6 +6,7 @@ export default {
     map: "Map Components",
     button: "Button Components",
     countdown: "Countdown Components",
+    cropping: "Picture Cropping",
     errorPages: "Error Pages",
     page401: "401",
     page404: "404",

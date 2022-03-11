@@ -1,5 +1,6 @@
 import { ConfigEnv, UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import vueJsx from "@vitejs/plugin-vue-jsx";
 import { viteMockServe } from 'vite-plugin-mock'
 import { resolve } from 'path'
 import styleImport from 'vite-plugin-style-import'
@@ -51,6 +52,8 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
     },
     plugins: [
       vue(),
+      // jsx、tsx语法支持
+      vueJsx(),
       // svg组件化支持
       svgLoader(),
       // styleImport({

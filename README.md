@@ -36,6 +36,8 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 + **lodash-unified**：ESModule 和 Commonjs 的 lodash 联合入口点
 + **xgplayer**：一款带解析器、能节省流量的HTML5视频播放器
 + **@amap/amap-jsapi-loader**：高德官网提供的地图JSAPI加载器，可以避免多种异步加载API的错误用法
++ **cropperjs**：JavaScript 图像裁剪器
++ **@vitejs/plugin-vue-jsx**：通过 HMR 提供 Vue 3 JSX 和 TSX 支持
 
 
 
@@ -177,6 +179,10 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
   > 
   > markRaw(refresh)
   > ```
+  
++ > Uncaught (in promise) ReferenceError: React is not defined
+  >
+  > 没有添加 jsx 配置，安装 @vitejs/plugin-vue-jsx 依赖就可以了。
 
 
 

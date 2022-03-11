@@ -6,6 +6,7 @@ export default {
     map: "地图组件",
     button: "按钮组件",
     countdown: "倒计时组件",
+    cropping: "图片裁剪",
     errorPages: "错误页面",
     page401: "401",
     page404: "404",

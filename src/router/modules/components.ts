@@ -53,6 +53,16 @@ const componentsRouter = {
         i18n: true,
         showLink: true
       }
+    }, {
+      path: "/components/cropping",
+      name: "cropping",
+      component: () => import("@/views/components/cropping/index.vue"),
+      meta: {
+        icon: "icon-caijian",
+        title: "route.cropping",
+        i18n: true,
+        showLink: true
+      }
     },
   ]
 };
