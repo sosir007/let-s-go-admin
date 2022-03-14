@@ -38,6 +38,7 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 + **@amap/amap-jsapi-loader**：高德官网提供的地图JSAPI加载器，可以避免多种异步加载API的错误用法
 + **cropperjs**：JavaScript 图像裁剪器
 + **@vitejs/plugin-vue-jsx**：通过 HMR 提供 Vue 3 JSX 和 TSX 支持
++ **vue-types**：VueTypes 是一组可配置的 prop 验证器对于 Vue.js，受 React 启发prop-types
 
 
 

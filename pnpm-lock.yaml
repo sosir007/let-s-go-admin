@@ -42,6 +42,7 @@ specifiers:
   vue-i18n: ^9.2.0-beta.26
   vue-router: 4.0.12
   vue-tsc: ^0.3.0
+  vue-types: ^4.1.1
   xgplayer: ^2.31.4
 
 dependencies:
@@ -70,6 +71,7 @@ dependencies:
   vue: 3.2.26
   vue-i18n: 9.2.0-beta.26_vue@3.2.26
   vue-router: 4.0.12_vue@3.2.26
+  vue-types: 4.1.1_vue@3.2.26
   xgplayer: 2.31.4
 
 devDependencies:
@@ -2030,6 +2032,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
+  /is-plain-object/5.0.0:
+    resolution: {integrity: sha512-VRSzKkbMm5jMDoKLbltAkFQ5Qr7VDiTFGXxYFXXowVj387GeGNOCsOH6Msy00SGZ3Fp84b1Naa1psqgcCIEP5Q==}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
   /is-promise/2.2.2:
     resolution: {integrity: sha512-+lP4/6lKUBfQjZ2pdxThZvLUAafmZb8OAxFb8XXtiQmS35INgr85hdOGoEs124ez1FCnZJt6jau/T+alh58QFQ==}
     dev: true
@@ -3430,6 +3437,16 @@ packages:
       vue: ^3.0.0
     dependencies:
       is-plain-object: 3.0.1
+      vue: 3.2.26
+    dev: false
+
+  /vue-types/4.1.1_vue@3.2.26:
+    resolution: {integrity: sha512-Jq2GZ/w6rExJbLA/h7nHBFLciu+YNekgox0DB64wN1snZ4IIJMq+qnqp1/vE4fc7vEjZcP5KGhLzkkSjIHLRzw==}
+    engines: {node: '>=12.16.0'}
+    peerDependencies:
+      vue: ^2.0.0 || ^3.0.0
+    dependencies:
+      is-plain-object: 5.0.0
       vue: 3.2.26
     dev: false
 

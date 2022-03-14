@@ -63,6 +63,16 @@ const componentsRouter = {
         i18n: true,
         showLink: true
       }
+    }, {
+      path: "/components/countTo",
+      name: "countTo",
+      component: () => import("@/views/components/countTo/index.vue"),
+      meta: {
+        icon: "icon-shuzigundong",
+        title: "route.countTo",
+        i18n: true,
+        showLink: true
+      }
     },
   ]
 };

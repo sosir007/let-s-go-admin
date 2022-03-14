@@ -7,6 +7,7 @@ export default {
     button: "Button Components",
     countdown: "Countdown Components",
     cropping: "Picture Cropping",
+    countTo: "Digital Animation",
     errorPages: "Error Pages",
     page401: "401",
     page404: "404",
