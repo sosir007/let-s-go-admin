@@ -1,6 +1,6 @@
 <script setup lang="ts">
-// import { ReNormalCountTo, ReboundCountTo } from "/@/components/ReCountTo";
-import { NormalCountTo } from "@/components/CountTo";
+import { NormalCountTo, ReboundCountTo } from "@/components/CountTo";
+// import { NormalCountTo } from "@/components/CountTo";
 </script>
 
 <template>
@@ -20,13 +20,13 @@ import { NormalCountTo } from "@/components/CountTo";
         :endVal="1000"
       />
       <ul class="flex ml-8">
-        <!-- <ReboundCountTo
+        <ReboundCountTo
           v-for="(num, inx) of [1, 6, 6, 6]"
           :key="inx"
           :i="num"
           :blur="inx"
           :delay="inx + 1"
-        /> -->
+        />
       </ul>
     </div>
   </el-card>

@@ -12,6 +12,7 @@ import { setupDirectives } from '@/directives';
 import { setupI18n } from '@/lang';
 
 import "animate.css";
+import "virtual:windi.css";
 // 导入公共样式
 import "./style/index.scss";
 // 导入字体图标

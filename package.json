@@ -50,7 +50,9 @@
     "vite": "^2.8.6",
     "vite-plugin-mock": "^2.9.6",
     "vite-plugin-style-import": "^1.4.0",
+    "vite-plugin-windicss": "^1.8.3",
     "vite-svg-loader": "^3.1.2",
-    "vue-tsc": "^0.3.0"
+    "vue-tsc": "^0.3.0",
+    "windicss": "^3.5.1"
   }
 }

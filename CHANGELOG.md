@@ -3,10 +3,12 @@
 ## 🎫 Features 
 
 - 新增组件模块图片裁剪组件
+- 新增数字滚动组件
 
 ##  🍏 Perf
 
 - 新增 jsx、tsx语法支持
+- 新增 windicss 配置样式
 
 
 
