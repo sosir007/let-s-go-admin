@@ -4,6 +4,7 @@ export default {
     components: "组件",
     video: "视频组件",
     map: "地图组件",
+    draggable: "拖拽组件",
     button: "按钮组件",
     countdown: "倒计时组件",
     cropping: "图片裁剪",

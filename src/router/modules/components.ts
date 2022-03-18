@@ -34,6 +34,16 @@ const componentsRouter = {
         showLink: true
       }
     }, {
+      path: "/components/draggable",
+      name: "draggable",
+      component: () => import("@/views/components/draggable/index.vue"),
+      meta: {
+        icon: "icon-draggable",
+        title: "route.draggable",
+        i18n: true,
+        showLink: true
+      }
+    }, {
       path: "/components/button",
       name: "button",
       component: () => import("@/views/components/button/index.vue"),

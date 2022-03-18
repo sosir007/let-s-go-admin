@@ -4,6 +4,7 @@ export default {
     components: "Components",
     video: "Video Components",
     map: "Map Components",
+    draggable: "Draggable Components",
     button: "Button Components",
     countdown: "Countdown Components",
     cropping: "Picture Cropping",

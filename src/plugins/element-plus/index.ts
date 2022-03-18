@@ -27,6 +27,8 @@ import {
   ElLink,
   // 指令
   ElLoading,
+  ElRow,
+  ElCol,
 } from "element-plus";
 
 const components = [
@@ -55,6 +57,8 @@ const components = [
   ElSwitch,
   ElCard,
   ElLink,
+  ElRow,
+  ElCol,
 ];
 
 const plugins = [ElLoading];
