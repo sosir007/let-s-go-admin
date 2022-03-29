@@ -64,6 +64,16 @@ const componentsRouter = {
         showLink: true
       }
     }, {
+      path: "/components/countTo",
+      name: "countTo",
+      component: () => import("@/views/components/countTo/index.vue"),
+      meta: {
+        icon: "icon-shuzigundong",
+        title: "route.countTo",
+        i18n: true,
+        showLink: true
+      }
+    }, {
       path: "/components/cropping",
       name: "cropping",
       component: () => import("@/views/components/cropping/index.vue"),
@@ -74,12 +84,22 @@ const componentsRouter = {
         showLink: true
       }
     }, {
-      path: "/components/countTo",
-      name: "countTo",
-      component: () => import("@/views/components/countTo/index.vue"),
+      path: "/components/loading",
+      name: "loading",
+      component: () => import("@/views/components/loading/index.vue"),
       meta: {
-        icon: "icon-shuzigundong",
-        title: "route.countTo",
+        icon: "icon-Loading",
+        title: "route.loading",
+        i18n: true,
+        showLink: true
+      }
+    }, {
+      path: "/components/iconSelect",
+      name: "iconSelect",
+      component: () => import("@/views/components/iconSelect/index.vue"),
+      meta: {
+        icon: "icon-tubiao",
+        title: "route.iconSelect",
         i18n: true,
         showLink: true
       }

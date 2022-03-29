@@ -10,6 +10,7 @@
 
 - 新增 jsx、tsx语法支持
 - 新增 windicss 配置样式
+- 使用 Iconify 代替之前的 Icon 组件
 
 
 

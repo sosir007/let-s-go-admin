@@ -3,6 +3,11 @@ lockfileVersion: 5.3
 specifiers:
   '@amap/amap-jsapi-loader': ^1.0.1
   '@element-plus/icons-vue': ^0.2.7
+  '@iconify-icons/ep': ^1.2.4
+  '@iconify-icons/fa': ^1.2.2
+  '@iconify-icons/fa-solid': ^1.2.2
+  '@iconify-icons/ri': ^1.2.1
+  '@iconify/vue': ^3.2.0
   '@types/element-resize-detector': ^1.1.3
   '@types/js-cookie': ^3.0.1
   '@types/mockjs': ^1.0.4
@@ -79,6 +84,11 @@ dependencies:
   xgplayer: 2.31.4
 
 devDependencies:
+  '@iconify-icons/ep': 1.2.4
+  '@iconify-icons/fa': 1.2.2
+  '@iconify-icons/fa-solid': 1.2.2
+  '@iconify-icons/ri': 1.2.1
+  '@iconify/vue': 3.2.0_vue@3.2.26
   '@types/element-resize-detector': 1.1.3
   '@types/js-cookie': 3.0.1
   '@types/mockjs': 1.0.4
@@ -480,6 +490,42 @@ packages:
 
   /@emmetio/scanner/1.0.0:
     resolution: {integrity: sha512-8HqW8EVqjnCmWXVpqAOZf+EGESdkR27odcMMMGefgKXtar00SoYNSryGv//TELI4T3QFsECo78p+0lmalk/CFA==}
+    dev: true
+
+  /@iconify-icons/ep/1.2.4:
+    resolution: {integrity: sha512-EmNFcajYB1ZfvviG6296NtfMlg0Q+w619qx/0H+tUaVxHIlChPlmOYMKRiOPKeNTvoFgEN+u5jbYxMWBqSWYDg==}
+    dependencies:
+      '@iconify/types': 1.1.0
+    dev: true
+
+  /@iconify-icons/fa-solid/1.2.2:
+    resolution: {integrity: sha512-XNU+pk89pMbozQk9YMpxA+K+rPsq07MXJa9TwZS1oyBlbaIdeH6r/KOOeNYzmDVk6yaaZyTh9wfSJhuc8zIVYw==}
+    dependencies:
+      '@iconify/types': 1.1.0
+    dev: true
+
+  /@iconify-icons/fa/1.2.2:
+    resolution: {integrity: sha512-8lecoWNI7X/GRw7B9NPVyGlPrqUxi1w1aZyzAm1s+eiPixmmivxdHtg53tGeSJpYgm/grfSti8EbYoiFTIckrw==}
+    dependencies:
+      '@iconify/types': 1.1.0
+    dev: true
+
+  /@iconify-icons/ri/1.2.1:
+    resolution: {integrity: sha512-8VlUg6xrRz2BWmwulF6aWnb138NzkLhBJZ36Pu/9qjpTwwLyFi+Wgg1+LeMvOBXySiD/H/bTQh7Lay73uiN61A==}
+    dependencies:
+      '@iconify/types': 1.1.0
+    dev: true
+
+  /@iconify/types/1.1.0:
+    resolution: {integrity: sha512-Jh0llaK2LRXQoYsorIH8maClebsnzTcve+7U3rQUSnC11X4jtPnFuyatqFLvMxZ8MLG8dB4zfHsbPfuvxluONw==}
+    dev: true
+
+  /@iconify/vue/3.2.0_vue@3.2.26:
+    resolution: {integrity: sha512-sBWkef1Pp3vjDfU92UjTnvN9BsJ5o4TVdIN8+Yx+TGEwLcujty7/vq1m9FhJ9D8/ZTAN2MttKojj80s6j4FqGg==}
+    peerDependencies:
+      vue: 3.x
+    dependencies:
+      vue: 3.2.26
     dev: true
 
   /@intlify/core-base/9.2.0-beta.26:
