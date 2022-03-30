@@ -10,7 +10,7 @@ import {
   CSSProperties,
   onBeforeMount,
   getCurrentInstance,
-  markRaw,
+  markRaw
 } from "vue";
 
 import close from "@/assets/svg/close.svg";
@@ -194,42 +194,42 @@ const handleScroll = (offset: number): void => {
 const tagsViews = reactive<Array<tagsViewsType>>([
   {
     icon: markRaw(refresh),
-    text: 'button.reload',
+    text: "button.reload",
     divided: false,
     disabled: false,
     show: true
   },
   {
     icon: markRaw(close),
-    text: 'button.closeCurrentTab',
+    text: "button.closeCurrentTab",
     divided: false,
     disabled: multiTags.value.length > 1 ? false : true,
     show: true
   },
   {
     icon: markRaw(closeLeft),
-    text: 'button.closeLeftTabs',
+    text: "button.closeLeftTabs",
     divided: true,
     disabled: multiTags.value.length > 1 ? false : true,
     show: true
   },
   {
     icon: markRaw(closeRight),
-    text: 'button.closeRightTabs',
+    text: "button.closeRightTabs",
     divided: false,
     disabled: multiTags.value.length > 1 ? false : true,
     show: true
   },
   {
     icon: markRaw(closeOther),
-    text: 'button.closeOtherTabs',
+    text: "button.closeOtherTabs",
     divided: true,
     disabled: multiTags.value.length > 2 ? false : true,
     show: true
   },
   {
     icon: markRaw(closeAll),
-    text: 'button.closeAllTabs',
+    text: "button.closeAllTabs",
     divided: false,
     disabled: multiTags.value.length > 1 ? false : true,
     show: true
@@ -640,7 +640,8 @@ const getContextMenuStyle = computed((): CSSProperties => {
 <template>
   <div ref="containerDom" class="tags-view" v-if="!showTags">
     <div class="arrow-left">
-      <el-icon><ArrowLeft @click="handleScroll(200)" /></el-icon>
+      <!-- <el-icon><ArrowLeft @click="handleScroll(200)" /></el-icon> -->
+      <IconifyIconOffline icon="arrow-left-s-line" @click="handleScroll(200)" />
     </div>
     <div ref="scrollbarDom" class="scroll-container">
       <div class="tab" ref="tabDom" :style="getTabStyle">
@@ -663,7 +664,7 @@ const getContextMenuStyle = computed((): CSSProperties => {
           <router-link :to="item.path"
             >{{ transformI18n(item.meta.title, item.meta.i18n) }}
           </router-link>
-          <el-icon
+          <!-- <el-icon
             v-if="
               iconIsActive(item, index) ||
               (index === activeIndex && index !== 0)
@@ -672,7 +673,17 @@ const getContextMenuStyle = computed((): CSSProperties => {
             @click.stop="deleteMenu(item)"
           >
             <Close />
-          </el-icon>
+          </el-icon> -->
+          <span
+            v-if="
+              iconIsActive(item, index) ||
+              (index === activeIndex && index !== 0)
+            "
+            class="el-icon-close"
+            @click.stop="deleteMenu(item)"
+          >
+            <IconifyIconOffline icon="close-bold" />
+          </span>
           <div
             :ref="'schedule' + index"
             v-if="showModel !== 'card'"
@@ -682,7 +693,11 @@ const getContextMenuStyle = computed((): CSSProperties => {
       </div>
     </div>
     <span class="arrow-right">
-      <el-icon><ArrowRight @click="handleScroll(-200)" /></el-icon>
+      <!-- <el-icon><ArrowRight @click="handleScroll(-200)" /></el-icon> -->
+      <IconifyIconOffline
+        icon="arrow-right-s-line"
+        @click="handleScroll(-200)"
+      />
     </span>
     <!-- 右键菜单按钮 -->
     <!-- <transition name="el-zoom-in-top">
@@ -707,9 +722,12 @@ const getContextMenuStyle = computed((): CSSProperties => {
     <!-- 右侧功能按钮 -->
     <ul class="right-button">
       <li>
-        <el-icon class="el-icon-refresh-right rotate" @click="onFresh">
+        <!-- <el-icon class="el-icon-refresh-right rotate" @click="onFresh">
           <RefreshRight />
-        </el-icon>
+        </el-icon> -->
+        <span class="el-icon-refresh-right rotate" @click="onFresh">
+          <IconifyIconOffline icon="refresh-right" />
+        </span>
       </li>
       <li>
         <el-dropdown
@@ -717,9 +735,10 @@ const getContextMenuStyle = computed((): CSSProperties => {
           placement="bottom-end"
           @command="handleCommand"
         >
-          <el-icon>
+          <!-- <el-icon>
             <ArrowDown />
-          </el-icon>
+          </el-icon> -->
+          <IconifyIconOffline icon="arrow-down" />
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item

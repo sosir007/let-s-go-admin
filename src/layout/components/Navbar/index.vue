@@ -57,7 +57,7 @@ function translationEn() {
 
     <div class="navbar-container-right">
       <!-- 全屏 -->
-      <ScreenFull v-show="!deviceDetection()" /> 
+      <ScreenFull v-show="!deviceDetection()" />
 
       <!-- 国际化 -->
       <el-dropdown id="header-translation" trigger="click">
@@ -67,17 +67,29 @@ function translationEn() {
             <el-dropdown-item
               :style="getDropdownItemStyle(locale, 'zh')"
               @click="translationCh"
-              ><el-icon class="check-zh" v-show="locale === 'zh'"
-                ><check /></el-icon
-              >简体中文</el-dropdown-item
             >
+              <!-- <el-icon class="check-zh" v-show="locale === 'zh'"
+                ><check />
+              </el-icon> -->
+              <IconifyIconOffline
+                class="check-zh"
+                v-show="locale === 'zh'"
+                icon="check"
+              />简体中文
+            </el-dropdown-item>
             <el-dropdown-item
               :style="getDropdownItemStyle(locale, 'en')"
               @click="translationEn"
-              ><el-icon class="check-en" v-show="locale === 'en'"
-                ><check /></el-icon
-              >English</el-dropdown-item
             >
+              <!-- <el-icon class="check-en" v-show="locale === 'en'"
+                ><check />
+              </el-icon> -->
+              <IconifyIconOffline
+                class="check-en"
+                v-show="locale === 'en'"
+                icon="check"
+              />English
+            </el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>

@@ -29,6 +29,11 @@ import {
   ElLoading,
   ElRow,
   ElCol,
+  ElPopover,
+  ElDivider,
+  ElTabs,
+  ElTabPane,
+  ElPagination,
 } from "element-plus";
 
 const components = [
@@ -59,29 +64,34 @@ const components = [
   ElLink,
   ElRow,
   ElCol,
+  ElPopover,
+  ElDivider,
+  ElTabs,
+  ElTabPane,
+  ElPagination,
 ];
 
 const plugins = [ElLoading];
 
-// https://element-plus.org/zh-CN/component/icon.html
-import {
-  Check,
-  Close,
-  ArrowLeft,
-  ArrowRight,
-  ArrowDown,
-  RefreshRight,
-} from "@element-plus/icons-vue";
+// // https://element-plus.org/zh-CN/component/icon.html
+// import {
+//   Check,
+//   Close,
+//   ArrowLeft,
+//   ArrowRight,
+//   ArrowDown,
+//   RefreshRight,
+// } from "@element-plus/icons-vue";
 
-// Icon
-export const iconComponents = [
-  Check,
-  Close,
-  ArrowLeft,
-  ArrowRight,
-  ArrowDown,
-  RefreshRight,
-];
+// // Icon
+// export const iconComponents = [
+//   Check,
+//   Close,
+//   ArrowLeft,
+//   ArrowRight,
+//   ArrowDown,
+//   RefreshRight,
+// ];
 
 
 function useElementPlus(app: App) {
@@ -93,10 +103,11 @@ function useElementPlus(app: App) {
   plugins.forEach(plugin => {
     app.use(plugin);
   });
+  // 使用 iconify 来注册图标
   // 注册图标
-  iconComponents.forEach((component: Component) => {
-    app.component(component.name, component);
-  });
+  // iconComponents.forEach((component: Component) => {
+  //   app.component(component.name, component);
+  // });
 }
 
 export function setupElementComp(app: App) {
