@@ -1,6 +1,6 @@
 {
   "name": "lets-go-admin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
@@ -27,6 +27,7 @@
     "path-browserify": "^1.0.1",
     "pinia": "^2.0.6",
     "qs": "^6.10.2",
+    "resize-observer-polyfill": "^1.5.1",
     "responsive-storage": "^1.0.11",
     "vee-validate": "^4.5.7",
     "vue": "^3.2.16",

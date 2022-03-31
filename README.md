@@ -42,6 +42,7 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 + **vite-plugin-windicss windicss**：下一代工具类 CSS 框架
 + **vuedraggable**：Vue 的可拖动组件
 + **@iconify/vue、@iconify-icons/ep、@iconify-icons/fa、@iconify-icons/fa-solid、@iconify-icons/ri**：统一的图标框架
++ **resize-observer-polyfill**：Resize Observer API 的 polyfill
 
 
 
@@ -69,7 +70,7 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
    + 顶部导航栏 navbar：菜单栏折叠功能、面包屑导航功能、全屏功能、切换语言功能、退出登录功能
    + 路由标签栏 tagsview：重新加载功能、关闭标签页功能
 2. **登录模块**：实现验证码和校验等功能
-3. **组件模块**：视频组件、地图组件、拖拽组件、按钮组件、倒计时组件、数字滚动、图片裁剪、图标选择器组件
+3. **组件模块**：视频组件、地图组件、拖拽组件、按钮组件、倒计时组件、数字滚动、图片裁剪、图标选择器、水印组件
 
 
 

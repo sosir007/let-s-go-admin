@@ -11,6 +11,7 @@ export default {
     cropping: "图片裁剪",
     loading: "加载组件",
     iconSelect: "图标选择器",
+    watermark: "水印组件",
     errorPages: "错误页面",
     page401: "401",
     page404: "404",

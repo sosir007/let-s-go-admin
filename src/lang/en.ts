@@ -11,6 +11,7 @@ export default {
     cropping: "Picture Cropping",
     loading: "Loading Components",
     iconSelect: "Icon Select",
+    watermark: "Watermark Components",
     errorPages: "Error Pages",
     page401: "401",
     page404: "404",

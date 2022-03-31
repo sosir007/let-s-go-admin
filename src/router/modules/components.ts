@@ -103,6 +103,16 @@ const componentsRouter = {
         i18n: true,
         showLink: true
       }
+    },{
+      path: "/components/watermark",
+      name: "watermark",
+      component: () => import("@/views/components/watermark/index.vue"),
+      meta: {
+        icon: "icon-shuiyin",
+        title: "route.watermark",
+        i18n: true,
+        showLink: true
+      }
     },
   ]
 };
