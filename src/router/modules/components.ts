@@ -113,6 +113,16 @@ const componentsRouter = {
         i18n: true,
         showLink: true
       }
+    }, {
+      path: "/components/editor",
+      name: "editor",
+      component: () => import("@/views/components/editor/index.vue"),
+      meta: {
+        icon: "icon-edit",
+        title: "route.editor",
+        i18n: true,
+        showLink: true
+      }
     },
   ]
 };

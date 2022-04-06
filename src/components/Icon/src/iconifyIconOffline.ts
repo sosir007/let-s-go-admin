@@ -7,11 +7,15 @@ import Close from "@iconify-icons/ep/close";
 import CloseBold from "@iconify-icons/ep/close-bold";
 import ArrowDown from "@iconify-icons/ep/arrow-down";
 import RefreshRight from "@iconify-icons/ep/refresh-right";
+import videoPlay from "@iconify-icons/ep/video-play";
+import Edit from "@iconify-icons/ep/edit";
 addIcon("check", Check);
 addIcon("close", Close);
 addIcon("close-bold", CloseBold);
 addIcon("arrow-down", ArrowDown);
 addIcon("refresh-right", RefreshRight);
+addIcon("video-play", videoPlay);
+addIcon("edit", Edit);
 
 // remixicon
 import arrowRightSLine from "@iconify-icons/ri/arrow-right-s-line";

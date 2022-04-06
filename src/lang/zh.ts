@@ -12,6 +12,7 @@ export default {
     loading: "加载组件",
     iconSelect: "图标选择器",
     watermark: "水印组件",
+    editor: '编辑器',
     errorPages: "错误页面",
     page401: "401",
     page404: "404",

@@ -5,6 +5,7 @@ import volume from "xgplayer/es/controls/volume";
 import screenShot from "xgplayer/es/controls/screenShot";
 import { deviceDetection } from "@/utils/deviceDetection";
 import playbackRate from "xgplayer/es/controls/playbackRate";
+import { useRenderIcon } from "@/components/Icon/src/hooks";
 
 onMounted(() => {
   new Player({
@@ -26,7 +27,7 @@ onMounted(() => {
     fluid: deviceDetection(),
     controlPlugins: [volume, playbackRate, screenShot],
     // 倍速播放,传入倍速可选数组
-    playbackRate: [0.5, 0.75, 1, 1.5, 2],
+    playbackRate: [0.5, 0.75, 1, 1.5, 2]
     // defaultPlaybackRate: 1.5,
   });
 });
@@ -41,6 +42,7 @@ onMounted(() => {
             >视频组件，采用开源的<el-link
               href="https://v2.h5player.bytedance.com"
               target="_blank"
+              :icon="useRenderIcon('video-play')"
               style="font-size: 16px; margin: 0 4px 5px"
               >西瓜播放器</el-link
             ></span

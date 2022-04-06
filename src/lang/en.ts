@@ -12,6 +12,7 @@ export default {
     loading: "Loading Components",
     iconSelect: "Icon Select",
     watermark: "Watermark Components",
+    editor: 'Editor',
     errorPages: "Error Pages",
     page401: "401",
     page404: "404",

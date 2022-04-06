@@ -51,6 +51,7 @@ specifiers:
   vue-tsc: ^0.3.0
   vue-types: ^4.1.1
   vuedraggable: 4.1.0
+  wangeditor: ^4.7.13
   windicss: ^3.5.1
   xgplayer: ^2.31.4
 
@@ -83,6 +84,7 @@ dependencies:
   vue-router: 4.0.12_vue@3.2.26
   vue-types: 4.1.1_vue@3.2.26
   vuedraggable: 4.1.0_vue@3.2.26
+  wangeditor: 4.7.13
   xgplayer: 2.31.4
 
 devDependencies:
@@ -414,6 +416,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@babel/runtime-corejs3/7.17.8:
+    resolution: {integrity: sha512-ZbYSUvoSF6dXZmMl/CYTMOvzIFnbGfv4W3SEHYgMvNsFTeLaF2gkGAF4K2ddmtSK4Emej+0aYcnSC6N5dPCXUQ==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      core-js-pure: 3.21.1
+      regenerator-runtime: 0.13.9
+    dev: false
 
   /@babel/runtime/7.16.7:
     resolution: {integrity: sha512-9E9FJowqAsytyOY6LG+1KuueckRL+aQW+mKvXRXnuFGyRAyepJPmEo9vgMfXUA6O9u3IeEdv9MAkppFcaQwogQ==}
@@ -1316,6 +1326,11 @@ packages:
     dependencies:
       safe-buffer: 5.1.2
     dev: true
+
+  /core-js-pure/3.21.1:
+    resolution: {integrity: sha512-12VZfFIu+wyVbBebyHmRTuEE/tZrB4tJToWcwAMcsp3h4+sHR+fMJWbKpYiCRWlhFBq+KNyO8rIV9rTkeVmznQ==}
+    requiresBuild: true
+    dev: false
 
   /cropperjs/1.5.12:
     resolution: {integrity: sha512-re7UdjE5UnwdrovyhNzZ6gathI4Rs3KGCBSc8HCIjUo5hO42CtzyblmWLj6QWVw7huHyDMfpKxhiO2II77nhDw==}
@@ -3591,6 +3606,14 @@ packages:
     dependencies:
       sortablejs: 1.14.0
       vue: 3.2.26
+    dev: false
+
+  /wangeditor/4.7.13:
+    resolution: {integrity: sha512-kT0jQgTgPoe3tiYiHWbS3QV5yfklcvCXF28irqgU/rOCHKP5Bnv5z/h+ACQAdUhznsfYShpWWzzhs6PLFoPBHQ==}
+    dependencies:
+      '@babel/runtime': 7.16.7
+      '@babel/runtime-corejs3': 7.17.8
+      tslib: 2.3.1
     dev: false
 
   /windicss/3.5.1:
