@@ -103,7 +103,7 @@ const componentsRouter = {
         i18n: true,
         showLink: true
       }
-    },{
+    }, {
       path: "/components/watermark",
       name: "watermark",
       component: () => import("@/views/components/watermark/index.vue"),
@@ -120,6 +120,16 @@ const componentsRouter = {
       meta: {
         icon: "icon-edit",
         title: "route.editor",
+        i18n: true,
+        showLink: true
+      }
+    }, {
+      path: "/components/seamlessScroll",
+      name: "seamlessScroll",
+      component: () => import("@/views/components/seamlessScroll/index.vue"),
+      meta: {
+        icon: "icon-scroll",
+        title: "route.seamlessScroll",
         i18n: true,
         showLink: true
       }

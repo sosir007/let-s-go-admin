@@ -35,6 +35,7 @@ import {
   ElTabPane,
   ElPagination,
   ElColorPicker,
+  ElSpace,
 } from "element-plus";
 
 const components = [
@@ -71,6 +72,7 @@ const components = [
   ElTabPane,
   ElPagination,
   ElColorPicker,
+  ElSpace,
 ];
 
 const plugins = [ElLoading];
