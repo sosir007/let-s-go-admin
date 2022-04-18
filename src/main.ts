@@ -23,7 +23,7 @@ async function bootstrap() {
   const app = createApp(App);
 
   // 获取全局配置
-  const config = await getServerConfig(app)
+  const config = await getServerConfig(app) as unknown as ServerConfigs
   injectResponsiveStorage(app, config);
 
   // 挂载状态管理

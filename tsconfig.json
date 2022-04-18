@@ -12,7 +12,7 @@
     "lib": ["esnext", "dom"],
     "baseUrl": ".",
     "paths": {
-      "/@/*": ["src/*"],
+      "@/*": ["src/*"],
       "@build/*": ["build/*"],
       "/#/*": ["types/*"]
     },
@@ -22,8 +22,8 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "vite.config.ts",
+    "vite/**/*.ts",
   ],
   "exclude": ["node_modules"]
 }
