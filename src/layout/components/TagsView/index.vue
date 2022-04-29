@@ -21,8 +21,10 @@ import closeOther from "@/assets/svg/close_other.svg";
 import closeRight from "@/assets/svg/close_right.svg";
 
 import { emitter } from "@/utils/mitt";
-import { $t as t } from "@/lang";
-import { transformI18n } from "@/lang";
+// import { $t as t } from "@/lang";
+// import { transformI18n } from "@/lang";
+import { $t as t } from "@/locales";
+import { transformI18n } from "@/locales";
 import { storageLocal } from "@/utils/storage";
 import { useRoute, useRouter } from "vue-router";
 import { isEqual, isEmpty } from "lodash-unified";

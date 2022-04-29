@@ -10,6 +10,7 @@ import { getServerConfig } from "./config";
 import { injectResponsiveStorage } from "@/utils/storage/responsive";
 import { setupDirectives } from '@/directives';
 import { setupI18n } from '@/lang';
+import { useI18n } from '@/locales';
 
 import "animate.css";
 import "virtual:windi.css";
@@ -36,7 +37,9 @@ async function bootstrap() {
   setupCustomComponents(app);
 
   // 挂载国际化插件
-  setupI18n(app);
+  // setupI18n(app);
+  // 更新写法
+  useI18n(app);
 
   // 注册全局自定义指令，如：v-permission权限指令
   setupDirectives(app);

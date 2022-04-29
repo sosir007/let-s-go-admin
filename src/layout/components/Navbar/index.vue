@@ -13,7 +13,7 @@ import { watch, getCurrentInstance } from "vue";
 import globalization from "@/assets/svg/globalization.svg";
 
 const route = useRoute();
-const { locale } = useI18n();
+const { locale, t } = useI18n();
 const instance =
   getCurrentInstance().appContext.config.globalProperties.$storage;
 
@@ -103,7 +103,7 @@ function translationEn() {
         <template #dropdown>
           <el-dropdown-menu class="logout">
             <el-dropdown-item @click="logout">
-              <i class="iconfont icon-logout"></i>{{ $t("message.logout") }}
+              <i class="iconfont icon-logout"></i>{{ t("message.logout") }}
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>

@@ -31,6 +31,7 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 + **mitt**：微型功能事件发射器/发布订阅
 + **element-resize-detector、@types/element-resize-detector**：优化了元素的跨浏览器大小调整侦听器
 + **vue-i18n@next**：适配 vue3 的国际化插件
++ **intlify/vite-plugin-vue-i18n**：Vue I18n Vite插件
 + **@element-plus/icons-vue**：element Plus 提供了一套常用的 svg 图标集合
 + **vite-svg-loader**：svg 组件化支持，在 vue 组件中加载 svg 文件
 + **lodash-unified**：ESModule 和 Commonjs 的 lodash 联合入口点
@@ -59,8 +60,8 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
      1. logo 和 背景图需要替换（暂时找不到好的方案）
      2. 其他登录方式未实现（包括 github、微信 Oauth 登录等）
      3. 忘记密码和注册账号功能暂未实现
-3. **组件模块**：22.03.07 ~ 
-4. 待定……
+3. **组件模块**：22.03.07 ~ 22.04.29
+1. 待定……
 
 
 
@@ -91,7 +92,7 @@ let’s-go-admin 是一个自己学习开发的中后台管理项目。使用了
 
 1. 首页模块
 2. 错误页面模块
-3. 表单生成器模块
+3. 表单设计器模块
 4. 功能组件模块
 5. 系统管理模块
 6. 数据大屏模块

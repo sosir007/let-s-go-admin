@@ -3,7 +3,8 @@ import path from "path-browserify";
 import { PropType, ref, nextTick, computed, CSSProperties } from "vue";
 import { useNav } from "../../hooks/nav";
 import { childrenType } from "../../types";
-import { transformI18n } from "@/lang";
+// import { transformI18n } from "@/lang";
+import { transformI18n } from "@/locales";
 import { useAppStoreHook } from "@/store/modules/app";
 import { useRenderIcon } from "@/components/Icon/src/hooks";
 

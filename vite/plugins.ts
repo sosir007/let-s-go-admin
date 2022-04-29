@@ -5,12 +5,19 @@ import WindiCSS from "vite-plugin-windicss";
 import svgLoader from "vite-svg-loader";
 import styleImport from 'vite-plugin-style-import'
 import { viteMockServe } from 'vite-plugin-mock'
+import VueI18n from "@intlify/vite-plugin-vue-i18n";
 import themePreprocessorPlugin from "@zougt/vite-plugin-theme-preprocessor";
 
 export function getPluginsList(command: "build" | "serve") {
   const prodMock = true;
   return [
     vue(),
+    // https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
+    VueI18n({
+      runtimeOnly: true,
+      compositionOnly: true,
+      include: [resolve("src/locales/**")]
+    }),
     // jsx、tsx语法支持
     vueJsx(),
     // svg组件化支持

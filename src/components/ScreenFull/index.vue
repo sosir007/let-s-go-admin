@@ -1,20 +1,19 @@
 <script setup lang="ts">
 import { useFullscreen } from "@vueuse/core";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 const { isFullscreen, toggle } = useFullscreen();
 </script>
 
 <template>
   <div class="screen-full" @click="toggle">
-    <i
+    <FontIcon
       :title="
-        isFullscreen ? $t('message.exitFullScreen') : $t('message.fullScreen')
+        isFullscreen ? t('buttons.hsexitfullscreen') : t('buttons.hsfullscreen')
       "
-      :class="
-        isFullscreen
-          ? 'iconfont icon-cancel-full-screen'
-          : 'iconfont icon-quanping'
-      "
-    ></i>
+      :icon="isFullscreen ? 'team-iconexit-fullscreen' : 'team-iconfullscreen'"
+    />
   </div>
 </template>
 

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import { isEqual } from "lodash-es";
-import { transformI18n } from "@/lang";
+// import { transformI18n } from "@/lang";
+import { transformI18n } from "@/locales";
 import { getParentPaths, findRouteByPath } from "@/router/utils";
 import { useMultiTagsStoreHook } from "@/store/modules/multiTags";
 import { useRoute, useRouter, RouteLocationMatched } from "vue-router";
