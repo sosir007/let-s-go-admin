@@ -14,8 +14,9 @@ route:
   editor: Editor
   seamlessScroll: Seamless Scroll
   errorPages: Error Pages
-  page401: 401
-  page404: 404
+  page401: '401'
+  page404: '404'
+  formGenerator: Form Generator
 message:
   fullScreen: fullScreen
   exitFullScreen: exitFullscreen

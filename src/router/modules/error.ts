@@ -1,3 +1,4 @@
+import { $t } from "@/locales";
 import Layout from "@/layout/index.vue";
 
 const errorRouter = {
@@ -7,7 +8,7 @@ const errorRouter = {
   redirect: "/error/401",
   meta: {
     icon: "icon-page-error",
-    title: "route.errorPages",
+    title: $t("route.errorPages"),
     showLink: true,
     i18n: true,
     rank: 7
@@ -19,7 +20,7 @@ const errorRouter = {
       component: () => import("@/views/error/401.vue"),
       meta: {
         icon: "icon-error-401",
-        title: "route.page401",
+        title: $t("route.page401"),
         i18n: true,
         showLink: true
       }

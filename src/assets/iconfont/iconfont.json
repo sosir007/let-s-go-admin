@@ -6,6 +6,76 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "586730",
+      "name": "anchor",
+      "font_class": "anchor",
+      "unicode": "e692",
+      "unicode_decimal": 59026
+    },
+    {
+      "icon_id": "2967034",
+      "name": "操作-外链",
+      "font_class": "wailian",
+      "unicode": "e711",
+      "unicode_decimal": 59153
+    },
+    {
+      "icon_id": "10166317",
+      "name": "excel",
+      "font_class": "excel",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "1013880",
+      "name": "PPT文件",
+      "font_class": "ppt",
+      "unicode": "e7b4",
+      "unicode_decimal": 59316
+    },
+    {
+      "icon_id": "2451378",
+      "name": "500",
+      "font_class": "error-500",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "3868266",
+      "name": "功能定义",
+      "font_class": "gongneng",
+      "unicode": "eb62",
+      "unicode_decimal": 60258
+    },
+    {
+      "icon_id": "7677997",
+      "name": "通知事件",
+      "font_class": "notification",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "12515461",
+      "name": "权限",
+      "font_class": "permission",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "21353471",
+      "name": "line-bubble chart（气泡图）",
+      "font_class": "line-bubblechartqipaotu",
+      "unicode": "e6a5",
+      "unicode_decimal": 59045
+    },
+    {
+      "icon_id": "10594757",
+      "name": "表-带图表单_jurassic",
+      "font_class": "form-generator",
+      "unicode": "e6b0",
+      "unicode_decimal": 59056
+    },
+    {
       "icon_id": "27285493",
       "name": "二维码",
       "font_class": "scan",

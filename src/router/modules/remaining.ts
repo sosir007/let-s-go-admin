@@ -1,3 +1,4 @@
+import { $t } from "@/locales";
 import Layout from "@/layout/index.vue";
 
 const remainingRouter = [
@@ -6,7 +7,7 @@ const remainingRouter = [
     name: "login",
     component: () => import("@/views/login/index.vue"),
     meta: {
-      title: "message.hslogin",
+      title: $t("message.hslogin"),
       showLink: false,
       rank: 101
     }
@@ -27,7 +28,7 @@ const remainingRouter = [
     component: Layout,
     meta: {
       icon: "el-icon-s-home",
-      title: "message.dashboard",
+      title: $t("message.dashboard"),
       showLink: false,
       rank: 104
     },

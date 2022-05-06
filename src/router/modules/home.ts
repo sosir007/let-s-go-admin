@@ -1,3 +1,4 @@
+import { $t } from "@/locales";
 import Layout from "@/layout/index.vue";
 
 const homeRouter = {
@@ -7,7 +8,7 @@ const homeRouter = {
   redirect: "/dashboard",
   meta: {
     icon: "icon-zhuye",
-    title: "route.dashboard",
+    title: $t("route.dashboard"),
     showLink: true,
     i18n: true,
     rank: 0
@@ -18,7 +19,7 @@ const homeRouter = {
       name: "dashboard",
       component: () => import("@/views/dashboard/index.vue"),
       meta: {
-        title: "route.dashboard",
+        title: $t("route.dashboard"),
         icon: 'icon-zhuye',
         i18n: true,
         showLink: true

@@ -8,6 +8,7 @@ import errorRouter from "./error";
 // import flowChartRouter from "./flowchart";
 import remainingRouter from "./remaining";
 import componentsRouter from "./components";
+import formGeneratorRouter from "./formGenerator";
 import { RouteRecordRaw, RouteComponent } from "vue-router";
 
 import {
@@ -25,6 +26,7 @@ const routes = [
   // editorRouter,
   // menuTreeRouter,
   // flowChartRouter,
+  formGeneratorRouter,
   componentsRouter
 ];
 

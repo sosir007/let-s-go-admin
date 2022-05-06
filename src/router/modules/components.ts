@@ -1,3 +1,4 @@
+import { $t } from "@/locales";
 import Layout from "@/layout/index.vue";
 
 const componentsRouter = {
@@ -7,7 +8,7 @@ const componentsRouter = {
   redirect: "/components/video",
   meta: {
     icon: "icon-zujian",
-    title: "route.components",
+    title: $t("route.components"),
     showLink: true,
     i18n: true,
     rank: 4
@@ -19,7 +20,7 @@ const componentsRouter = {
       component: () => import("@/views/components/video/index.vue"),
       meta: {
         icon: "icon-video",
-        title: "route.video",
+        title: $t("route.video"),
         i18n: true,
         showLink: true
       }
@@ -29,7 +30,7 @@ const componentsRouter = {
       component: () => import("@/views/components/map/index.vue"),
       meta: {
         icon: "icon-map",
-        title: "route.map",
+        title: $t("route.map"),
         i18n: true,
         showLink: true
       }
@@ -39,7 +40,7 @@ const componentsRouter = {
       component: () => import("@/views/components/draggable/index.vue"),
       meta: {
         icon: "icon-draggable",
-        title: "route.draggable",
+        title: $t("route.draggable"),
         i18n: true,
         showLink: true
       }
@@ -49,7 +50,7 @@ const componentsRouter = {
       component: () => import("@/views/components/button/index.vue"),
       meta: {
         icon: "icon-button",
-        title: "route.button",
+        title: $t("route.button"),
         i18n: true,
         showLink: true
       }
@@ -59,7 +60,7 @@ const componentsRouter = {
       component: () => import("@/views/components/countdown/index.vue"),
       meta: {
         icon: "icon-jishiqi",
-        title: "route.countdown",
+        title: $t("route.countdown"),
         i18n: true,
         showLink: true
       }
@@ -69,7 +70,7 @@ const componentsRouter = {
       component: () => import("@/views/components/countTo/index.vue"),
       meta: {
         icon: "icon-shuzigundong",
-        title: "route.countTo",
+        title: $t("route.countTo"),
         i18n: true,
         showLink: true
       }
@@ -79,7 +80,7 @@ const componentsRouter = {
       component: () => import("@/views/components/cropping/index.vue"),
       meta: {
         icon: "icon-caijian",
-        title: "route.cropping",
+        title: $t("route.cropping"),
         i18n: true,
         showLink: true
       }
@@ -89,7 +90,7 @@ const componentsRouter = {
       component: () => import("@/views/components/loading/index.vue"),
       meta: {
         icon: "icon-Loading",
-        title: "route.loading",
+        title: $t("route.loading"),
         i18n: true,
         showLink: true
       }
@@ -99,7 +100,7 @@ const componentsRouter = {
       component: () => import("@/views/components/iconSelect/index.vue"),
       meta: {
         icon: "icon-tubiao",
-        title: "route.iconSelect",
+        title: $t("route.iconSelect"),
         i18n: true,
         showLink: true
       }
@@ -109,7 +110,7 @@ const componentsRouter = {
       component: () => import("@/views/components/watermark/index.vue"),
       meta: {
         icon: "icon-shuiyin",
-        title: "route.watermark",
+        title: $t("route.watermark"),
         i18n: true,
         showLink: true
       }
@@ -119,7 +120,7 @@ const componentsRouter = {
       component: () => import("@/views/components/editor/index.vue"),
       meta: {
         icon: "icon-edit",
-        title: "route.editor",
+        title: $t("route.editor"),
         i18n: true,
         showLink: true
       }
@@ -129,7 +130,7 @@ const componentsRouter = {
       component: () => import("@/views/components/seamlessScroll/index.vue"),
       meta: {
         icon: "icon-scroll",
-        title: "route.seamlessScroll",
+        title: $t("route.seamlessScroll"),
         i18n: true,
         showLink: true
       }
