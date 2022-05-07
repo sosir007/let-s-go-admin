@@ -1,7 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import FormGenerator from "@/components/FormGenerator";
+</script>
 
 <template>
-  <div class="form-generator-container">form-generator</div>
+  <FormGenerator />
 </template>
 
 <style lang="scss" scoped>
