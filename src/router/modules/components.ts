@@ -7,7 +7,7 @@ const componentsRouter = {
   component: Layout,
   redirect: "/components/video",
   meta: {
-    icon: "icon-zujian",
+    icon: "icon-components",
     title: $t("route.components"),
     showLink: true,
     i18n: true,
@@ -59,7 +59,7 @@ const componentsRouter = {
       name: "countdown",
       component: () => import("@/views/components/countdown/index.vue"),
       meta: {
-        icon: "icon-jishiqi",
+        icon: "icon-count-down",
         title: $t("route.countdown"),
         i18n: true,
         showLink: true
@@ -69,7 +69,7 @@ const componentsRouter = {
       name: "countTo",
       component: () => import("@/views/components/countTo/index.vue"),
       meta: {
-        icon: "icon-shuzigundong",
+        icon: "icon-digital-scroll",
         title: $t("route.countTo"),
         i18n: true,
         showLink: true
@@ -79,7 +79,7 @@ const componentsRouter = {
       name: "cropping",
       component: () => import("@/views/components/cropping/index.vue"),
       meta: {
-        icon: "icon-caijian",
+        icon: "icon-cropping",
         title: $t("route.cropping"),
         i18n: true,
         showLink: true
@@ -99,7 +99,7 @@ const componentsRouter = {
       name: "iconSelect",
       component: () => import("@/views/components/iconSelect/index.vue"),
       meta: {
-        icon: "icon-tubiao",
+        icon: "icon-icons",
         title: $t("route.iconSelect"),
         i18n: true,
         showLink: true
@@ -109,7 +109,7 @@ const componentsRouter = {
       name: "watermark",
       component: () => import("@/views/components/watermark/index.vue"),
       meta: {
-        icon: "icon-shuiyin",
+        icon: "icon-watermark",
         title: $t("route.watermark"),
         i18n: true,
         showLink: true

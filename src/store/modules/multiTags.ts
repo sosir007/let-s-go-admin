@@ -16,7 +16,7 @@ export const useMultiTagsStore = defineStore({
             parentPath: "/",
             meta: {
               title: "route.dashboard",
-              icon: "icon-zhuye",
+              icon: "icon-home",
               i18n: true,
               showLink: true
             }

@@ -321,7 +321,7 @@ function deleteDynamicTag(obj: any, current: any, tag?: string) {
           meta: {
             title: "route.dashboard",
             i18n: true,
-            icon: "icon-zhuye"
+            icon: "icon-home"
           }
         },
         obj

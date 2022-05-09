@@ -12,7 +12,7 @@ const { isFullscreen, toggle } = useFullscreen();
       :title="
         isFullscreen ? t('message.exitFullScreen') : t('message.fullScreen')
       "
-      :icon="isFullscreen ? 'iconfont icon-cancel-full-screen' : 'iconfont icon-quanping'"
+      :icon="isFullscreen ? 'iconfont icon-cancel-full-screen' : 'iconfont icon-full-screen'"
     />
   </div>
 </template>
