@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { PropType } from "vue";
 import Draggable from "vuedraggable/src/vuedraggable";
+import { IConfig } from "../config";
 
 const props = defineProps({
   title: {
@@ -8,35 +9,36 @@ const props = defineProps({
     required: true
   },
   fields: {
-    type: Array as PropType<Array<string>>
-    // required: true
+    type: Array as PropType<Array<string>>,
+    required: true
   },
   list: {
-    // required: true
+    type: Array as PropType<Array<IConfig>>,
+    required: true
   }
 });
 </script>
 
 <template>
   <div class="components-title">
-    <!-- <svg-icon icon-class="component" /> -->
     {{ props.title }}
   </div>
   <Draggable
     class="components-draggable"
+
     tag="ul"
     item-key="type"
     ghostClass="ghost"
     :group="{ name: 'people', pull: 'clone', put: false }"
     draggable=".components-item"
     :sort="false"
-    :list="props.fields"
+    :list="props.list"
   >
     <template #item="{ element }">
-      <li class="components-item">
+      <li class="components-item" v-if="fields.includes(element.type)">
         <div class="components-body">
-          <!-- <svg-icon :icon-class="element.__config__.tagIcon" /> -->
-          {{ element }}
+          <FontIcon fontClass="tag-icon" :icon="element?.options?.tagIcon" />
+          {{ element.label }}
         </div>
       </li>
     </template>
@@ -72,14 +74,19 @@ $selectedColor: #f6f7ff;
   cursor: move;
   border: 1px dashed $selectedColor;
   border-radius: 3px;
-  .svg-icon {
-    color: #777;
-    font-size: 15px;
+  display: flex;
+  align-items: center;
+
+  .tag-icon {
+    color: #555;
+    font-size: 16px;
+    margin-right: 6px;
   }
+  
   &:hover {
     border: 1px dashed #787be8;
     color: #787be8;
-    .svg-icon {
+    .tag-icon {
       color: #787be8;
     }
   }

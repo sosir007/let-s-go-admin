@@ -3,53 +3,61 @@ import { ref } from "vue";
 import type { PropType } from "vue";
 import logo from "@/assets/images/PokemonBall.png";
 import ComponentGroup from "./ComponentGroup.vue";
+import loadConfig, { IConfig } from "../config";
 
 interface LeftComponents {
   title: string;
-  list?: string[];
+  fields: string[];
+  list: IConfig[];
 }
 
 const props = defineProps({
-  basicComponents: {
+  basicFields: {
     type: Array as PropType<Array<string>>,
     default: () => [
       "input",
-      "password",
       "textarea",
+      "password",
       "number",
       "radio",
       "checkbox",
+      "select",
+      "cascader",
       "time",
       "date",
-      "rate",
-      "select",
       "switch",
       "slider",
-      "text"
+      "rate",
+      "color"
     ]
   },
-  advanceComponents: {
+  advanceFields: {
     type: Array as PropType<Array<string>>,
-    default: () => ["img-upload", "richtext-editor", "cascader"]
+    default: () => ["upload", "rich-text"]
   },
-  customComponents: {
+  customFields: {
     type: Array as PropType<Array<string>>,
-    default: () => ["grid"]
+    default: () => ["title-text", "grid"]
   }
 });
+
+const { basicConfig, advanceConfig, customConfig } = loadConfig();
 
 const leftComponents = ref<LeftComponents[]>([
   {
     title: "基础控件",
-    list: props.basicComponents
+    fields: props.basicFields,
+    list: basicConfig
   },
   {
     title: "高级控件",
-    list: props.advanceComponents
+    fields: props.advanceFields,
+    list: advanceConfig
   },
   {
     title: "自定义控件",
-    list: props.customComponents
+    fields: props.customFields,
+    list: customConfig
   }
 ]);
 </script>
@@ -63,9 +71,9 @@ const leftComponents = ref<LeftComponents[]>([
       <div class="components-list">
         <div v-for="(item, listIndex) in leftComponents" :key="listIndex">
           <ComponentGroup
-            v-if="item.list?.length"
             :title="item.title"
-            :fields="item.list"
+            :fields="item.fields"
+            :list="item.list"
           />
         </div>
       </div>

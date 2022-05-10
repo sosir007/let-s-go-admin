@@ -7,6 +7,10 @@ export default defineComponent({
     icon: {
       type: String,
       default: ""
+    },
+    fontClass: {
+      type: String,
+      default: ""
     }
   },
   render() {
@@ -40,7 +44,7 @@ export default defineComponent({
       );
     } else {
       return h("i", {
-        class: `iconfont ${this.icon}`,
+        class: `iconfont ${this.icon} ${this.fontClass}`,
         ...attrs
       });
     }

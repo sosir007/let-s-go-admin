@@ -9,7 +9,7 @@ import { setupCustomComponents } from "@/components";
 import { getServerConfig } from "./config";
 import { injectResponsiveStorage } from "@/utils/storage/responsive";
 import { setupDirectives } from '@/directives';
-import { setupI18n } from '@/lang';
+// import { setupI18n } from '@/lang';
 import { useI18n } from '@/locales';
 
 import "animate.css";
