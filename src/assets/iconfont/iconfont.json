@@ -6,6 +6,83 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1305463",
+      "name": "查看",
+      "font_class": "view",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "4553733",
+      "name": "链接文件",
+      "font_class": "link",
+      "unicode": "e7dd",
+      "unicode_decimal": 59357
+    },
+    {
+      "icon_id": "6180901",
+      "name": "预览",
+      "font_class": "preview",
+      "unicode": "e649",
+      "unicode_decimal": 58953
+    },
+    {
+      "icon_id": "6219264",
+      "name": "清空",
+      "font_class": "empty",
+      "unicode": "e946",
+      "unicode_decimal": 59718
+    },
+    {
+      "icon_id": "11810463",
+      "name": "导出",
+      "font_class": "export",
+      "unicode": "e681",
+      "unicode_decimal": 59009
+    },
+    {
+      "icon_id": "12771505",
+      "name": "运行",
+      "font_class": "run",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "14476546",
+      "name": "导入文件",
+      "font_class": "import",
+      "unicode": "e671",
+      "unicode_decimal": 58993
+    },
+    {
+      "icon_id": "15214511",
+      "name": "代码",
+      "font_class": "code",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "15214524",
+      "name": "json",
+      "font_class": "json",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "16322928",
+      "name": "手势",
+      "font_class": "gesture",
+      "unicode": "e702",
+      "unicode_decimal": 59138
+    },
+    {
+      "icon_id": "19035892",
+      "name": "vue",
+      "font_class": "vue",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
       "icon_id": "11121506",
       "name": "粘贴",
       "font_class": "paste",
@@ -197,7 +274,7 @@
     {
       "icon_id": "2967034",
       "name": "操作-外链",
-      "font_class": "link",
+      "font_class": "external-links",
       "unicode": "e711",
       "unicode_decimal": 59153
     },
@@ -365,7 +442,7 @@
     {
       "icon_id": "21060746",
       "name": "图片预览",
-      "font_class": "preview",
+      "font_class": "preview-picture",
       "unicode": "e7dc",
       "unicode_decimal": 59356
     },
