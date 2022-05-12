@@ -25,15 +25,15 @@ const buttonList: IButtonList[] = [
     label: "预览",
     icon: "icon-preview"
   },
+    {
+    name: "clearable",
+    label: "清空",
+    icon: "icon-empty"
+  },
   {
     name: "uploadJson",
     label: "上传json",
     icon: "icon-upload"
-  },
-  {
-    name: "clearable",
-    label: "清空",
-    icon: "icon-empty"
   },
   {
     name: "generateJson",
@@ -52,7 +52,7 @@ const buttonList: IButtonList[] = [
   <div class="action-bar">
     <slot></slot>
     <el-button
-      v-for="item in buttonList"
+      v-for="item in buttonList.filter(v => $attrs[v.name])"
       :key="item.name"
       type="text"
       @click="emit(item.name)"

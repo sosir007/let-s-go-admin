@@ -25,11 +25,10 @@ const props = defineProps({
   </div>
   <Draggable
     class="components-draggable"
-
     tag="ul"
     item-key="type"
     ghostClass="ghost"
-    :group="{ name: 'people', pull: 'clone', put: false }"
+    :group="{ name: 'componentsGroup', pull: 'clone', put: false }"
     draggable=".components-item"
     :sort="false"
     :list="props.list"

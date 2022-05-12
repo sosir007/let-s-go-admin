@@ -39,6 +39,32 @@ export interface IConfig {
   }
 }
 
+export interface IFormConfig {
+  formRef: string
+  formModel: string
+  size: string
+  labelPosition: string
+  labelWidth: number
+  formRules: string
+  gutter: number
+  disabled: boolean
+  span: number,
+  formBtns: boolean
+}
+
+export const formConfig: IFormConfig = {
+  formRef: 'elForm',
+  formModel: 'formData',
+  size: 'medium',
+  labelPosition: 'right',
+  labelWidth: 100,
+  formRules: 'rules',
+  gutter: 8,
+  disabled: false,
+  span: 24,
+  formBtns: true
+}
+
 function loadConfig(type?: string) {
   const config = import.meta.globEager('./*.ts')
 

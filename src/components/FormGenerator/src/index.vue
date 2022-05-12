@@ -1,18 +1,19 @@
 <script setup lang="ts">
 import LeftBoard from "./components/LeftBoard.vue";
-import Centerboard from "./components/Centerboard.vue";
+import CenterBoard from "./components/CenterBoard.vue";
 </script>
 
 <template>
   <div class="container">
     <LeftBoard />
-    <Centerboard />
+    <CenterBoard />
   </div>
 </template>
 
 <style lang="scss" scoped>
 .main-content {
   margin: 0 !important;
+  background: #fff;
 }
 
 .container {
