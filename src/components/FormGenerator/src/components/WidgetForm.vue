@@ -1,13 +1,31 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import { formConfig, IConfig } from "../config";
 import Draggable from "vuedraggable/src/vuedraggable";
+import WidgetFormItem from "./WidgetFormItem.vue";
+
+const widgetFormList = ref<IConfig[]>([]);
 
 const props = defineProps({
   widgetFormList: {
-    type: Object as PropType<IConfig>,
+    type: Object as PropType<IConfig[]>,
+    required: true
+  },
+  widgetFormSelect: {
+    type: Object as PropType<IConfig | { [key: string]: any }>,
     required: true
   }
 });
+
+const emit = defineEmits(["update:widgetForm", "updateWidgetFormSelect"]);
+
+const handleMoveAdd = (event: any) => {
+  console.log("event", widgetFormList);
+};
+
+const handleItemClick = (row: any) => {
+  emit("updateWidgetFormSelect", row);
+};
 </script>
 
 <template>
@@ -24,12 +42,20 @@ const props = defineProps({
       <Draggable
         class="widget-form-list"
         item-key="type"
+        ghostClass="ghost"
         :list="widgetFormList"
         :animation="340"
         :group="{ name: 'componentsGroup' }"
+        @add="handleMoveAdd"
       >
         <template #item="{ element, index }">
-          {{ element.label }} {{ index }}
+          <WidgetFormItem
+            :key="`${element.key}${index}`"
+            :element="element"
+            :config="formConfig"
+            :selectWidget="props.widgetFormSelect"
+            @click.stop="handleItemClick(element)"
+          />
         </template>
       </Draggable>
     </el-form>

@@ -7,6 +7,7 @@ import { IConfig } from "../config";
 const previewVisible = ref<boolean>(false);
 const uploadJsonVisible = ref<boolean>(false);
 const widgetFormList = ref<IConfig[]>([]);
+// const widgetFormSelect = ref<IConfig | undefined>();
 
 const props = defineProps({
   run: {
@@ -32,6 +33,10 @@ const props = defineProps({
   generateCode: {
     type: Boolean,
     default: true
+  },
+  widgetFormSelect: {
+    type: Object as PropType<IConfig | { [key: string]: any }>,
+    required: true
   }
 });
 
@@ -50,6 +55,13 @@ const handleGenerateJson = () => {
 const handleGenerateCode = () => {
   console.log("handleGenerateCode");
 };
+
+const emit = defineEmits(["update:widgetForm", "update:widgetFormSelect"]);
+
+const updateWidgetFormSelect = (row: any) => {
+  console.log("row", row);
+  emit("update:widgetFormSelect", row);
+};
 </script>
 
 <template>
@@ -64,7 +76,11 @@ const handleGenerateCode = () => {
       @clearable="handleClearable"
     />
     <el-scrollbar class="center-scrollbar">
-      <WidgetForm v-model:widgetFormList="widgetFormList" />
+      <WidgetForm
+        v-model:widgetFormList="widgetFormList"
+        :widgetFormSelect="props.widgetFormSelect"
+        @updateWidgetFormSelect="updateWidgetFormSelect"
+      />
     </el-scrollbar>
   </div>
 </template>

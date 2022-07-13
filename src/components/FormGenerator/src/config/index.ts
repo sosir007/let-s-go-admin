@@ -42,7 +42,7 @@ export interface IConfig {
 export interface IFormConfig {
   formRef: string
   formModel: string
-  size: string
+  size: "default" | "small" | "large"
   labelPosition: string
   labelWidth: number
   formRules: string
@@ -55,7 +55,7 @@ export interface IFormConfig {
 export const formConfig: IFormConfig = {
   formRef: 'elForm',
   formModel: 'formData',
-  size: 'medium',
+  size: 'default',
   labelPosition: 'right',
   labelWidth: 100,
   formRules: 'rules',
