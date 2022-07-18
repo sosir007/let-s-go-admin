@@ -36,6 +36,7 @@ import {
   ElPagination,
   ElColorPicker,
   ElSpace,
+  ElTree,
 } from "element-plus";
 
 const components = [
@@ -73,6 +74,7 @@ const components = [
   ElPagination,
   ElColorPicker,
   ElSpace,
+  ElTree,
 ];
 
 const plugins = [ElLoading];

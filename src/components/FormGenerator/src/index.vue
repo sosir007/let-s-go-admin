@@ -20,11 +20,6 @@ const widgetFormSelect = ref<IConfig | { [key: string]: any }>({});
 </template>
 
 <style lang="scss" scoped>
-.main-content {
-  margin: 0 !important;
-  background: #fff;
-}
-
 .container {
   position: relative;
   width: 100%;

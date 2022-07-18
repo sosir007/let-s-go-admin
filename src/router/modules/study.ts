@@ -15,7 +15,7 @@ const studyRouter = {
     {
       path: "/study/vuejsChallenges",
       name: "vuejsChallenges",
-      component: () => import("@/views/study/vuejsChallenges.vue"),
+      component: () => import("@/views/study/vuejs/vuejsChallenges.vue"),
       meta: {
         icon: "icon-vue",
         title: $t("route.vuejsChallenges"),
@@ -26,7 +26,7 @@ const studyRouter = {
     {
       path: "/study/typeChallenges",
       name: "typeChallenges",
-      component: () => import("@/views/study/typeChallenges.vue"),
+      component: () => import("@/views/study/typeScript/typeChallenges.vue"),
       meta: {
         icon: "icon-typescript",
         title: $t("route.typeChallenges"),

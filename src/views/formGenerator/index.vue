@@ -7,6 +7,10 @@ import FormGenerator from "@/components/FormGenerator";
 </template>
 
 <style lang="scss" scoped>
+.main-content {
+  margin: 0 !important;
+  background: #fff;
+}
 .form-generator-container {
 }
 </style>
