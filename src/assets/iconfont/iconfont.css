@@ -1,11 +1,11 @@
 @font-face {
   font-family: "iconfont"; /* Project id 1560982 */
-  src: url('iconfont.eot?t=1652237718969'); /* IE9 */
-  src: url('iconfont.eot?t=1652237718969#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('iconfont.woff2?t=1652237718969') format('woff2'),
-       url('iconfont.woff?t=1652237718969') format('woff'),
-       url('iconfont.ttf?t=1652237718969') format('truetype'),
-       url('iconfont.svg?t=1652237718969#iconfont') format('svg');
+  src: url('iconfont.eot?t=1657770213912'); /* IE9 */
+  src: url('iconfont.eot?t=1657770213912#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('iconfont.woff2?t=1657770213912') format('woff2'),
+       url('iconfont.woff?t=1657770213912') format('woff'),
+       url('iconfont.ttf?t=1657770213912') format('truetype'),
+       url('iconfont.svg?t=1657770213912#iconfont') format('svg');
 }
 
 .iconfont {
@@ -14,6 +14,22 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-javascript:before {
+  content: "\e639";
+}
+
+.icon-vue:before {
+  content: "\e69a";
+}
+
+.icon-typescript:before {
+  content: "\ecef";
+}
+
+.icon-study:before {
+  content: "\e8cc";
 }
 
 .icon-view:before {
@@ -56,7 +72,7 @@
   content: "\e702";
 }
 
-.icon-vue:before {
+.icon-vue1:before {
   content: "\e61d";
 }
 

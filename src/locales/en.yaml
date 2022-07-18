@@ -17,6 +17,9 @@ route:
   page401: '401'
   page404: '404'
   formGenerator: Form Generator
+  study: Study
+  vuejsChallenges: Vuejs Challenges
+  typeChallenges: TypeScript Challenges
 message:
   fullScreen: fullScreen
   exitFullScreen: exitFullscreen

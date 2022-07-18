@@ -6,6 +6,34 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "3876286",
+      "name": "javascript",
+      "font_class": "javascript",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "13744032",
+      "name": "vue",
+      "font_class": "vue",
+      "unicode": "e69a",
+      "unicode_decimal": 59034
+    },
+    {
+      "icon_id": "15378906",
+      "name": "typescript",
+      "font_class": "typescript",
+      "unicode": "ecef",
+      "unicode_decimal": 60655
+    },
+    {
+      "icon_id": "26001326",
+      "name": "在线学习、考试、培训、课程-16",
+      "font_class": "study",
+      "unicode": "e8cc",
+      "unicode_decimal": 59596
+    },
+    {
       "icon_id": "1305463",
       "name": "查看",
       "font_class": "view",
@@ -78,7 +106,7 @@
     {
       "icon_id": "19035892",
       "name": "vue",
-      "font_class": "vue",
+      "font_class": "vue1",
       "unicode": "e61d",
       "unicode_decimal": 58909
     },

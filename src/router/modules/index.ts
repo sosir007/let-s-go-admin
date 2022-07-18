@@ -9,6 +9,7 @@ import errorRouter from "./error";
 import remainingRouter from "./remaining";
 import componentsRouter from "./components";
 import formGeneratorRouter from "./formGenerator";
+import studyRouter from "./study";
 import { RouteRecordRaw, RouteComponent } from "vue-router";
 
 import {
@@ -27,6 +28,7 @@ const routes = [
   // menuTreeRouter,
   // flowChartRouter,
   formGeneratorRouter,
+  studyRouter,
   componentsRouter
 ];
 

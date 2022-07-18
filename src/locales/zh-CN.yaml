@@ -17,6 +17,9 @@ route:
   page401: '401'
   page404: '404'
   formGenerator: 表单设计器
+  study: 学习
+  vuejsChallenges: Vue 挑战
+  typeChallenges: TypeScript 挑战
 message:
   fullScreen: 全屏
   exitFullScreen: 退出全屏
